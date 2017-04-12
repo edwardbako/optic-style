@@ -1,0 +1,24 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: localhost
+
+  username: user
+  password: password
+
+development:
+  <<: *default
+  database: optic_development
+
+test:
+  <<: *default
+  database: optic_test
+
+#production:
+#  <<: *default
+#  database: optic_production
+#  username: optic
+#  password: <%= ENV['BOOKKEEPER_DATABASE_PASSWORD'] %>
