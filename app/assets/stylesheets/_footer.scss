@@ -1,0 +1,16 @@
+
+
+.footer {
+  margin-top: $padding-large-vertical;
+  padding-top: $padding-large-vertical;
+  background: $brand-info;
+  color: $gray-lighter;
+
+  a {
+    color: $gray-lighted;
+    &:hover {
+      text-decoration: none;
+      color: $gray-lighter;
+    }
+  }
+}

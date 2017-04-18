@@ -1,0 +1,42 @@
+footer.footer
+  .container
+    .col-sm-3
+      h5 Компания
+      ul.list-unstyled
+        li = link_to 'О компании'
+        li = link_to 'Новости'
+        li = link_to 'Статьи'
+        li = link_to 'Услуги'
+        li = link_to 'Каталог'
+        li = link_to 'Акции'
+        li = link_to 'Контакты'
+        li = link_to 'Отзывы'
+
+    .col-sm-3
+      h5 Контактные линзы
+      ul.list-unstyled
+        li = link_to 'Однодневные'
+        li = link_to 'Двухнедельные'
+        li = link_to 'Ежемесячные'
+
+    .col-sm-3
+      h5 Оправы
+      ul.list-unstyled
+        li = link_to 'Ободковые'
+        li = link_to 'Полуободковые'
+        li = link_to 'Безободковые'
+
+    .col-sm-3.text-center
+      h5 Режим работы
+      p
+        ' 10.00 - 19.30
+        br
+        small Воскресенье
+        br
+        ' 10.00 - 17.00
+
+
+  hr
+  .container
+    p.text-muted
+      = fa_icon 'copyright', text: "Оптика Стиль. #{Time.now.year}"

@@ -1,0 +1,16 @@
+nav.navbar.navbar-default.navbar-fixed-top
+  .container
+    .navbar-header
+      = link_to root_path do
+        = image_tag 'logo.png', height: '50', alt: 'Logo'
+
+    .collapse.navbar-collapse
+      ul.nav.navbar-nav
+        li = link_to 'О компании'
+        li = link_to 'Товары'
+        li = link_to 'Услуги'
+        li = link_to 'Новости'
+      ul.nav.navbar-nav.navbar-right
+        li = link_to 'Салоны'
+        p.navbar-text
+          ' +7 (383) 221-45-05
