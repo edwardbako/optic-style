@@ -16,8 +16,11 @@
 @import 'https://fonts.googleapis.com/css?family=Crafty+Girls';
 @import 'https://fonts.googleapis.com/css?family=Gochi+Hand';
 @import url('https://fonts.googleapis.com/css?family=Marck+Script');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
 
 @import 'font-awesome';
+@import 'ionicons';
+@import 'material_icons';
 
 @import 'jquery-ui';
 
@@ -47,4 +50,8 @@ body {
   position: absolute;
   top: -60px;
   width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $rgba-primary-3;
 }

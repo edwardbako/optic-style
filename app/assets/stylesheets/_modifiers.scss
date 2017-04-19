@@ -13,3 +13,20 @@
 .white {
   color: white;
 }
+
+#main-header {
+  h1 {
+    margin-top: 0;
+  }
+  margin: 2em 0;
+}
+
+.vertical-align-center {
+  position: relative;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.pictogram {
+  font-size: 40px;
+}
