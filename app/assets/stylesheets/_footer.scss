@@ -3,14 +3,15 @@
 .footer {
   margin-top: $padding-large-vertical;
   padding-top: $padding-large-vertical;
-  background: $brand-info;
+  background: $rgba-primary-4;
   color: $gray-lighter;
 
   a {
-    color: $gray-lighted;
+    color: #fff;
+    font-weight: normal;
     &:hover {
       text-decoration: none;
-      color: $gray-lighter;
+      color: $gray-lighted;
     }
   }
 

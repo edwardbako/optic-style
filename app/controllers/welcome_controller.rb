@@ -4,4 +4,8 @@ class WelcomeController < ApplicationController
 
   end
 
+  def contacts
+    @id = params[:id].to_i
+  end
+
 end

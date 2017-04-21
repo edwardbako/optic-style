@@ -30,3 +30,24 @@
 .pictogram {
   font-size: 40px;
 }
+
+.dropdown-hover:hover {
+  .dropdown-menu {
+    display: block;
+  }
+}
+
+.dl-stripped {
+  @media (min-width: 768px) {
+    dt {
+      width: 60px;
+      overflow: visible;
+      white-space: normal;
+    }
+
+    dd {
+      margin-left: 80px;
+      margin-bottom: 0.5em;
+    }
+  }
+}

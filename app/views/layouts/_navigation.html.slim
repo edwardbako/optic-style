@@ -1,16 +1,39 @@
 nav.navbar.navbar-default.navbar-fixed-top
   .container
     .navbar-header
+      button(type='button' class='navbar-toggle collapsed' data-toggle='collapse'
+              data-target='#main-navbar' aria-expanded='false' )
+        = fa_icon 'bars'
       = link_to root_path do
         = image_tag 'logo.png', height: '50', alt: 'Logo'
 
-    .collapse.navbar-collapse
+    #main-navbar.collapse.navbar-collapse
       ul.nav.navbar-nav
         li = link_to 'О компании'
         li = link_to 'Товары'
         li = link_to 'Услуги'
-        li = link_to 'Новости'
+        li.disabled = link_to 'Новости'
       ul.nav.navbar-nav.navbar-right
-        li = link_to 'Салоны'
         p.navbar-text
-          ' +7 (383) 221-45-05
+          = link_to fa_stacked_icon('instagram inverse', base: 'circle'),
+                    '#', class: 'navbar-link'
+          '
+          = link_to fa_stacked_icon('vk inverse', base: 'circle'),
+                     'https://vk.com/club121634817', class: 'navbar-link'
+          '
+          = link_to fa_stacked_icon('facebook inverse', base: 'circle'),
+                     'https://www.facebook.com/groups/1052722981459726', class: 'navbar-link'
+        li.dropdown.dropdown-hover
+          = link_to contacts_path, class: 'dropdown-toggle',
+            aria: {haspopup: true, expanded: false} do
+            = fa_icon 'caret-down', right: true, text: 'Контакты'
+          ul.dropdown-menu
+            - count = Branch.count
+            - Branch.all.each_with_index do |branch, i|
+              li
+                = link_to contact_path(branch) do
+                  = branch.phone
+                  br
+                  small = branch.short_address
+              - if i < count -1
+                li.divider
