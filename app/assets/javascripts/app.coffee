@@ -21,6 +21,7 @@
         $('.panel-title').each ()->
           geocoder = ymaps.geocode($(this).text())
           geocoder.then (result)->
+#            map.behaviors.disable('scrollZoom')
             map.geoObjects.add(result.geoObjects)
 
   parallax: ()->

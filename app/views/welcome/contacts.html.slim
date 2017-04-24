@@ -1,11 +1,15 @@
 .container
-  h1
-    ' Контакты
-    small Вы всегда можете нам позвонить или посетить салоны лично
+  .row
+    .col-sm-8.col-sm-offset-2.text-center
+      br
+      h1
+        ' Контакты
+        small Вы всегда можете нам позвонить или посетить салоны лично
+
   br
 
   .row
-    .col-xs-12
+    .col-xs-12.text-center
       = link_to fa_stacked_icon('instagram inverse', base: 'circle', class: 'fa-2x'), '#'
       = link_to fa_stacked_icon('vk inverse', base: 'circle', class: 'fa-2x'),
                 'https://vk.com/club121634817'

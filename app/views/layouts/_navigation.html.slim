@@ -9,9 +9,11 @@ nav.navbar.navbar-default.navbar-fixed-top
 
     #main-navbar.collapse.navbar-collapse
       ul.nav.navbar-nav
-        li = link_to 'О компании'
-        li = link_to 'Товары'
-        li = link_to 'Услуги'
+        li class=('active' if current_page?(controller: :welcome, action: :index))
+          = link_to 'О компании', root_path
+        li.disabled = link_to 'Товары'
+        li class=('active' if current_page?(controller: :welcome, action: :service))
+          = link_to 'Услуги', service_path
         li.disabled = link_to 'Новости'
       ul.nav.navbar-nav.navbar-right
         p.navbar-text
@@ -23,7 +25,8 @@ nav.navbar.navbar-default.navbar-fixed-top
           '
           = link_to fa_stacked_icon('facebook inverse', base: 'circle'),
                      'https://www.facebook.com/groups/1052722981459726', class: 'navbar-link'
-        li.dropdown.dropdown-hover
+        li.dropdown.dropdown-hover(
+            class=('active' if current_page?(controller: :welcome, action: :contacts)))
           = link_to contacts_path, class: 'dropdown-toggle',
             aria: {haspopup: true, expanded: false} do
             = fa_icon 'caret-down', right: true, text: 'Контакты'

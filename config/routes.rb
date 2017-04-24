@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   get 'contacts' => 'welcome#contacts'
   get 'contacts/:id' => 'welcome#contacts', as: :contact
 
+  get 'service' => 'welcome#service'
+
   root to: 'welcome#index'
 end

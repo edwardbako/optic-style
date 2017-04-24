@@ -8,4 +8,8 @@ class WelcomeController < ApplicationController
     @id = params[:id].to_i
   end
 
+  def sevice
+
+  end
+
 end

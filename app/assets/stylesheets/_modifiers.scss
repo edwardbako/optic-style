@@ -21,10 +21,10 @@
   margin: 2em 0;
 }
 
-.vertical-align-center {
-  position: relative;
-  top: 50%;
-  transform: translate(0, -50%);
+.vertical-align-row {
+  display: flex;
+  align-items: center;
+  background-color: lighten($brand-primary, 47%);
 }
 
 .pictogram {
@@ -61,4 +61,13 @@
     color: white;
     background-color: rgba(255, 255, 255, 0.15);
   }
+}
+
+.col-no-padding {
+  padding: 0;
+
+}
+
+.full-width {
+  width: 100%;
 }
