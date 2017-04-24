@@ -5,6 +5,7 @@
     console.info @name
     $(document).on 'turbolinks:load', ()=>
       @createMap()
+      @parallax()
 
 
   createMap: ()->
@@ -21,5 +22,11 @@
           geocoder = ymaps.geocode($(this).text())
           geocoder.then (result)->
             map.geoObjects.add(result.geoObjects)
+
+  parallax: ()->
+    $('.parallax').each ()->
+      $(window).scroll ()=>
+        yPos = 100 - $(window).scrollTop() / 5
+        $(this).css {backgroundPosition: "center #{yPos}px"}
 
 App.init()
