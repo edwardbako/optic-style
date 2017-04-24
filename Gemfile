@@ -63,7 +63,8 @@ group :development do
 
   gem 'capistrano', '3.6.0' # Deploy automation tool
   gem 'capistrano-rails'
-  gem 'capistrano-rvm'
+  # gem 'capistrano-rvm'
+  gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
   gem 'capistrano-sidekiq'
   gem 'capistrano3-puma', require: false
