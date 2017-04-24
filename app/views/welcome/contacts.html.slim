@@ -10,11 +10,12 @@
 
   .row
     .col-xs-12.text-center
-      = link_to fa_stacked_icon('instagram inverse', base: 'circle', class: 'fa-2x'), '#'
+      = link_to fa_stacked_icon('instagram inverse', base: 'circle', class: 'fa-2x'),
+                instagram_path, target: '_blank'
       = link_to fa_stacked_icon('vk inverse', base: 'circle', class: 'fa-2x'),
-                'https://vk.com/club121634817'
+                vk_path, target: '_blank'
       = link_to fa_stacked_icon('facebook inverse', base: 'circle', class: 'fa-2x'),
-                'https://www.facebook.com/groups/1052722981459726'
+                facebook_path, target: '_blank'
   br
   - Branch.all.in_groups_of(3) do |group|
     .row

@@ -18,13 +18,13 @@ nav.navbar.navbar-default.navbar-fixed-top
       ul.nav.navbar-nav.navbar-right
         p.navbar-text
           = link_to fa_stacked_icon('instagram inverse', base: 'circle'),
-                    '#', class: 'navbar-link'
+                    instagram_path, class: 'navbar-link', target: '_blank'
           '
           = link_to fa_stacked_icon('vk inverse', base: 'circle'),
-                     'https://vk.com/club121634817', class: 'navbar-link'
+                     vk_path, class: 'navbar-link', target: '_blank'
           '
           = link_to fa_stacked_icon('facebook inverse', base: 'circle'),
-                     'https://www.facebook.com/groups/1052722981459726', class: 'navbar-link'
+                     facebook_path, class: 'navbar-link', target: '_blank'
         li.dropdown.dropdown-hover(
             class=('active' if current_page?(controller: :welcome, action: :contacts)))
           = link_to contacts_path, class: 'dropdown-toggle',

@@ -9,4 +9,16 @@ module ApplicationHelper
 
     "alert-#{mapping[name]}"
   end
+
+  def instagram_path
+    'https://www.instagram.com/optikastyle59/'
+  end
+
+  def facebook_path
+    'https://www.facebook.com/groups/1052722981459726'
+  end
+
+  def vk_path
+    'https://vk.com/club121634817'
+  end
 end
