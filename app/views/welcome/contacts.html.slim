@@ -16,32 +16,33 @@
       = link_to fa_stacked_icon('facebook inverse', base: 'circle', class: 'fa-2x'),
                 'https://www.facebook.com/groups/1052722981459726'
   br
-  .row
-    - Branch.all.each do |branch|
-      .col-xs-12.col-sm-6.col-md-4
-        .panel class= (@id == branch.id ? 'panel-danger' : 'panel-default')
-          .panel-heading
-            .panel-title
-              h3
-                - if @id == branch.id
-                  = fa_icon 'angle-double-right'
-                  '
-                = branch.short_address
-          .panel-body
-            dl.dl-horizontal.dl-stripped
-              dt Адрес
-              dd = branch.address
-              dt Телефон
-              dd = branch.phone
-              dt Время работы
-              dd
-                - branch.open_hours.each do |oh|
-                  = oh
-                  br
-              dt E-mail
-              dd = mail_to branch.email
-          .panel-footer
-            = link_to fa_icon('map-marker', text: 'Показать на карте'), '#map', class: 'tomap'
+  - Branch.all.in_groups_of(3) do |group|
+    .row
+      - group.each do |branch|
+        .col-xs-12.col-sm-6.col-md-4
+          .panel class= (@id == branch.id ? 'panel-danger' : 'panel-default')
+            .panel-heading
+              .panel-title
+                h3
+                  - if @id == branch.id
+                    = fa_icon 'angle-double-right'
+                    '
+                  = branch.short_address
+            .panel-body
+              dl.dl-horizontal.dl-stripped
+                dt Адрес
+                dd = branch.address
+                dt Телефон
+                dd = branch.phone
+                dt Время работы
+                dd
+                  - branch.open_hours.each do |oh|
+                    = oh
+                    br
+                dt E-mail
+                dd = mail_to branch.email
+            .panel-footer
+              = link_to fa_icon('map-marker', text: 'Показать на карте'), '#map', class: 'tomap'
 
 .container
   #map
