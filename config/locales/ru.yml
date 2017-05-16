@@ -22,6 +22,12 @@ ru:
         greater_than_or_equal_to: значение должно быть больше или равно %{count}
         required: Обязательное поле
 
+        carrierwave_processing_error: "Не удалось уменьшить размер картинки."
+        carrierwave_integrity_error: "Не является картинкой."
+        carrierwave_download_error: "Не получается скачать картинку."
+        extension_whitelist_error: "Невозможно загружать файлы с расширением %{extension}, разрешенны: %{allowed_types}"
+        extension_blacklist_error: "Невозможно загружать файлы с расширением %{extension}, запрещены также: %{prohibited_types}"
+
   helpers:
     submit:
       update: Сохранить %{model}

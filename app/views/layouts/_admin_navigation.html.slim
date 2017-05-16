@@ -7,17 +7,22 @@ nav.navbar.navbar-default.navbar-fixed-top
 
 
     #main-navbar.collapse.navbar-collapse
-      - if user_signed_in?
-        ul.nav.navbar-nav
+      ul.nav.navbar-nav
+        - if user_signed_in?
           li = link_to 'Управление сайтом'
           li = link_to 'Каталог'
           li = link_to 'Новости'
           li = link_to 'Пользователи', admin_users_path
-        ul.nav.navbar-nav.navbar-right
+
+      ul.nav.navbar-nav.navbar-right
+        li
+          = link_to root_path do
+            small = fa_icon('reply', text: 'На сайт')
+
+        - if user_signed_in?
           p.navbar-text
             small= current_user.full_name
           li = link_to fa_icon('sign-out', text: 'Выйти', right: true),
                        destroy_user_session_path, method: :delete
-      - else
-        ul.nav.navbar-nav.navbar-right
+        - else
           li = link_to fa_icon('sign-in', text: 'Войти', right: true), new_user_session_path

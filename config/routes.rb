@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   end
   get 'admin' => 'admin#index'
 
+  resources :products
+
   get 'contacts' => 'welcome#contacts'
   get 'contacts/:id' => 'welcome#contacts', as: :contact
 

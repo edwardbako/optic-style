@@ -41,6 +41,9 @@ gem 'devise' # Rack authentication
 
 gem 'money-rails'
 
+gem 'carrierwave' # solution for file uploads
+gem 'mini_magick'# A ruby wrapper for ImageMagick
+
 gem 'pry-byebug' # Call 'binding.pry' anywhere in the code to stop execution and get a debugger console
 gem 'pry-rails'
 gem 'pry-doc'
