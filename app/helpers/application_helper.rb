@@ -21,4 +21,12 @@ module ApplicationHelper
   def vk_path
     'https://vk.com/club121634817'
   end
+
+  def custom_form_for(*args, &block)
+    builder = {builder: CustomFormBuilder}
+
+    args.size > 1 ? args[1].merge!(builder) : args << builder
+    form_for *args, &block
+  end
+
 end

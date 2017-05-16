@@ -10,7 +10,7 @@ nav.navbar.navbar-default.navbar-fixed-top
     #main-navbar.collapse.navbar-collapse
       ul.nav.navbar-nav
         li class=('active' if current_page?(controller: :welcome, action: :index))
-          = link_to 'О компании', root_path
+          = link_to 'Главная', root_path
         li.disabled = link_to 'Товары'
         li class=('active' if current_page?(controller: :welcome, action: :service))
           = link_to 'Услуги', service_path

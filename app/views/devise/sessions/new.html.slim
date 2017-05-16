@@ -1,0 +1,18 @@
+= render 'devise/shared/wrapper' do
+  h2
+    | Вход
+  = custom_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .form-group
+      = f.label :email
+      = f.email_field :email, autofocus: true
+    .form-group
+      = f.label :password
+      = f.password_field :password, autocomplete: "off"
+    - if devise_mapping.rememberable?
+      .checkbox
+        = f.label :remember_me do
+          = f.check_box :remember_me
+
+    .form-group
+      = f.submit t('helpers.submit.session.create'), class: 'btn btn-default btn-block'
+  = render "devise/shared/links"

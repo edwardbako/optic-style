@@ -6,6 +6,17 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+if User.count == 0
+  User.create(
+        first_name: 'Основной',
+        last_name: 'Администратор',
+        email: 'admin@optika-style.ru',
+        password: 'f5d2bd68d7',
+        confirmed_at: Time.now,
+        role: :admin
+  )
+end
+
 if Branch.count == 0
   Branch.create(
           short_address: 'Красный проспект, 59',

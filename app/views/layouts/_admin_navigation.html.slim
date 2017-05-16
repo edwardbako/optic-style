@@ -1,0 +1,23 @@
+nav.navbar.navbar-default.navbar-fixed-top
+  .container
+    /.navbar-header
+    /  button(type='button' class='navbar-toggle collapsed' data-toggle='collapse'
+    /          data-target='#main-navbar' aria-expanded='false' )
+    /    = fa_icon 'bars'
+
+
+    #main-navbar.collapse.navbar-collapse
+      - if user_signed_in?
+        ul.nav.navbar-nav
+          li = link_to 'Управление сайтом'
+          li = link_to 'Каталог'
+          li = link_to 'Новости'
+          li = link_to 'Пользователи'
+        ul.nav.navbar-nav.navbar-right
+          p.navbar-text
+            small= current_user.full_name
+          li = link_to fa_icon('sign-out', text: 'Выйти', right: true),
+                       destroy_user_session_path, method: :delete
+      - else
+        ul.nav.navbar-nav.navbar-right
+          li = link_to fa_icon('sign-in', text: 'Войти', right: true), new_user_session_path

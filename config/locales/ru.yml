@@ -1,0 +1,37 @@
+ru:
+
+  activerecord:
+    models:
+      user:
+        zero: Пользователей
+        one: Пользователь
+        few: Пользователя
+        other: Пользователей
+    attributes:
+      user:
+        email: Email
+        password: пароль
+        remember_me: Запомнить меня
+    errors:
+      messages:
+        blank: не может быть пустым
+        not_a_number: имеет не числовое значение
+        greater_than_or_equal_to: значение должно быть больше или равно %{count}
+        required: Обязательное поле
+
+  helpers:
+    submit:
+      update: Сохранить %{model}
+      create: Создать %{model}
+      submit: Отправить
+      session:
+        create: Войти
+
+  date:
+    formats:
+      full_month: '%B %Y'
+  confirmation:
+    main: "Вы уверены?"
+    header: "Подтвердите, пожалуйста"
+  breadcrumbs:
+    search: "Поиск"

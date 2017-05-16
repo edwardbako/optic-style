@@ -1,0 +1,15 @@
+= render 'devise/shared/wrapper' do
+  h2
+    | Забыли пароль?
+  = custom_form_for(resource, as: resource_name, url: password_path(resource_name),
+                    html: { method: :post }) do |f|
+    /= devise_error_messages!
+    .form-group
+      = f.label :email
+      = f.email_field :email, autofocus: true
+
+    .form-group
+      = f.submit "Сбросить", class: 'btn btn-default btn-block'
+
+
+  = render "devise/shared/links"
