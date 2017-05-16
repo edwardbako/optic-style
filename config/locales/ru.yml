@@ -9,8 +9,11 @@ ru:
         other: Пользователей
     attributes:
       user:
+        first_name: Имя
+        last_name: Фамилия
         email: Email
-        password: пароль
+        password: Пароль
+        password_confirmation: Пароль еще раз
         remember_me: Запомнить меня
     errors:
       messages:
@@ -26,6 +29,9 @@ ru:
       submit: Отправить
       session:
         create: Войти
+      user:
+        create: Создать пользователя
+        update: Сохранить данные
 
   date:
     formats:

@@ -1,0 +1,20 @@
+.container
+  .row
+    .col-xs-12
+      h1 Пользователи
+
+      table.table.table-condensed.table-responsive
+        thead
+          tr
+            th Имя Фамилия
+            th Email
+            th
+            th
+
+        tbody
+          = render partial: 'user', collection: @users
+
+      br
+
+      = link_to fa_icon('plus', text: 'Добавить пользователя'),
+                new_admin_user_path

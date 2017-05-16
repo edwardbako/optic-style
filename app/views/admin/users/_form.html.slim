@@ -1,0 +1,24 @@
+= custom_form_for [:admin, @user] do |f|
+  .form-group
+    = f.label :first_name
+    = f.text_field :first_name
+
+  .form-group
+    = f.label :last_name
+    = f.text_field :last_name
+
+  .form-group
+    = f.label :email
+    = f.email_field :email
+
+  - if action_name == 'new'
+    .form-group
+      = f.label :password
+      = f.password_field :password
+
+    .form-group
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation
+
+  .form-group
+    = f.submit class: 'btn btn-success'

@@ -1,4 +1,5 @@
 class Users::PasswordsController < Devise::PasswordsController
+
   layout 'admin'
 
   # GET /resource/password/new

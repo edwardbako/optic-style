@@ -17,4 +17,8 @@ html
     = render 'layouts/notice'
     = yield
 
-    /= render 'layouts/footer'
+    br
+    hr
+      .container
+        p
+          small = fa_icon 'copyright', text: "Оптика Стиль. #{Time.now.year}"

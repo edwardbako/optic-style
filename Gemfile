@@ -61,6 +61,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
+  gem 'letter_opener' # Open emails in browser
+
   gem 'capistrano', '3.6.0' # Deploy automation tool
   gem 'capistrano-rails'
   # gem 'capistrano-rvm'

@@ -1,0 +1,14 @@
+
+tr
+  td = user.full_name
+  td = user.email
+  td
+    - if user.email != 'admin@optika-style.ru'
+      = link_to fa_icon('pencil-square-o'), edit_admin_user_path(user)
+  td
+    - if current_user != user and user.email != 'admin@optika-style.ru'
+      = link_to fa_icon('trash-o'),
+                admin_user_path(user),
+                data: { confirm: "Вы действительно хотите удалить пользователя <b> #{user.full_name}</b>?",
+                        header: 'Подтвердите, пожалуйста.' },
+                method: :delete

@@ -5,6 +5,9 @@ Rails.application.routes.draw do
                passwords: 'users/passwords'
                    }
 
+  namespace :admin do
+    resources :users, except: [:show]
+  end
   get 'admin' => 'admin#index'
 
   get 'contacts' => 'welcome#contacts'
