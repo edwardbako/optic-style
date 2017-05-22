@@ -29,6 +29,8 @@ gem 'therubyracer', platforms: :ruby
 
 gem 'jquery-rails' # Use jquery as the JavaScript library
 gem 'jquery-ui-rails'
+gem 'jquery-fileupload-rails'
+
 gem 'turbolinks', '~> 5' # Turbolinks makes navigating your web application faster.
 gem 'jbuilder', '~> 2.5' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 

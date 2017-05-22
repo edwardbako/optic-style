@@ -1,0 +1,28 @@
+.container
+  .row
+    .col-xs-12
+      h1
+        = @product.sku
+        '
+        small
+          ' (#{@product.name})
+
+  .row
+    .col-xs-12
+      = render 'uploader'
+
+  br
+  #product_views.row.gallery
+    -if @views.size > 0
+      = render partial: 'view', collection: @views
+
+
+    - else
+      .col-xs-8.placeholder
+        ' У этого продукта пока нет изображений. Нажмите на выделенную область выше, чтобы
+        ' выбрать изображения, или перетащите их туда.
+
+  br
+  .row
+    .col-xs-12
+      = link_to 'Назад', :back

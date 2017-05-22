@@ -1,0 +1,6 @@
+= custom_form_for [:admin, ProductView.new] do |f|
+  .loading-indicator
+    = fa_icon 'spinner spin 2x'
+  = f.file_field :image, multiple: true, name: 'product_view[image]',
+                 class: 'upload-area ready',
+                 data: {disable_with: fa_icon('spinner spin')}

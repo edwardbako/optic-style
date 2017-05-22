@@ -6,6 +6,7 @@
     $(document).on 'turbolinks:load', ()=>
       @createMap()
       @parallax()
+      @mount_fileupload()
       $('[data-toggle="tooltip"]').tooltip()
 
       $('#notice').fadeOut(5000, 'easeInQuart')
@@ -32,5 +33,27 @@
       $(window).scroll ()=>
         yPos = 100 - $(window).scrollTop() / 5
         $(this).css {backgroundPosition: "center #{yPos}px"}
+
+  mount_fileupload: ()->
+    files_to_upload = 0
+
+    $('.upload-area').fileupload
+      dataType: 'script'
+      add: (e, data) ->
+        files_to_upload += 1
+        App.loading()
+        data.submit().complete (result, textStatus, jqXHR) ->
+          files_to_upload -= 1
+          App.ready() if files_to_upload == 0
+
+  loading: () ->
+    $('.upload-area').addClass('loading')
+    $('.upload-area').removeClass('ready')
+    $('.loading-indicator').show()
+
+  ready: () ->
+    $('.upload-area').addClass('ready')
+    $('.upload-area').removeClass('loading')
+    $('.loading-indicator').hide()
 
 App.init()

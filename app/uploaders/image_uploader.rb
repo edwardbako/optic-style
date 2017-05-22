@@ -64,7 +64,13 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def filename
-    "#{[model.name, model.sku, SecureRandom.base64(10)].join('_')}.png" if original_filename
+    if original_filename
+      if model && model.read_attribute(mounted_as).present?
+        model.read_attribute(mounted_as)
+      else
+        "#{SecureRandom.uuid}.png"
+      end
+    end
   end
 
 end
