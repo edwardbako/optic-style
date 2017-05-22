@@ -11,4 +11,8 @@ class Product < ApplicationRecord
   def build_default_view
     views.create(default: true)
   end
+
+  before_destroy do
+    views.clear
+  end
 end
