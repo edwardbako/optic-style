@@ -1,0 +1,41 @@
+.container.product id="product_#{@product.id}"
+  .row
+    .col-xs-12
+      h1
+        ' Товары
+        small
+          ' / #{@product.name}
+
+  br
+  .row
+    .col-xs-8
+      = image_tag @view.image.url(:mid), class: 'img-responsive'
+
+      .row.gallery
+        - @product.views.in_groups_of(4) do |group|
+          - group.each do |view|
+            .col-xs-3.gallery-item
+              - if view.present?
+                .img-wrapper
+                  - if view.id == @view.id
+                    .fader
+                  -else
+                    = link_to '', product_path(@product, view: view.id), remote: true,
+                              class: 'img-controls'
+
+                  = image_tag(view.image.url(:small), class: 'img-responsive')
+
+    .col-xs-4
+      h3
+        = @product.name
+
+      h4.text-danger
+        = humanized_money_with_symbol @product.price
+
+      br
+      br
+      p
+        ' Артикул: #{@product.sku}
+
+br
+br

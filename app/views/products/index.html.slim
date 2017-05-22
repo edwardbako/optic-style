@@ -1,3 +1,13 @@
 .container
   .row
-    = render @products
+    .col-xs-12
+      h1 Товары
+
+  #products
+    = render 'gallery'
+
+  #load_more
+    = render 'load_more'
+
+  br
+  br

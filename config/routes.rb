@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   end
 
-  resources :products
+  resources :products, only: [:index, :show]
 
   get 'contacts' => 'welcome#contacts'
   get 'contacts/:id' => 'welcome#contacts', as: :contact
