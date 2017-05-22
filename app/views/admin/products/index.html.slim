@@ -1,0 +1,10 @@
+.container
+  .row
+    .col-xs-12
+      h1 Каталог товаров
+
+    .col-xs-12#products
+      = render 'pagination'
+
+    .col-xs-12
+      = link_to fa_icon('plus', text: 'Добавить продукт'), new_admin_product_path

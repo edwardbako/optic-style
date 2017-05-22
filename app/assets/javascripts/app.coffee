@@ -6,6 +6,9 @@
     $(document).on 'turbolinks:load', ()=>
       @createMap()
       @parallax()
+      $('[data-toggle="tooltip"]').tooltip()
+
+      $('#notice').fadeOut(5000, 'easeInQuart')
 
 
   createMap: ()->

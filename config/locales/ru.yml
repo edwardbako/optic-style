@@ -7,6 +7,11 @@ ru:
         one: Пользователь
         few: Пользователя
         other: Пользователей
+      product:
+        zero: Продуктов
+        one: Продукт
+        few: Продукта
+        other: Продуктов
     attributes:
       user:
         first_name: Имя
@@ -15,6 +20,16 @@ ru:
         password: Пароль
         password_confirmation: Пароль еще раз
         remember_me: Запомнить меня
+      product:
+        name: Название
+        sku: Артикул
+        description: Описание
+        price: Цена
+        size: Размер
+        color: Цвет
+        weight: Вес
+        material: Материал
+        published: Опубликован
     errors:
       messages:
         blank: не может быть пустым

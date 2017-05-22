@@ -8,8 +8,8 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.string :color
       t.string :weight
       t.string :material
-      t.json :images
       t.monetize :price
+      t.boolean :published, default: false
 
       t.timestamps
     end

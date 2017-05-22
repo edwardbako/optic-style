@@ -1,4 +1,5 @@
 .col-sm-4
   h3 = product.name
   br
-  = image_tag image_url('fallback/mid_default.png'), class: 'img-responsive'
+    - product.views.each do |view|
+      = image_tag view.image.url(:mid), class: 'img-responsive'

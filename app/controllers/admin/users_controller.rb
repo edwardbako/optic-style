@@ -4,7 +4,7 @@ class Admin::UsersController < AdminController
   # GET /admin/users
   # GET /admin/users.json
   def index
-    @users = User.all
+    @users = User.all.order(:created_at)
   end
 
   # GET /admin/users/1

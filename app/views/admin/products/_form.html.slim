@@ -1,0 +1,21 @@
+= custom_form_for [:admin, @product] do |f|
+  .form-group
+    = f.label :name
+    = f.text_field :name
+
+  .form-group
+    = f.label :sku
+    = f.text_field :sku
+
+  .form-group
+    = f.label :description
+    = f.text_area :description
+
+  .form-group
+    = f.label :price
+    .input-group
+      = f.text_field :price
+      span.input-group-addon = fa_icon 'rub'
+
+  .form-group
+    = f.submit class: 'btn btn-success'

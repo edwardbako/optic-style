@@ -5,10 +5,11 @@ Rails.application.routes.draw do
                passwords: 'users/passwords'
                    }
 
+  get 'admin' => 'admin#index'
   namespace :admin do
     resources :users, except: [:show]
+    resources :products
   end
-  get 'admin' => 'admin#index'
 
   resources :products
 

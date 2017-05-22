@@ -1,0 +1,17 @@
+= form_for [:admin, to_publish], remote: true do |f|
+
+  .form-group
+    - if to_publish.published?
+      = f.hidden_field :published, value: false
+      = button_tag fa_icon('check-square-o', text: 'Опубликовать'), type: 'submit',
+                   class: 'btn btn-xs btn-default',
+                   data: { disable_with: fa_icon('spinner spin', text: 'Опубликовать'),
+                           toggle: 'tooltip'},
+                   title: 'Показывать в каталоге на сайте'
+    - else
+      = f.hidden_field :published, value: true
+      = button_tag fa_icon('square-o', text: 'Опубликовать'), type: 'submit',
+                 class: 'btn btn-xs btn-default',
+                 data: { disable_with: fa_icon('spinner spin', text: 'Опубликовать'),
+                         toggle: 'tooltip' },
+                 title: 'Показывать в каталоге на сайте'

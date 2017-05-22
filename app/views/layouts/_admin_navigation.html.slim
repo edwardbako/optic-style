@@ -9,8 +9,8 @@ nav.navbar.navbar-default.navbar-fixed-top
     #main-navbar.collapse.navbar-collapse
       ul.nav.navbar-nav
         - if user_signed_in?
-          li = link_to 'Управление сайтом'
-          li = link_to 'Каталог'
+          li = link_to 'Управление сайтом', admin_path
+          li = link_to 'Каталог', admin_products_path
           li = link_to 'Новости'
           li = link_to 'Пользователи', admin_users_path
 
@@ -21,7 +21,7 @@ nav.navbar.navbar-default.navbar-fixed-top
 
         - if user_signed_in?
           p.navbar-text
-            small= current_user.full_name
+            small= current_user.first_name
           li = link_to fa_icon('sign-out', text: 'Выйти', right: true),
                        destroy_user_session_path, method: :delete
         - else

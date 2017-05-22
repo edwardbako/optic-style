@@ -1,0 +1,17 @@
+- if @products.size > 0
+  = will_paginate @products
+
+  table.table.table-condensed
+    thead
+      tr
+        th
+        th Название
+        th Артикул
+        th Цена
+        th Статус
+        th
+        th
+    tbody = render @products
+
+- else
+  ' Пока каталог пуст. Хотите добавить товары?
