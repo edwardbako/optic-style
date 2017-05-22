@@ -9,7 +9,7 @@
   br
   .row
     .col-xs-8
-      = image_tag @view.image.url(:mid), class: 'img-responsive'
+      = image_tag @view.image.url(:big), class: 'img-responsive'
 
       .row.gallery
         - @product.views.in_groups_of(4) do |group|
