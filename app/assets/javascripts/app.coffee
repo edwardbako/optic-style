@@ -38,7 +38,8 @@
     files_to_upload = 0
 
     $('.upload-area').fileupload
-      dataType: 'script'
+      dataType: 'script',
+      sequentialUploads: true
       add: (e, data) ->
         files_to_upload += 1
         App.loading()
