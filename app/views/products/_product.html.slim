@@ -5,4 +5,4 @@
   h4
     = product.name
     br
-    small = humanized_money_with_symbol product.price
+    small = humanized_money_with_symbol product.price if product.price > 0

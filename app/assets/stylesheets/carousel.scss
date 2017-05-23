@@ -1,0 +1,58 @@
+.carousel {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+
+
+  .carousel-controls {
+    z-index: 500;
+    position: absolute;
+
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+
+  .carousel-previous {
+    left: 0;
+  }
+
+  .carousel-next {
+    right: 0;
+  }
+
+  img {
+    position: absolute;
+    top: 0;
+    display: inline;
+  }
+
+  img.active {
+    position: relative;
+    z-index: 150;
+  }
+
+  img.previous {
+    right: 100%;
+    display: none;
+    z-index: 150;
+  }
+
+  img.next {
+    left: 100%;
+    display: none;
+    z-index: 150;
+  }
+
+  .dots {
+    //position: absolute;
+    z-index: 500;
+
+    //bottom: - $grid-gutter-width/3;
+    width: 100%;
+  }
+
+  .fa-inverse {
+    color: rgba(255, 255, 255, 0.7)
+  }
+
+}

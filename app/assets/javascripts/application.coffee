@@ -18,6 +18,7 @@
 #= require modal
 
 #= require app
+#= require carousel
 
 #= require cable
 

@@ -11,6 +11,8 @@
 
       $('#notice').fadeOut(5000, 'easeInQuart')
 
+      App.carousel = new Carousel $(".carousel")[0]
+
 
   createMap: ()->
     if $('#map').length > 0
