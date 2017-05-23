@@ -19,7 +19,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
 
-  process convert: 'png'
+  # process convert: 'png'
 
   version :big do
     process resize_to_fit: [1024, 1024]
@@ -68,7 +68,7 @@ class ImageUploader < CarrierWave::Uploader::Base
       if model && model.read_attribute(mounted_as).present?
         model.read_attribute(mounted_as)
       else
-        "#{SecureRandom.uuid}.png"
+        "#{SecureRandom.uuid}.#{file.extension}"
       end
     end
   end
