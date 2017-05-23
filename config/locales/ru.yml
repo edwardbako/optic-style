@@ -62,3 +62,7 @@ ru:
     header: "Подтвердите, пожалуйста"
   breadcrumbs:
     search: "Поиск"
+
+  will_paginate:
+    next_label: Следующая
+    previous_label: Предыдущая

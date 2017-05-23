@@ -22,6 +22,6 @@ class ProductsController < ApplicationController
   private
 
   def page_size
-    12
+    6
   end
 end

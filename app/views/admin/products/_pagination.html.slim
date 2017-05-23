@@ -1,5 +1,5 @@
 - if @products.size > 0
-  = will_paginate @products
+  = will_paginate @products, renderer: BootstrapPagination::Rails
 
   table.table.table-condensed
     thead
@@ -12,6 +12,8 @@
         th
         th
     tbody = render @products
+
+  = will_paginate @products, renderer: BootstrapPagination::Rails
 
 - else
   ' Пока каталог пуст. Хотите добавить товары?

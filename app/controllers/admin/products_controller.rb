@@ -4,7 +4,7 @@ class Admin::ProductsController < AdminController
   # GET /admin/products
   # GET /admin/products.json
   def index
-    @products = Product.all.order(:created_at).page(params[:page])
+    @products = Product.all.order(:created_at).page(params[:page]).per_page(10)
   end
 
   # GET /admin/products/1
@@ -46,6 +46,7 @@ class Admin::ProductsController < AdminController
         format.html { redirect_to admin_products_path,
                                   notice: 'Информация о продукте обновлена.' }
         format.json { render :show, status: :ok, location: @product }
+        format.js
       else
         format.html { render :edit }
         format.json { render json: @product.errors, status: :unprocessable_entity }
@@ -58,8 +59,9 @@ class Admin::ProductsController < AdminController
   def destroy
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to admin_products_url, notice: 'Продукт удален.' }
+      format.html { redirect_to admin_products_url(page: params[:page]), notice: 'Продукт удален.' }
       format.json { head :no_content }
+      # format.js
     end
   end
 

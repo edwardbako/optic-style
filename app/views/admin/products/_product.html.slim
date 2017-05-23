@@ -9,7 +9,8 @@ tr.product id=product.id
   td = render partial: 'to_publish', object: product
   td = link_to fa_icon('pencil-square-o'), edit_admin_product_path(product),
                data: {toggle: 'tooltip'}, title: 'Правка'
-  td = link_to fa_icon('trash-o'), admin_product_path(product), method: :delete,
+  td = link_to fa_icon('trash-o'), admin_product_path(product, page: params[:page]),
+               method: :delete, remote: true,
                data: {confirm: "Вы действительно хотите удалить <b>#{product.name} - #{product.sku}</b>?",
                       header: 'Подтвердите, пожалуйста.',
                       toggle: 'tooltip'},
