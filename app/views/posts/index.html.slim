@@ -1,0 +1,16 @@
+.container
+  .row
+    .col-xs-12
+      h1 Новости
+
+  .row
+    #posts.col-sm-8.col-sm-offset-2.col-xs-12.col-xs-offset-0
+      = render 'pagination'
+
+  .row
+    .col-xs-12.text-center
+      #load_more
+        = render 'load_more'
+
+  br
+  br

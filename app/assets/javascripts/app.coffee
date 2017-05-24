@@ -13,6 +13,9 @@
 
       App.carousel = new Carousel $(".carousel")[0]
 
+      @scrollToTop()
+
+
 
   createMap: ()->
     if $('#map').length > 0
@@ -58,5 +61,17 @@
     $('.upload-area').addClass('ready')
     $('.upload-area').removeClass('loading')
     $('.loading-indicator').hide()
+
+  scrollToTop: ()->
+    element = $('.goto-up')
+
+    element.on 'click', (e)->
+      e.preventDefault()
+      $('html, body').animate({ scrollTop: 0}, 1000, 'easeOutCirc')
+
+    $(window).scroll ()->
+      element.fadeIn(300) if $(window).scrollTop() > 400
+      element.fadeOut(300) if $(window).scrollTop() < 400
+
 
 App.init()

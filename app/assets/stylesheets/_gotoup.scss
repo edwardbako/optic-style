@@ -1,0 +1,17 @@
+.goto-up {
+  position: fixed;
+  bottom: 20%;
+  right: 4%;
+  display: none;
+
+  z-index: 500;
+
+  .fa-inverse {
+    color: transparentize($brand-info, 0.2);
+  }
+
+  color: white;
+  &:hover {
+    color: #aaa;
+  }
+}

@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
+  before_action :set_page, only: [:index]
 
   def index
-    @page = params[:page].to_i || 0
     @products = Product.published.limit(page_size).offset(@page * page_size)
     @next_page_size = Product.published.limit(page_size).offset((@page + 1) * page_size).count
     respond_to do |format|

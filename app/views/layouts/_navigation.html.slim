@@ -15,7 +15,8 @@ nav.navbar.navbar-default.navbar-fixed-top
           = link_to 'Товары', products_path
         li class=('active' if current_page?(controller: :welcome, action: :service))
           = link_to 'Услуги', service_path
-        li.disabled = link_to 'Новости'
+        li class=('active' if current_page?(controller: :posts))
+          = link_to 'Новости', posts_path
       ul.nav.navbar-nav.navbar-right
         p.navbar-text
           = link_to fa_stacked_icon('instagram inverse', base: 'circle'),

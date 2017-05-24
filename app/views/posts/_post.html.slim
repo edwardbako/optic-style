@@ -1,0 +1,9 @@
+.panel
+  .panel-body
+    = post.body.html_safe
+    br
+
+    .row
+      .col-xs-6
+        br
+        b = l post.created_at, format: :date
