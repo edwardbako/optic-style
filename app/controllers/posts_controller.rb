@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :set_page, only: [:index]
 
   def index
-    @posts = Post.all.limit(page_size).offset(@page * page_size)
+    @posts = Post.all.order(created_at: :desc).limit(page_size).offset(@page * page_size)
     @next_page_size = Post.all.limit(page_size).offset((@page + 1) * page_size).count
     respond_to do |format|
       format.html
