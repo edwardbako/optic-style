@@ -12,6 +12,11 @@ ru:
         one: Продукт
         few: Продукта
         other: Продуктов
+      post:
+        zero: Новостей
+        one: Новость
+        few: Новости
+        other: Новостей
     attributes:
       user:
         first_name: Имя
@@ -30,6 +35,11 @@ ru:
         weight: Вес
         material: Материал
         published: Опубликован
+      post:
+        title: Заголовок
+        body: Содержание
+        published: Опубликована
+        user: Автор
     errors:
       messages:
         blank: не может быть пустым
@@ -54,9 +64,9 @@ ru:
         create: Создать пользователя
         update: Сохранить данные
 
-  date:
+  time:
     formats:
-      full_month: '%B %Y'
+      date: '%e %B %Y'
   confirmation:
     main: "Вы уверены?"
     header: "Подтвердите, пожалуйста"

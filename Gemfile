@@ -35,6 +35,8 @@ gem 'jquery-fileupload-rails'
 gem 'turbolinks', '~> 5' # Turbolinks makes navigating your web application faster.
 gem 'jbuilder', '~> 2.5' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 
+gem 'trix'
+
 # gem 'redis', '~> 3.0' # Use Redis adapter to run Action Cable in production
 gem 'sidekiq' # Queueing framework
 gem 'sidekiq-cron' # Cron jobs for queueing

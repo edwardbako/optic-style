@@ -1,0 +1,20 @@
+.panel
+  .panel-body
+    = post.body.html_safe
+    br
+
+    .row
+      .col-xs-6
+        br
+        b = l post.created_at, format: :date
+      .col-xs-6.text-right
+        .btn-group
+          = link_to fa_icon('pencil'), edit_admin_post_path(post),
+                  data: {toggle: 'tooltip'},
+                  title: 'Редактировать', class: 'btn btn-default'
+
+          = link_to fa_icon('trash'), admin_post_path(post), method: :delete,
+                    data: {confirm: 'Вы действительно хотите удалить эту новость?',
+                           header: 'Подтвердите, пожалуйста',
+                           toggle: 'tooltip'},
+                    title: 'Удалить', class: 'btn btn-default'

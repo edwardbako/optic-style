@@ -1,5 +1,10 @@
 - if @products.size > 0
-  = will_paginate @products, renderer: BootstrapPagination::Rails
+  .row
+    .col-xs-8
+      = will_paginate @products, renderer: BootstrapPagination::Rails, inner_window: 3, outer_window: 0
+    .col-xs-4.text-right
+      ul.pagination
+        li= link_to fa_icon('plus', text: 'Добавить продукт'), new_admin_product_path
 
   table.table.table-condensed
     thead
@@ -10,10 +15,9 @@
         th Цена
         th Статус
         th
-        th
     tbody = render @products
 
-  = will_paginate @products, renderer: BootstrapPagination::Rails
+  = will_paginate @products, renderer: BootstrapPagination::Rails, inner_window: 3, outer_window: 0
 
 - else
   ' Пока каталог пуст. Хотите добавить товары?

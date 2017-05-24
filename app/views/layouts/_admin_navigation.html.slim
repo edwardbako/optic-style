@@ -11,7 +11,7 @@ nav.navbar.navbar-default.navbar-fixed-top
         - if user_signed_in?
           li = link_to 'Управление сайтом', admin_path
           li = link_to 'Каталог', admin_products_path
-          li = link_to 'Новости'
+          li = link_to 'Новости', admin_posts_path
           li = link_to 'Пользователи', admin_users_path
 
       ul.nav.navbar-nav.navbar-right

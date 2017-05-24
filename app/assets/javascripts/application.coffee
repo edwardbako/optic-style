@@ -23,3 +23,4 @@
 #= require cable
 
 #= require bootstrap.min
+#= require trix

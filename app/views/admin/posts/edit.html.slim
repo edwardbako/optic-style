@@ -1,0 +1,13 @@
+.container
+  .row
+    .col-xs-12
+      h1 Редактирование новости
+
+  .row
+    .col-sm-8.col-sm-offset-2.col-xs-12.col-xs-offset-0
+      == render 'form'
+
+  .row
+    .col-xs-12
+      = link_to 'Назад', admin_posts_path
+

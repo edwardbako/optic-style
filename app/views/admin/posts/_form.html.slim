@@ -1,0 +1,6 @@
+= custom_form_for [:admin, @post] do |f|
+  .form-group
+    = f.trix_editor :body, size: 15
+
+  .form-group
+    = f.submit class: 'btn btn-success'
