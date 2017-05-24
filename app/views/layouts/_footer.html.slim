@@ -48,4 +48,4 @@ footer.footer
   hr
   .container
     p
-      small = fa_icon 'copyright', text: "Оптика Стиль. #{Time.now.year}"
+      small = link_to fa_icon('copyright', text: "Оптика Стиль. #{Time.now.year}"), admin_path
