@@ -1,7 +1,7 @@
 = render 'layouts/slider'
 
 .container
-  .row#main-header
+  .row.main-header
     .col-xs-3
       h1
         b Что мы делаем лучше всего!
@@ -105,3 +105,19 @@
           br
           = link_to fa_icon('long-arrow-right', right: true, text: 'Все услуги'), service_path,
                     class: 'btn btn-default btn-reverse'
+
+.container.vertical-margin-lg
+  .row
+    .col-xs-12
+      h1 Последние новости
+      br
+
+  - @breaking_news.in_groups_of(2) do |group|
+    .row
+      - group.each do |post|
+        .col-xs-6
+          = render partial: 'posts/post', object: post if post.present?
+  .row
+    .col-xs-12.text-right
+      = link_to fa_icon('long-arrow-right', text: 'Все Новости', right: true), posts_path,
+                class: 'btn btn-lg'
