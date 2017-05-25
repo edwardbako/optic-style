@@ -12,4 +12,8 @@ class WelcomeController < ApplicationController
 
   end
 
+  def reviews
+
+  end
+
 end

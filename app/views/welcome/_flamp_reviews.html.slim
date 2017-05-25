@@ -1,0 +1,17 @@
+.container
+  .row
+    .col-xs-12
+      a(class="flamp-widget"
+        href="https://novosibirsk.flamp.ru/firm/optika_stil_set_salonov_optiki-141265770809876"
+        data-flamp-widget-type="responsive-new"
+        data-flamp-widget-count="#{local_assigns[:count] || 3}"
+        data-flamp-widget-id="141265770809876" data-flamp-widget-width="100%")
+        ' Отзывы о нас на Флампе
+      javascript:
+        !function(d,s){
+          var js,fjs=d.getElementsByTagName(s)[0];
+          js=d.createElement(s);
+          js.async=1;
+          js.src="//widget.flamp.ru/loader.js";
+          fjs.parentNode.insertBefore(js,fjs);
+        }(document,"script");

@@ -24,7 +24,6 @@
 .vertical-align-row {
   display: flex;
   align-items: center;
-  background-color: lighten($brand-primary, 47%);
 }
 
 .pictogram {
@@ -82,4 +81,8 @@
 .vertical-margin-lg {
   margin-top: $padding-large-vertical * 2;
   margin-bottom: $padding-large-vertical * 2;
+}
+
+.bg-light-primary {
+  background-color: lighten($brand-primary, 42%);
 }

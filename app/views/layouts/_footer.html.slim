@@ -3,14 +3,14 @@ footer.footer
     .col-sm-3
       h3 Компания
       ul.list-unstyled
-        li = link_to 'О компании'
-        li = link_to 'Новости'
+        li = link_to 'О компании', root_path
+        li = link_to 'Новости', posts_path
         li = link_to 'Статьи'
-        li = link_to 'Услуги'
-        li = link_to 'Каталог'
-        li = link_to 'Акции'
+        li = link_to 'Услуги', service_path
+        li = link_to 'Каталог', products_path
+        /li = link_to 'Акции'
         li = link_to 'Контакты', contacts_path
-        li = link_to 'Отзывы'
+        li = link_to 'Отзывы', reviews_path
 
     .col-sm-3
       h3 Контактные линзы

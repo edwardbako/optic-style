@@ -27,5 +27,7 @@ Rails.application.routes.draw do
 
   get 'service' => 'welcome#service'
 
+  get 'reviews' => 'welcome#reviews'
+
   root to: 'welcome#index'
 end
