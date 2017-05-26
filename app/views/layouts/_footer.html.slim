@@ -5,7 +5,7 @@ footer.footer
       ul.list-unstyled
         li = link_to 'О компании', root_path
         li = link_to 'Новости', posts_path
-        li = link_to 'Статьи'
+        li = link_to 'Статьи', '#', class: 'disabled'
         li = link_to 'Услуги', service_path
         li = link_to 'Каталог', products_path
         /li = link_to 'Акции'
@@ -15,16 +15,16 @@ footer.footer
     .col-sm-3
       h3 Контактные линзы
       ul.list-unstyled
-        li = link_to 'Однодневные'
-        li = link_to 'Двухнедельные'
-        li = link_to 'Ежемесячные'
+        li = link_to 'Однодневные', '#', class: 'disabled'
+        li = link_to 'Двухнедельные', '#', class: 'disabled'
+        li = link_to 'Ежемесячные', '#', class: 'disabled'
 
     .col-sm-3
       h3 Оправы
       ul.list-unstyled
-        li = link_to 'Ободковые'
-        li = link_to 'Полуободковые'
-        li = link_to 'Безободковые'
+        li = link_to 'Ободковые', '#', class: 'disabled'
+        li = link_to 'Полуободковые', '#', class: 'disabled'
+        li = link_to 'Безободковые', '#', class: 'disabled'
 
     .col-sm-3.text-center
       h3 Режим работы
