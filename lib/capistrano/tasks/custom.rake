@@ -17,3 +17,11 @@ task :tail_logs do
     execute "tail -f #{current_path}/log/#{fetch(:log_name)}.log"
   end
 end
+
+desc 'generate server error page'
+task :generate_500_html do
+  on roles(:web) do |host|
+    public_500_html = File.join(release_path, "public/500.html")
+    execute :curl, "-k", "http://#{host.hostname}/500", "> #{public_500_html}"
+  end
+end

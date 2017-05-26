@@ -23,3 +23,4 @@ set :pty,  false
 
 after 'deploy:published', 'puma:restart'
 after 'deploy:published', 'seed'
+after 'deploy:published', :generate_500_html
