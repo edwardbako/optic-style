@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    title
+      | Оптика Стиль
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+    /script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"
+
+    meta name="viewport" content="width=device-width, initial-scale=1"
+
+  body
+    .container.vertical-margin-lg
+      .row
+        .col-xs-12.col-xs-offset-0.col-sm-8.col-sm-offset-2
+          .row.vertical-align-row
+            .col-xs-8
+              = link_to root_path do
+                = image_tag image_url('logo.png'), height: '60'
+
+              h3
+                b = @status_code
+                '
+                small Ошибка.
+
+              = yield
+
+            .col-xs-4
+              = image_tag image_url('errors/robot.jpg'), class: 'img-responsive'

@@ -29,5 +29,9 @@ Rails.application.routes.draw do
 
   get 'reviews' => 'welcome#reviews'
 
+  %w( 404 422 500 503).each do |code|
+    get code, to: 'exceptions#show', code: code
+  end
+
   root to: 'welcome#index'
 end
