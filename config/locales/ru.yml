@@ -17,6 +17,11 @@ ru:
         one: Новость
         few: Новости
         other: Новостей
+      branch:
+        zero: Филиалов
+        one: Филиал
+        few: Филиала
+        others: Филиалов
     attributes:
       user:
         first_name: Имя
@@ -40,6 +45,12 @@ ru:
         body: Содержание
         published: Опубликована
         user: Автор
+      branch:
+        address: Полный адрес
+        short_address: Короткий адрес
+        phone: Телефон
+        email: Email
+        open_hours: Время работы
     errors:
       messages:
         blank: не может быть пустым

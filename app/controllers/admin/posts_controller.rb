@@ -28,8 +28,8 @@ class Admin::PostsController < AdminController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to admin_posts_path(@post),
-                                  notice: 'Новость сохдана.' }
+        format.html { redirect_to admin_posts_path,
+                                  notice: 'Новость создана.' }
       else
         format.html { render :new }
       end
@@ -41,7 +41,7 @@ class Admin::PostsController < AdminController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to admin_post_path(@post),
+        format.html { redirect_to admin_posts_path,
                                   notice: 'Новость обновлена.' }
       else
         format.html { render :edit }

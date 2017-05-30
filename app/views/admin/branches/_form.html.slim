@@ -1,0 +1,24 @@
+= custom_form_for [:admin, @branch] do |f|
+  .form-group
+    = f.label :short_address
+    = f.text_field :short_address
+
+  .form-group
+    = f.label :address
+    = f.text_field :address
+
+  .form-group
+    = f.label :phone
+    = f.text_field :phone
+
+  .form-group
+    = f.label :email
+    = f.email_field :email
+
+  .form-group
+    = f.label :open_hours
+    = f.text_area :open_hours,
+                  value: (f.object.open_hours.join(', ') if f.object.open_hours.present?)
+
+  .form-group
+    = f.submit class: 'btn btn-success'

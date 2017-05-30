@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'admin' => 'admin#index'
   namespace :admin do
     resources :users, except: [:show]
+    resources :branches, excepot: [:show]
 
     resources :products, except: [:show] do
       scope module: :products do
