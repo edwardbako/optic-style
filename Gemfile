@@ -12,6 +12,7 @@ gem 'pg_search' # builds ActiveRecord named scopes that take advantage of Postgr
 gem 'puma', '~> 3.0' # Use Puma as the app server
 gem 'will_paginate' # Pagination library
 gem 'will_paginate-bootstrap' # Bootstrap styles for pagination links
+gem 'dynamic_sitemaps'
 
 gem 'russian' # I18n
 

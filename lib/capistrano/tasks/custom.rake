@@ -25,3 +25,16 @@ task :generate_500_html do
     execute :curl, "-k", "http://#{host.hostname}/500", "> #{public_500_html}"
   end
 end
+
+
+desc 'sitemap generation'
+task :generate_sitemap do
+  on roles(:app) do
+    within current_path do
+      with rails_env: fetch(:stage) do
+        execute :rails, 'sitemap:generate'
+        execute "ln -s #{release_path}/public/sitemaps/sitemap.xml #{release_path}/public/sitemap.xml"
+      end
+    end
+  end
+end
