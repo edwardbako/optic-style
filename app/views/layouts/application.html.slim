@@ -15,7 +15,9 @@ html
     meta name="google-site-verification" content="GDE5LNJg6IzItriNiank0EnQHu9obFiCLA3N0NcHFaY"
 
   body
-    = render 'layouts/metrics/yandex'
+    - if Rails.env.staging?
+      = render 'layouts/metrics/yandex'
+      = render 'layouts/metrics/google'
     
 
     = render 'layouts/navigation'
