@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
 
   def index
-    @breaking_news = Post.all.order(created_at: :desc).limit(2)
+    @breaking_news = Post.all.order(created_at: :desc).limit(4)
   end
 
   def contacts
