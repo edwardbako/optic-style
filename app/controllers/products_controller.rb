@@ -2,8 +2,9 @@ class ProductsController < ApplicationController
   before_action :set_page, only: [:index]
 
   def index
-    @products = Product.published.limit(page_size).offset(@page * page_size)
-    @next_page_size = Product.published.limit(page_size).offset((@page + 1) * page_size).count
+    products = Product.published.order(created_at: :desc).limit(page_size)
+    @products = products.offset(@page * page_size)
+    @next_page_size = products.offset((@page + 1) * page_size).count
     respond_to do |format|
       format.html
       format.js
