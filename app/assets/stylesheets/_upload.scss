@@ -16,9 +16,14 @@
   }
 }
 
+.upload-area.bigger {
+  padding: 22vw 0 0 0;
+  height: 22vw;
+}
+
 .upload-area.ready {
   background: image_url('cloud.png') center center no-repeat #e4e4e4;
-  background-size: 150px 100px;
+  background-size: contain;
   &:hover {
     background-color: rgba(0, 0, 0, 0.2);
   }
@@ -26,7 +31,7 @@
 
 .upload-area.loading {
   background: none center center no-repeat rgba(0, 0, 0, 0.1);
-  background-size: 150px 100px;
+  background-size: cover;
   &:hover {
     background-color: rgba(0, 0, 0, 0.2);
   }
@@ -47,4 +52,8 @@
     position: relative;
     top: 40%;
   }
+}
+
+.upload-wrapper {
+  position: relative;
 }

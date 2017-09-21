@@ -1,0 +1,19 @@
+= form_for [:admin, to_publish], remote: true, html: {class: 'form-inline'} do |f|
+
+  .form-group
+    - if to_publish.published?
+      = f.hidden_field :published, value: false
+      = button_tag fa_icon('check-square-o', text: 'Опубликовать'), type: 'submit',
+                   class: 'btn btn-default',
+                   data: { disable_with: fa_icon('spinner spin', text: 'Опубликовать'),
+                           toggle: 'tooltip'},
+                   title: 'Показывать на сайте'
+    - else
+      = f.hidden_field :published, value: true
+      = button_tag fa_icon('square-o', text: 'Опубликовать'), type: 'submit',
+                   class: 'btn btn-default',
+                   data: { disable_with: fa_icon('spinner spin', text: 'Опубликовать'),
+                           toggle: 'tooltip' },
+                   title: 'Показывать на сайте'
+  = hidden_field_tag :to_publish, true
+  = hidden_field_tag :type, local_assigns[:type]

@@ -10,10 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170524085524) do
+ActiveRecord::Schema.define(version: 20170926174151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "article_blocks", force: :cascade do |t|
+    t.bigint "article_id"
+    t.text "text"
+    t.string "image"
+    t.string "video"
+    t.string "audio"
+    t.string "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "caption_place", default: 0
+    t.index ["article_id"], name: "index_article_blocks_on_article_id"
+  end
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.bigint "user_id"
+    t.boolean "published"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_articles_on_user_id"
+  end
 
   create_table "branches", id: :serial, force: :cascade do |t|
     t.string "address"
@@ -87,5 +109,7 @@ ActiveRecord::Schema.define(version: 20170524085524) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "article_blocks", "articles"
+  add_foreign_key "articles", "users"
   add_foreign_key "product_views", "products"
 end

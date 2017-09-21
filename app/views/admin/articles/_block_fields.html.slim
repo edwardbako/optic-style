@@ -1,0 +1,70 @@
+.form-group.block-fields id=f.object.id
+  .col-sm-10.col-sm-offset-1.col-xs-11.col-xs-offset-0
+    - case f.object.class.to_s
+      - when 'ArticleBlock::Image'
+        .row
+          .col-xs-12.col-sm-6
+            .upload-wrapper
+              .loading-indicator
+                = fa_icon 'spinner spin 2x'
+              = f.file_field :image, class: 'upload-area ready bigger',
+                           data: {disable_with: fa_icon('spinner spin'),
+                                  src: f.object.image.url(:mid),
+                                  toggle: 'tooltip'},
+                           title: 'Сменить изображение'
+          /.col-xs-6.col-sm-3
+          /  - if f.object.image.present?
+          /    = image_tag f.object.image.url(:small), class: 'img-responsive'
+
+      - when 'ArticleBlock::CaptionImage'
+        .row
+          .col-xs-12.text-center
+            = link_to fa_icon('arrows-h', text: 'Поменять местами'), '#', class: 'caption-image-order-link'
+            = f.hidden_field :caption_place, class: 'caption-image-order'
+            br
+            br
+
+        .row
+          .col-sm-4.col-xs-12.caption-image-picture class=('col-sm-push-8' if f.object.left?)
+            .upload-wrapper
+              .loading-indicator
+                = fa_icon 'spinner spin 2x'
+              = f.file_field :image, class: 'upload-area ready bigger',
+                             data: {src: f.object.image.url(:mid),
+                                    toggle: 'tooltip'},
+                             title: 'Сменить изображение'
+              /.col-xs-6
+              /  - if f.object.image.present?
+              /    = image_tag f.object.image.url(:small), class: 'img-responsive'
+
+          .col-sm-8.col-xs-12.caption-image-text class=('col-sm-pull-4' if f.object.left?)
+            = f.trix_editor :text, size: 10
+
+      - when 'ArticleBlock::Video'
+        .row
+          .col-xs-12
+            = f.text_field :video, placeholder: 'Ссылка на видео YouTube',
+                           data: {video_url: f.object.video || ''}
+        .row
+          .col-xs-12
+            .media
+              .media-left
+                - if f.object.snippet.present?
+                  = link_to f.object.video, target: :blank do
+                    = image_tag f.object.thumbnails[:default][:url], class: 'media-object'
+              .media-body
+                = link_to f.object.video, target: :blank do
+                  h4.media-heading = f.object.title
+                - if f.object.description.present?
+                  = f.object.description.truncate(220, separator: ' ')
+
+      - when 'ArticleBlock::Divider'
+        = f.object.text.html_safe
+
+      - else
+        = f.trix_editor :text, size: 15
+
+  .col-xs-1
+    = f.hidden_field :_destroy, class: 'remove-attr'
+    = link_to fa_icon('times 2x'), admin_article_block_path(@article, f.object),
+              method: :delete, remote: true, data: {toggle: 'tooltip'}, title: 'Удалить раздел'

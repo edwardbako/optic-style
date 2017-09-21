@@ -10,6 +10,10 @@ gem 'rails'
 gem 'pg', '~> 0.18' # Use postgresql as the database for Active Record
 gem 'pg_search' # builds ActiveRecord named scopes that take advantage of PostgreSQL’s full text search
 gem 'puma', '~> 3.0' # Use Puma as the app server
+gem 'faraday' # HTTP client on Rack, with support for multiple backends.
+gem 'faraday_utf'
+gem 'google-api-client'
+
 gem 'will_paginate' # Pagination library
 gem 'will_paginate-bootstrap' # Bootstrap styles for pagination links
 gem 'dynamic_sitemaps'

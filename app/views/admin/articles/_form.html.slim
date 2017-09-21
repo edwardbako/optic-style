@@ -1,0 +1,20 @@
+= custom_form_for [:admin, @article], html: {class: 'form-horizontal edit-article'} do |f|
+  .form-group
+    .col-sm-10.col-sm-offset-1.col-xs-12.col-xs-offset-0
+      = f.label :title
+      = f.text_field :title, placeholder: 'Без заголовка'
+
+  .article-blocks
+    = f.fields_for :article_blocks, @article.article_blocks.order(:id) do |block_form|
+      = render 'block_fields', f: block_form
+
+  hr
+  .form-group
+    .col-xs-12.col-xs-offset-0.col-sm-10.col-sm-offset-1
+      = f.label 'Добавить'
+      br
+      = render 'add_block_links'
+
+  .form-group
+    .col-xs-12.col-xs-offset-0.col-sm-10.col-sm-offset-1
+      = f.submit class: 'btn btn-success'

@@ -19,6 +19,7 @@
 
 #= require app
 #= require carousel
+#= require yt
 
 #= require cable
 

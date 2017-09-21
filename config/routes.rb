@@ -17,6 +17,11 @@ Rails.application.routes.draw do
     end
 
     resources :posts, except: [:show]
+    resources :articles do
+      scope module: :articles do
+        resources :blocks, only: [:create, :destroy]
+      end
+    end
 
   end
 

@@ -17,6 +17,11 @@ ru:
         one: Новость
         few: Новости
         other: Новостей
+      article:
+        zero: Статей
+        one: Статья
+        few: Статьи
+        other: Статей
       branch:
         zero: Филиалов
         one: Филиал
@@ -43,6 +48,10 @@ ru:
       post:
         title: Заголовок
         body: Содержание
+        published: Опубликована
+        user: Автор
+      article:
+        title: Заголовок
         published: Опубликована
         user: Автор
       branch:

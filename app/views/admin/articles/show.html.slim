@@ -1,0 +1,23 @@
+.container
+  .row
+    = render @article, type: :full
+
+    .col-xs-12.col-sm-3
+      - 6.times do
+        br
+
+      h3 Популярные статьи
+      - 4.times do |i|
+        .media
+          .media-left
+            = image_tag 'fallback/thumb_square_default', class: 'media-object'
+          .media-body
+            h4.media-heading Заголовок #{i}
+            b = l (Time.now - i.days), format: :date
+
+  .row
+    .col-xs-12.col-sm-9
+      br
+
+      = link_to 'Назад', admin_articles_path
+

@@ -1,0 +1,21 @@
+- if @articles.size > 0
+  .row
+    .col-xs-8
+      = will_paginate @articles, renderer: BootstrapPagination::Rails,
+                                  inner_window: 3, outer_window: 0
+    .col-xs-4.text-right
+      ul.pagination
+        li= link_to fa_icon('plus', text: 'Создать статью'), new_admin_article_path
+
+  = render @articles, type: :short
+
+  = will_paginate @articles, renderer: BootstrapPagination::Rails,
+                              inner_window: 3, outer_window: 0
+
+- else
+  .row
+    .col-xs-12.text-right
+      ul.pagination
+        li= link_to fa_icon('plus', text: 'Создать статью'), new_admin_article_path
+  br
+  ' Пока статей нет. Хотите добавить?

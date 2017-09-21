@@ -11,9 +11,14 @@
 
       $('#notice').fadeOut(5000, 'easeInQuart')
 
+      @mount_caption_image_order()
+
+
       App.carousel = new Carousel $(".carousel")[0]
 
       @scrollToTop()
+
+      @mount_video_input()
 
 
 
@@ -42,25 +47,30 @@
   mount_fileupload: ()->
     files_to_upload = 0
 
+    up_set = $('.upload-area[data-src]')
+    for uploader in up_set
+      $(uploader).css('background-image', "url('#{$(uploader).data('src')}?#{+new Date()}')")
+
     $('.upload-area').fileupload
       dataType: 'script',
       sequentialUploads: true
       add: (e, data) ->
         files_to_upload += 1
-        App.loading()
-        data.submit().complete (result, textStatus, jqXHR) ->
+        App.loading(@)
+        data.submit().complete (result, textStatus, jqXHR) =>
           files_to_upload -= 1
-          App.ready() if files_to_upload == 0
+          App.ready(@) if files_to_upload == 0
 
-  loading: () ->
-    $('.upload-area').addClass('loading')
-    $('.upload-area').removeClass('ready')
-    $('.loading-indicator').show()
+  loading: (e) ->
+    $(e).removeClass('ready')
+    $(e).addClass('loading')
+    $(e).css('background-image', 'none')
+    $(e).siblings('.loading-indicator').show()
 
-  ready: () ->
-    $('.upload-area').addClass('ready')
-    $('.upload-area').removeClass('loading')
-    $('.loading-indicator').hide()
+  ready: (e) ->
+    $(e).addClass('ready')
+    $(e).removeClass('loading')
+    $(e).siblings('.loading-indicator').hide()
 
   scrollToTop: ()->
     element = $('.goto-up')
@@ -73,5 +83,33 @@
       element.fadeIn(300) if $(window).scrollTop() > 400
       element.fadeOut(300) if $(window).scrollTop() < 400
 
+  update_images: ()->
+    for im in $("img")
+      $(im).attr('src', $(im).attr('src') + '?' + (+new Date()))
+
+  mount_caption_image_order: ()->
+    $('a.caption-image-order-link').on 'click', (e)->
+      e.preventDefault()
+
+      order = $(@).siblings('.caption-image-order')
+      fieldset = $(@).closest('.block-fields')
+      if order.val() == 'left'
+        fieldset.find('.caption-image-picture').removeClass('col-sm-push-8')
+        fieldset.find('.caption-image-text').removeClass('col-sm-pull-4')
+        order.val('right')
+      else
+        fieldset.find('.caption-image-picture').addClass('col-sm-push-8')
+        fieldset.find('.caption-image-text').addClass('col-sm-pull-4')
+        order.val('left')
+
+  mount_video_input: ()->
+    $('[data-video-url]').off 'keyup'
+    timeout = null
+    $('[data-video-url]').on 'keyup', ()->
+      clearTimeout(timeout)
+      timeout = setTimeout(()=>
+        form = $(@).closest('form')
+        $.post(form.attr('action'), form.serialize(), null, 'script')
+      , 300)
 
 App.init()

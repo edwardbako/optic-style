@@ -1,0 +1,43 @@
+= link_to admin_article_blocks_path(@article, type: 'ArticleBlock::Text'),
+          method: :post, remote: true, class: 'btn btn-default' do
+  .text-center
+    = fa_icon('align-justify 2x')
+    br
+    ' Текст
+'
+= link_to admin_article_blocks_path(@article, type: 'ArticleBlock::Image'),
+          method: :post, remote: true, class: 'btn btn-default' do
+  .text-center
+    = fa_icon('picture-o 2x')
+    br
+    ' Картинку
+'
+= link_to admin_article_blocks_path(@article, type: 'ArticleBlock::Divider'),
+        method: :post, remote: true, class: 'btn btn-default' do
+  .text-center
+    = fa_icon('columns 2x rotate-90')
+    br
+    ' Разделитель
+'
+= link_to admin_article_blocks_path(@article, type: 'ArticleBlock::CaptionImage'),
+        method: :post, remote: true, class: 'btn btn-default' do
+  .text-center
+    = fa_icon('image 2x')
+    '
+    = fa_icon('align-justify 2x')
+    br
+    ' Картинка + текст
+'
+= link_to admin_article_blocks_path(@article, type: 'ArticleBlock::Video'),
+        method: :post, remote: true, class: 'btn btn-default' do
+  .text-center
+    = fa_icon('video-camera 2x')
+    br
+    ' Видео
+'
+= link_to admin_article_blocks_path(@article, type: 'ArticleBlock::Audio'),
+        method: :post, remote: true, class: 'btn btn-default disabled' do
+  .text-center
+    = fa_icon('headphones 2x')
+    br
+    ' Аудио

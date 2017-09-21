@@ -1,0 +1,90 @@
+- case local_assigns[:type]
+
+  - when :short
+    .panel.article id=article.id
+      .panel-body
+        - image_block = article.article_blocks.order(:id).where(type: 'ArticleBlock::Image').first
+        p
+          .media
+            .media-left.media-middle
+              - if image_block.present?
+                = image_tag image_block.image.url(:thumb_square), class: 'media-object'
+            .media-body
+              h2 = article.title.present? ? article.title : 'Без заголовка'
+    
+    
+    
+        br
+        .row
+          .col-xs-6
+            br
+            '
+            = l article.created_at, format: :date
+            b
+              '  /
+            'Автор:
+            = article.user.full_name
+          .col-xs-6.text-right
+            = link_to fa_icon('eye'), admin_article_path(article),
+                      data: {toggle: 'tooltip'},
+                      title: 'Предпросмотр', class: 'btn btn-default'
+            = render partial: 'to_publish', object: article, locals: {type: :short}
+            = link_to fa_icon('pencil'), edit_admin_article_path(article),
+                      data: {toggle: 'tooltip'},
+                      title: 'Редактировать', class: 'btn btn-default'
+    
+            = link_to fa_icon('trash'), admin_article_path(article), method: :delete,
+                      data: {confirm: 'Вы действительно хотите удалить эту статью?',
+                             header: 'Подтвердите, пожалуйста',
+                             toggle: 'tooltip'},
+                      title: 'Удалить', class: 'btn btn-default'
+
+  - when :full
+    .col-xs-12.col-sm-9.article id=article.id
+      br
+      h1 = article.title.present? ? article.title : 'Без заголовка'
+      'Автор:
+      = article.user.full_name
+      b
+        '  /
+      = l article.created_at, format: :date
+      br
+      br
+
+      - article.article_blocks.order(:id).each do |ab|
+
+        - case ab.class.to_s
+
+          - when 'ArticleBlock::Image'
+            = image_tag ab.image.url(:big), class: 'img-responsive'
+
+          - when 'ArticleBlock::CaptionImage'
+            .row
+              .col-xs-6 class=('col-xs-push-6' if ab.left?)
+                = image_tag ab.image.url(:mid), class: 'img-responsive'
+              .col-xs-6 class=('col-xs-pull-6' if ab.left?)
+                p = ab.text.html_safe
+
+          - when 'ArticleBlock::Video'
+            .row
+              .col-xs-12.text-center
+                br
+                = ab.player.html_safe
+
+          /- when 'ArticleBlock::Divider'
+          /  hr
+
+          - else
+            p = ab.text.html_safe if ab.text.present?
+
+      hr
+      = render partial: 'to_publish', object: @article, locals: { type: :full }
+      = link_to fa_icon('pencil'), edit_admin_article_path(@article),
+                data:  { toggle: 'tooltip' },
+                title: 'Редактировать', class: 'btn btn-default'
+
+      = link_to fa_icon('trash'), admin_article_path(@article), method: :delete,
+                data:{ confirm: 'Вы действительно хотите удалить эту статью?',
+                       header:  'Подтвердите, пожалуйста',
+                       toggle:  'tooltip' },
+                title: 'Удалить', class: 'btn btn-default'

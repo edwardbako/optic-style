@@ -2,7 +2,7 @@ class Product < ApplicationRecord
 
   has_many :views, class_name: 'ProductView', dependent: :destroy
 
-  monetize :price_kopecks
+  monetize :price_kopecks, as: :price
 
   scope :published, -> { where(published: true) }
 
