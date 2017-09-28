@@ -5,12 +5,13 @@
       .panel-body
         - image_block = article.article_blocks.order(:id).where(type: 'ArticleBlock::Image').first
         p
-          .media
-            .media-left.media-middle
-              - if image_block.present?
-                = image_tag image_block.image.url(:thumb_square), class: 'media-object'
-            .media-body
-              h2 = article.title.present? ? article.title : 'Без заголовка'
+          = link_to admin_article_path(article) do
+            .media
+              .media-left.media-middle
+                - if image_block.present?
+                  = image_tag image_block.image.url(:thumb_square), class: 'media-object'
+              .media-body
+                h2 = article.title.present? ? article.title : 'Без заголовка'
     
     
     
