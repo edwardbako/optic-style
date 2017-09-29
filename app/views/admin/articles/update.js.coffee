@@ -5,7 +5,7 @@ $("#<%= @article.id %>.article").replaceWith("<%= j render @article,
 
 <%- else %>
 
-$("form#edit_article_<%= @article.id %>.edit_article").replaceWith("<%= j render 'form' %>")
+$("form#edit_article_<%= @article.id %>.edit-article").replaceWith("<%= j render 'form' %>")
 
 <%- end %>
 
