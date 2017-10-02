@@ -6,4 +6,10 @@ class Article < ApplicationRecord
 
   scope :published, -> { where(published: true) }
 
+  before_save :update_published_date
+
+  def update_published_date
+    self.published_at = published? ? Time.now : nil if published_changed?
+  end
+
 end
