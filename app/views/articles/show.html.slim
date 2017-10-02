@@ -1,0 +1,45 @@
+.container
+  .row
+    .col-xs-12.col-sm-9.article id=@article.id
+      br
+      h1 = @article.title.present? ? @article.title : 'Без заголовка'
+      'Автор:
+      = @article.user.full_name
+      b
+        '  /
+      = l @article.created_at, format: :date
+      br
+      br
+
+      - @article.article_blocks.order(:id).each do |ab|
+        = render partial: "articles/blocks/#{ab.class.to_s.split('::').last.underscore}",
+                 object: ab
+
+    .col-xs-12.col-sm-3
+      - 6.times do
+        br
+
+      h3 Недавние статьи
+      = render partial: 'articles/latest', collection: @latest
+
+      hr
+
+      h3 Socials
+      = link_to fa_stacked_icon('instagram inverse', base: 'circle'),
+                instagram_path, class: 'navbar-link', target: '_blank',
+                data: {toggle: 'tooltip'}, title: 'Instagram'
+      '
+      = link_to fa_stacked_icon('vk inverse', base: 'circle'),
+                vk_path, class: 'navbar-link', target: '_blank',
+                data: {toggle: 'tooltip'}, title: 'ВКонтакте'
+      '
+      = link_to fa_stacked_icon('facebook inverse', base: 'circle'),
+                facebook_path, class: 'navbar-link', target: '_blank',
+                data: {toggle: 'tooltip'}, title: 'Facebook'
+
+  .row
+    .col-xs-12.col-sm-9
+      br
+      = link_to 'Назад', articles_path
+      br
+      br

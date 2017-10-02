@@ -102,3 +102,11 @@ h3.divider {
 hr.divider {
   border-top: 2px solid $rgba-secondary-2-3;
 }
+
+.no-padding {
+  padding: 0;
+}
+
+.no-border {
+  border: none;
+}

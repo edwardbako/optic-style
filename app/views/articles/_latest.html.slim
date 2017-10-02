@@ -1,0 +1,12 @@
+.media
+  .media-left
+    - image_block = latest.article_blocks.order(:id).where(type: 'ArticleBlock::Image').first
+    - image_url = image_block.present? ? image_block.image.url(:thumb_square) : 'fallback/thumb_square_default'
+    = link_to latest do
+      = image_tag image_url, class: 'media-object'
+
+  .media-body
+    h4.media-heading
+      = link_to latest do
+        = latest.title.present? ? latest.title : 'Без заголовка'
+    b = l latest.created_at, format: :date

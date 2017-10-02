@@ -1,0 +1,4 @@
+- @articles.in_groups_of(2) do |group|
+  .row.gallery
+    - group.each do |article|
+      = render article if article.present?
