@@ -10,11 +10,9 @@
               = f.file_field :image, class: 'upload-area ready bigger',
                            data: {disable_with: fa_icon('spinner spin'),
                                   src: f.object.image.url(:mid),
+                                  url: admin_article_block_path(@article, f.object),
                                   toggle: 'tooltip'},
                            title: 'Сменить изображение'
-          /.col-xs-6.col-sm-3
-          /  - if f.object.image.present?
-          /    = image_tag f.object.image.url(:small), class: 'img-responsive'
 
       - when 'ArticleBlock::CaptionImage'
         .row
@@ -30,12 +28,11 @@
               .loading-indicator
                 = fa_icon 'spinner spin 2x'
               = f.file_field :image, class: 'upload-area ready bigger',
-                             data: {src: f.object.image.url(:mid),
-                                    toggle: 'tooltip'},
+                             data: {disable_with: fa_icon('spinner spin'),
+                                    src: f.object.image.url(:mid),
+                                    toggle: 'tooltip',
+                                    url: admin_article_block_path(@article, f.object)},
                              title: 'Сменить изображение'
-              /.col-xs-6
-              /  - if f.object.image.present?
-              /    = image_tag f.object.image.url(:small), class: 'img-responsive'
 
           .col-sm-8.col-xs-12.caption-image-text class=('col-sm-pull-4' if f.object.left?)
             = f.trix_editor :text, size: 10

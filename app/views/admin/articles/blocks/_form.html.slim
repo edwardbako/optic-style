@@ -14,7 +14,8 @@
                   name='article[article_blocks_attributes][#{form_id}][image]'
                   id="article_article_blocks_attributes_#{form_id}_image"
                   data-toggle='tooltip'
-                  data-src=@block.image.url(:mid))
+                  data-src=@block.image.url(:mid)
+                  data-url=admin_article_block_path(@article, @block))
       /---------------------------------------------------------------------------------------------
       - when 'ArticleBlock::CaptionImage'
         .row
@@ -34,14 +35,15 @@
                 name='article[article_blocks_attributes][#{form_id}][image]'
                 id="article_article_blocks_attributes_#{form_id}_image"
                 data-toggle='tooltip'
-                data-src=@block.image.url(:mid))
+                data-src=@block.image.url(:mid)
+                data-url=admin_article_block_path(@article, @block))
 
           .col-sm-8.col-xs-12.caption-image-text class=('col-sm-pull-4' if @block.left?)
-            trix-editor(
-              input.form-control="article_article_blocks_attributes_#{@block.id}_text_trix_input_article_block_text_#{@block.id}")
+            - id = "article_article_blocks_attributes_#{@block.id}_text_trix_input_article_block_text_#{@block.id}"
+            trix-editor(input=id)
 
             input.form-control(type='hidden' name='article[article_blocks_attributes][#{form_id}][text]'
-                  id='article_article_blocks_attributes_#{@block.id}_text_trix_input_article_block_text_#{@block.id}')
+              id=id)
       /---------------------------------------------------------------------------------------------
       - when 'ArticleBlock::Video'
         .row
@@ -55,11 +57,10 @@
         = @block.text.html_safe
       /---------------------------------------------------------------------------------------------
       - else
-        trix-editor(
-        input.form-control="article_article_blocks_attributes_#{@block.id}_text_trix_input_article_block_text_#{@block.id}")
-
+        - id = "article_article_blocks_attributes_#{@block.id}_text_trix_input_article_block_text_#{@block.id}"
+        trix-editor(input=id)
         input.form-control(type='hidden' name='article[article_blocks_attributes][#{form_id}][text]'
-          id='article_article_blocks_attributes_#{@block.id}_text_trix_input_article_block_text_#{@block.id}')
+          id=id)
       /---------------------------------------------------------------------------------------------
 
   .col-xs-1

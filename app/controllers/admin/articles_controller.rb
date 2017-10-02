@@ -1,4 +1,6 @@
 class Admin::ArticlesController < AdminController
+  include ArticleParams
+
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/articles
@@ -72,10 +74,4 @@ class Admin::ArticlesController < AdminController
       @article = Article.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def article_params
-      params.require(:article).permit(:title, :published, :user_id,
-                      article_blocks_attributes: [:id, :text, :image, :video, :audio,
-                                                  :caption_place, :_destroy])
-    end
 end

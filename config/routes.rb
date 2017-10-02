@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     resources :posts, except: [:show]
     resources :articles do
       scope module: :articles do
-        resources :blocks, only: [:create, :destroy]
+        resources :blocks, only: [:create, :update, :destroy]
       end
     end
 

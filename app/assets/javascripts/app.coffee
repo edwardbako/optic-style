@@ -46,10 +46,7 @@
 
   mount_fileupload: ()->
     files_to_upload = 0
-
-    up_set = $('.upload-area[data-src]')
-    for uploader in up_set
-      $(uploader).css('background-image', "url('#{$(uploader).data('src')}?#{+new Date()}')")
+    @update_fileuploads()
 
     $('.upload-area').fileupload
       dataType: 'script',
@@ -60,6 +57,11 @@
         data.submit().complete (result, textStatus, jqXHR) =>
           files_to_upload -= 1
           App.ready(@) if files_to_upload == 0
+
+  update_fileuploads: ()->
+    for im in $(".upload-area[data-src]")
+      $(im).css('background-image', "url(#{$(im).data('src')}?#{+new Date()}")
+      $(im).removeAttr('data-src')
 
   loading: (e) ->
     $(e).removeClass('ready')
@@ -83,9 +85,6 @@
       element.fadeIn(300) if $(window).scrollTop() > 400
       element.fadeOut(300) if $(window).scrollTop() < 400
 
-  update_images: ()->
-    for im in $("img")
-      $(im).attr('src', $(im).attr('src') + '?' + (+new Date()))
 
   mount_caption_image_order: ()->
     $('a.caption-image-order-link').on 'click', (e)->
