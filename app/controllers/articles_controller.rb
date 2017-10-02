@@ -21,7 +21,7 @@ class ArticlesController < ApplicationController
   private
 
   def page_size
-    2
+    6
   end
 
   def latest_size
