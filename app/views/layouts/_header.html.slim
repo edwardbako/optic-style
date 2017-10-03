@@ -1,4 +1,4 @@
-.jumbotron.header-image
+.jumbotron.header-image data-image=local_assigns[:image]
   .container
     .row
       .col-xs-12
@@ -13,4 +13,4 @@
         h1
           = links[:current]
           '
-          small = links[:small]
+          small = local_assigns[:small]

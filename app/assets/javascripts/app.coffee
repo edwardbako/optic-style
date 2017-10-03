@@ -12,7 +12,7 @@
       $('#notice').fadeOut(5000, 'easeInQuart')
 
       @mount_caption_image_order()
-
+      @update_backgrounds()
 
       App.carousel = new Carousel $(".carousel")[0]
 
@@ -73,6 +73,10 @@
     $(e).addClass('ready')
     $(e).removeClass('loading')
     $(e).siblings('.loading-indicator').hide()
+
+  update_backgrounds: ()->
+    for im in $("[data-image]")
+      $(im).css('background-image', "url(#{$(im).data('image')})")
 
   scrollToTop: ()->
     element = $('.goto-up')
