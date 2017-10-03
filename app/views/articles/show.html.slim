@@ -1,8 +1,12 @@
+= render 'layouts/header',
+         links: {'Статьи' => articles_path,
+                 current: @article.title.present? ? @article.title : 'Без заголовка'}
+
 .container
   .row
     .col-xs-12.col-sm-9.article id=@article.id
       br
-      h1 = @article.title.present? ? @article.title : 'Без заголовка'
+      /h1 = @article.title.present? ? @article.title : 'Без заголовка'
       'Автор:
       = @article.user.full_name
       b

@@ -6,14 +6,17 @@ class WelcomeController < ApplicationController
 
   def contacts
     @id = params[:id].to_i
+
+    @titles_list += ['Контакты']
+    params[:id].present? ? @titles_list += [Branch.find(@id).short_address] : false
   end
 
-  def sevice
-
+  def service
+    @titles_list += ['Услуги']
   end
 
   def reviews
-
+    @titles_list += ['Отзывы']
   end
 
 end

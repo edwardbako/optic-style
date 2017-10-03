@@ -1,0 +1,16 @@
+.jumbotron.header-image
+  .container
+    .row
+      .col-xs-12
+        ol.breadcrumb
+          li = link_to 'Главная', root_path
+          - links.each do |name, path|
+            - if name == :current
+              li.active = path
+            - elsif name != :small
+              li = link_to name, path
+
+        h1
+          = links[:current]
+          '
+          small = links[:small]

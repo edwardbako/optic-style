@@ -1,15 +1,11 @@
+= render 'layouts/header',
+         links: {current: 'Контакты',
+                 small: 'Вы всегда можете нам позвонить или посетить салоны лично'}
 .container
-  .row
-    .col-sm-8.col-sm-offset-2.text-center
-      br
-      h1
-        ' Контакты
-        small Вы всегда можете нам позвонить или посетить салоны лично
-
-  br
 
   .row
     .col-xs-12.text-center
+      h3 Мы в социальных сетях
       = link_to fa_stacked_icon('instagram inverse', base: 'circle', class: 'fa-2x'),
                 instagram_path, target: '_blank'
       = link_to fa_stacked_icon('vk inverse', base: 'circle', class: 'fa-2x'),
@@ -45,5 +41,5 @@
             .panel-footer
               = link_to fa_icon('map-marker', text: 'Показать на карте'), '#map', class: 'tomap'
 
-.container
+.container-fluid.col-no-padding
   #map

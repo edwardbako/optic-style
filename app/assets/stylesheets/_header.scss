@@ -1,0 +1,19 @@
+.jumbotron.header-image {
+  h1 {
+    font-size: $font-size-h1 * 1.5;
+
+    small {
+      font-size: $font-size-h4;
+    }
+  }
+
+  .breadcrumb {
+    a {
+      color: $gray-light;
+
+      &:hover {
+        color: $link-hover-color;
+      }
+    }
+  }
+}

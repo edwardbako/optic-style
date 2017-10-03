@@ -4,6 +4,8 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all.order(created_at: :desc).limit(page_size).offset(@page * page_size)
     @next_page_size = Post.all.limit(page_size).offset((@page + 1) * page_size).count
+
+    @titles_list += ['Новости']
     respond_to do |format|
       format.html
       format.js

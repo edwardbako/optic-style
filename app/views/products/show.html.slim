@@ -1,12 +1,6 @@
-.container.product id="product_#{@product.id}"
-  .row
-    .col-xs-12
-      h1
-        ' Товары
-        small
-          ' / #{@product.name}
+= render 'layouts/header', links: {'Товары' => products_path, current: @product.name}
 
-  br
+.container.product id="product_#{@product.id}"
   .row
     .col-xs-8
       .carousel
