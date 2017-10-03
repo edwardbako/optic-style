@@ -1,0 +1,8 @@
+ol.breadcrumb
+  - if @product.present?
+    li = link_to 'Каталог товаров', admin_products_path
+    - @product.parents.each do |p|
+      li = link_to p.breadcrumb_name, admin_product_path(p)
+    li.active = (@product.new_record? ? 'Новый продукт' : @product.breadcrumb_name)
+  - else
+    li.active = 'Каталог товаров'

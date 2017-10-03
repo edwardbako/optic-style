@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :users, except: [:show]
     resources :branches, excepot: [:show]
 
-    resources :products, except: [:show] do
+    resources :products do
       scope module: :products do
         resources :views, only: [:index, :create, :update, :destroy]
       end

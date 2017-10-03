@@ -1,20 +1,25 @@
 class Admin::ProductsController < AdminController
+
+  include Admin::ProductsHelper
+
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/products
   # GET /admin/products.json
   def index
-    @products = Product.all.order(:created_at).page(params[:page]).per_page(10)
+    @products = Product.top_level_folders.order(is_folder: :desc).order(:name).page(params[:page]).per_page(10)
   end
 
   # GET /admin/products/1
   # GET /admin/products/1.json
   def show
+    @products = @product.children.order(is_folder: :desc).order(:name).page(params[:page])
   end
 
   # GET /admin/products/new
   def new
     @product = Product.new
+    @product.parent = Product.find(params[:parent]) if params[:parent].present?
   end
 
   # GET /admin/products/1/edit
@@ -28,7 +33,7 @@ class Admin::ProductsController < AdminController
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to admin_products_path,
+        format.html { redirect_to back_url(@product),
                                   notice: 'Продукт создан.' }
         format.json { render :show, status: :created, location: @product }
       else
@@ -43,7 +48,7 @@ class Admin::ProductsController < AdminController
   def update
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to admin_products_path,
+        format.html { redirect_to back_url(@product),
                                   notice: 'Информация о продукте обновлена.' }
         format.json { render :show, status: :ok, location: @product }
         format.js
@@ -59,7 +64,7 @@ class Admin::ProductsController < AdminController
   def destroy
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to admin_products_url(page: params[:page]), notice: 'Продукт удален.' }
+      format.html { redirect_to back_url(@product), notice: 'Продукт удален.' }
       format.json { head :no_content }
       # format.js
     end
@@ -74,6 +79,14 @@ class Admin::ProductsController < AdminController
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
       params.require(:product).permit(:name, :sku, :description, :size, :color, :weight,
-                                      :material, :price, :published)
+                                      :material, :price, :published, :is_folder, :parent_id)
+    end
+
+    def after_save_url
+      if @product.parent.present?
+        admin_product_path(@product.parent, page: params[:page])
+      else
+        admin_products_path(page: params[:page])
+      end
     end
 end

@@ -1,7 +1,7 @@
 .col-sm-4.gallery-item.text-center
   .img-wrapper
     = link_to '', product, class: 'img-controls'
-    = image_tag product.views.first.image.url(:mid), class: 'img-responsive'
+    = image_tag product.views.first.image.url(:mid_square), class: 'img-responsive'
   h4
     = product.name
     br

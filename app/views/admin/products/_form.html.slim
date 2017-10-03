@@ -3,6 +3,10 @@
     = f.label :name
     = f.text_field :name
 
+  .checkbox
+    = f.label :is_folder do
+      = f.check_box :is_folder
+
   .form-group
     = f.label :sku
     = f.text_field :sku
@@ -18,4 +22,5 @@
       span.input-group-addon = fa_icon 'rub'
 
   .form-group
+    = f.hidden_field :parent_id
     = f.submit class: 'btn btn-success'

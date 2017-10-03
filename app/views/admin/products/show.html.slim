@@ -1,6 +1,35 @@
-p#notice = notice
+- if @product.is_folder?
+  = render template: 'admin/products/index'
 
+- else
+  .container
+    .row
+      .col-xs-12
+        = render 'breadcrumbs'
 
-= link_to 'Edit', edit_admin_product_path(@admin_product)
-'  |
-= link_to 'Back', admin_products_path
+    .row
+      .col-xs-12
+        dl.dl-horizontal
+          dt Название
+          dd = @product.name
+
+          dt Артикул
+          dd = @product.sku
+
+          dt Описание
+          dd = @product.description
+
+          dt Цена
+          dd = humanized_money_with_symbol @product.price
+
+          dt Картинки
+          dd
+            .row.gallery
+              - @product.views.each do |view|
+                .col-xs-3.gallery-item
+                  = image_tag view.image.url(:small_square), class: 'img-responsive'
+
+    .row
+      .col-xs-12
+        = link_to 'Назад', back_url(@product)
+

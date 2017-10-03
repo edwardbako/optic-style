@@ -45,6 +45,8 @@ ru:
         weight: Вес
         material: Материал
         published: Опубликован
+        parent: Предок
+        is_folder: Папка
       post:
         title: Заголовок
         body: Содержание

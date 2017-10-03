@@ -1,8 +1,8 @@
 .container
   .row
     .col-xs-12
-      h1 Новый продукт
+      = render 'breadcrumbs'
 
       == render 'form'
 
-      = link_to 'Назад', admin_products_path
+      = link_to 'Назад', back_url(@product)

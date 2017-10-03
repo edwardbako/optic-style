@@ -3,10 +3,10 @@ tr.product id=product.id
     = link_to admin_product_views_path(product), data: {toggle: 'tooltip'},
               title: 'Редактировать изображения' do
       = image_tag product.views.first.image.url(:thumb_square), class: 'img-responsive'
-  td = product.name
-  td = product.sku
-  td = humanized_money_with_symbol product.price
-  td = render partial: 'to_publish', object: product
+  td = link_to product.name, admin_product_path(product)
+  td = product.sku unless product.is_folder?
+  td = humanized_money_with_symbol product.price unless product.is_folder?
+  td = render partial: 'to_publish', object: product unless product.is_folder?
   td
     = link_to fa_icon('pencil-square-o'), edit_admin_product_path(product),
              data: {toggle: 'tooltip'}, title: 'Правка', class: 'btn btn-sm btn-default'

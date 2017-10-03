@@ -1,5 +1,8 @@
 class Product < ApplicationRecord
 
+  include Parentable
+  parentable_class_name 'Product'
+
   has_many :views, class_name: 'ProductView', dependent: :destroy
 
   monetize :price_kopecks, as: :price
@@ -14,5 +17,9 @@ class Product < ApplicationRecord
 
   before_destroy do
     views.clear
+  end
+
+  def breadcrumb_name
+    is_folder? ? name : "#{name} - #{sku}"
   end
 end
