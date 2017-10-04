@@ -1,6 +1,13 @@
-= render 'layouts/header', links: {current: 'Товары'}
+- if @product.present?
+  - links = @product.parents.map {|pa| [pa.name, product_path(pa)]}.to_h
+  = render 'layouts/header',
+           links: {'Товары' => products_path}.merge(links).merge({current: @product.name})
+- else
+  = render 'layouts/header', links: {current: 'Товары'}
 
 .container
+  = render 'folders'
+  br
 
   #products
     = render 'gallery'

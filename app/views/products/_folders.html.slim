@@ -1,0 +1,18 @@
+.row
+  .col-xs-12.text-center
+    ol.breadcrumb.product-folder
+      - if @product.present?
+        li = link_to 'Все товары', products_path
+      - else
+        li.active Все товары
+
+      - Product.top_level_folders.folders.each do |f|
+        = folder_link f.name, f, (@product.present? ? @product : Product.new)
+
+    - if @product.present?
+      - (@product.parents + [@product]).each do |parent|
+        ol.breadcrumb.product-folder
+          = folder_link "Все #{parent.name}", parent, Product.new if parent.children.folders.present?
+
+          - parent.children.folders.each do |f|
+            = folder_link f.name, f, @product

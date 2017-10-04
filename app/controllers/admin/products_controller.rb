@@ -13,7 +13,8 @@ class Admin::ProductsController < AdminController
   # GET /admin/products/1
   # GET /admin/products/1.json
   def show
-    @products = @product.children.order(is_folder: :desc).order(:name).page(params[:page])
+    @products = @product.children.order(is_folder: :desc).order(:name)
+                  .page(params[:page]).per_page(10)
   end
 
   # GET /admin/products/new

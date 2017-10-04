@@ -1,37 +1,43 @@
-= render 'layouts/header', links: {'Товары' => products_path, current: @product.name}
+- if @product.is_folder?
+  = render template: 'products/index'
 
-.container.product id="product_#{@product.id}"
-  .row
-    .col-xs-8
-      .carousel
-        .carousel-controls.carousel-previous
-          = link_to fa_stacked_icon('long-arrow-left', base: 'circle inverse', class: 'fa-2x'),
-                    '#', class: "btn #{'disabled' if @product.views.size < 2}"
+- else
+  - links = @product.parents.map { |pa| [pa.name, product_path(pa)] }.to_h
+  = render 'layouts/header',
+           links: { 'Товары' => products_path }.merge(links).merge({ current: @product.name })
 
-        - @product.views.each do |view|
-          = image_tag view.image.url(:big), class: 'img-responsive'
+  .container.product id="product_#{@product.id}"
+    .row
+      .col-xs-8
+        .carousel
+          .carousel-controls.carousel-previous
+            = link_to fa_stacked_icon('long-arrow-left', base: 'circle inverse', class: 'fa-2x'),
+                      '#', class: "btn #{'disabled' if @product.views.size < 2}"
 
-        .carousel-controls.carousel-next
-          = link_to fa_stacked_icon('long-arrow-right', base: 'circle inverse', class: 'fa-2x'),
-                    '#', class: "btn #{'disabled' if @product.views.size < 2}"
+          - @product.views.each do |view|
+            = image_tag view.image.url(:big), class: 'img-responsive'
 
-        .dots.text-center
-          - @product.views.size.times do
-            = fa_icon 'circle-o', class: 'dot'
-            '
+          .carousel-controls.carousel-next
+            = link_to fa_stacked_icon('long-arrow-right', base: 'circle inverse', class: 'fa-2x'),
+                      '#', class: "btn #{'disabled' if @product.views.size < 2}"
 
-    .col-xs-4
-      h3
-        = @product.name
+          .dots.text-center
+            - @product.views.size.times do
+              = fa_icon 'circle-o', class: 'dot'
+              '
 
-      h4.text-danger
-        = humanized_money_with_symbol @product.price if @product.price > 0
+      .col-xs-4
+        h3
+          = @product.name
 
-      br
-      br
-      p
-        - if @product.sku.present?
-          ' Артикул: #{@product.sku}
+        h4.text-danger
+          = humanized_money_with_symbol @product.price if @product.price > 0
+
+        br
+        br
+        p
+          - if @product.sku.present?
+            ' Артикул: #{@product.sku}
 
 br
 br

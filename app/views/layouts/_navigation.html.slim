@@ -11,13 +11,13 @@ nav.navbar.navbar-default.navbar-fixed-top
       ul.nav.navbar-nav
         li class=('active' if current_page?(controller: :welcome, action: :index))
           = link_to 'Главная', root_path
-        li class=('active' if current_page?(controller: :products))
+        li class=('active' if controller_name == 'products')
           = link_to 'Товары', products_path
         li class=('active' if current_page?(controller: :welcome, action: :service))
           = link_to 'Услуги', service_path
         li class=('active' if current_page?(controller: :posts))
           = link_to 'Новости', posts_path
-        li class=('active' if current_page?(controller: :articles))
+        li class=('active' if controller_name == 'articles')
           = link_to 'Статьи', articles_path
       ul.nav.navbar-nav.navbar-right
         p.navbar-text
