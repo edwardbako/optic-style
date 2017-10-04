@@ -1,0 +1,11 @@
+- unless notification.checked_by? current_user
+  .alert.alert-dismissible.notification class="alert-#{notification.icon}" role = alert
+    button.close data-dismiss='alert' aria-label='Close' data-action=admin_user_notification_path(notification.id)
+      span aria-hidden=true
+        b ok
+
+    .media
+      .media-left.media-middle
+        = notification_icon notification.icon
+      .media-body
+        = notification.text.html_safe

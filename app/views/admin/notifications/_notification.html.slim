@@ -1,0 +1,16 @@
+tr.notification id=notification.id
+  td = notification.id
+  td = notification.icon
+  td.col-xs-6 = notification.text.html_safe
+  td = notification.checked_count_human
+  td
+    = link_to fa_icon('pencil-square-o'), edit_admin_notification_path(notification, page: params[:page]),
+              data: { toggle: 'tooltip' }, title: 'Правка', class: 'btn btn-sm btn-default'
+
+    = link_to fa_icon('trash-o'), admin_notification_path(notification, page: params[:page]),
+              method: :delete, remote: true,
+              data:   { confirm: "Вы действительно хотите удалить <b>#{notification.id} - #{notification.text}</b>?",
+                        header:  'Подтвердите, пожалуйста.',
+                        toggle:  'tooltip' },
+              title:  'Удалить',
+              class:  'btn btn-sm btn-default'

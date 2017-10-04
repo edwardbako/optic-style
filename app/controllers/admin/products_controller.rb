@@ -3,11 +3,13 @@ class Admin::ProductsController < AdminController
   include Admin::ProductsHelper
 
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_notifications, only: [:index, :show]
 
   # GET /admin/products
   # GET /admin/products.json
   def index
     @products = Product.top_level_folders.order(is_folder: :desc).order(:name).page(params[:page]).per_page(10)
+
   end
 
   # GET /admin/products/1
@@ -90,5 +92,9 @@ class Admin::ProductsController < AdminController
       else
         admin_products_path(page: params[:page])
       end
+    end
+
+    def set_notifications
+      @notifications = Notification.find [2, 3]
     end
 end

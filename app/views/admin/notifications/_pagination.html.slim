@@ -1,0 +1,25 @@
+.row
+  .col-sm-6.col-xs-12
+    = will_paginate @notifications, renderer: BootstrapPagination::Rails,
+                    inner_window:        3, outer_window: 0
+  .col-sm-6.col-xs-12.text-right
+    ul.pagination
+      li = link_to new_admin_notification_path do
+        = fa_icon('plus', text: 'Добавить Уведомление')
+
+- if @notifications.size > 0
+  table.table.table-condensed
+    thead
+      tr
+        th ID
+        th ICON
+        th Текст
+        th Прочитано пользователями
+        th
+    tbody = render @notifications
+
+- else
+  ' Этот раздел пока пуст. Хотите добавить уведомления?
+
+= will_paginate @notifications, renderer: BootstrapPagination::Rails,
+                inner_window: 3, outer_window: 0

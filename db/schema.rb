@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171003165512) do
+ActiveRecord::Schema.define(version: 20171004140927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,13 @@ ActiveRecord::Schema.define(version: 20171003165512) do
     t.string "phone"
     t.string "open_hours", array: true
     t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer "icon", default: 0
+    t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -87,6 +94,16 @@ ActiveRecord::Schema.define(version: 20171003165512) do
     t.integer "products_count"
   end
 
+  create_table "user_notifications", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "notification_id"
+    t.boolean "checked", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["notification_id"], name: "index_user_notifications_on_notification_id"
+    t.index ["user_id"], name: "index_user_notifications_on_user_id"
+  end
+
   create_table "users", id: :serial, force: :cascade do |t|
     t.integer "role", default: 0
     t.string "first_name"
@@ -116,4 +133,6 @@ ActiveRecord::Schema.define(version: 20171003165512) do
   add_foreign_key "article_blocks", "articles"
   add_foreign_key "articles", "users"
   add_foreign_key "product_views", "products"
+  add_foreign_key "user_notifications", "notifications"
+  add_foreign_key "user_notifications", "users"
 end

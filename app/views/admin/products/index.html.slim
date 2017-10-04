@@ -5,24 +5,7 @@
 
   .row
     .col-xs-12
-      .alert.alert-warning.alert-dismissible role = alert
-        /button.close *{data: {dismiss: 'alert'}, aria: {label: 'Close'} }
-        /              span *{aria: {hidden: true}} = fa_icon 'times'
-
-        = fa_icon('warning')
-        '
-        ' Продукты в каталоге можно структурировать с помощью папок.
-        ' Новый продукт или новая папка создаются в текущем разделе.
-
-      .alert.alert-danger.alert-dismissible role = alert
-        /button.close *{data: {dismiss: 'alert'}, aria: {label: 'Close'} }
-        /              span *{aria: {hidden: true}} = fa_icon 'times'
-
-        = fa_icon('exclamation-circle')
-        '
-        b Внимание!
-        '
-        ' При удалении папки, все содержащие в ней продукты и папки также удалятся.
+      = render partial: 'admin/notification', collection: @notifications
 
   .row
     .col-xs-12#products

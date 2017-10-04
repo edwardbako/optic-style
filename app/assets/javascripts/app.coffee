@@ -19,8 +19,14 @@
       @scrollToTop()
 
       @mount_video_input()
+      @mount_hide_notifications()
 
-
+  mount_hide_notifications: ()->
+    $("[data-dismiss='alert']").on 'click', ()->
+      $.ajax(
+        method: 'PUT'
+        url: $(@).data('action')
+      )
 
   createMap: ()->
     if $('#map').length > 0

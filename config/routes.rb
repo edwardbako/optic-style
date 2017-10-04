@@ -17,11 +17,15 @@ Rails.application.routes.draw do
     end
 
     resources :posts, except: [:show]
+
     resources :articles do
       scope module: :articles do
         resources :blocks, only: [:create, :update, :destroy]
       end
     end
+
+    resources :notifications
+    resources :user_notifications, only: [:update]
 
   end
 

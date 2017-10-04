@@ -84,3 +84,23 @@ a {
   height: 535px;
   margin-top: 4em;
 }
+
+.alert.notification {
+  position: relative;
+  padding-right: $padding-large-horizontal * 3;
+
+  button.close {
+    position: absolute;
+    bottom: $padding-base-vertical;
+    right: $padding-base-vertical;
+    top: auto;
+  }
+
+  .media-left {
+    padding: 0 $padding-large-horizontal * 3;
+  }
+}
+
+.notification-text {
+  display: inline-block;
+}
