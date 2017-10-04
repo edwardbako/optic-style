@@ -1,11 +1,19 @@
 .row
-  .col-xs-8
+  .col-sm-6.col-xs-12
     = will_paginate @products, renderer: BootstrapPagination::Rails,
                     inner_window:        3, outer_window: 0
-  .col-xs-4.text-right
+  .col-sm-6.col-xs-12.text-right
     ul.pagination
-      li= link_to fa_icon('plus', text: 'Добавить продукт'),
-                  (@product.present? ? new_admin_product_path(parent: @product) : new_admin_product_path)
+      li = link_to new_admin_product_conditional_path(@product),
+                   data: {toggle: 'tooltip'}, title: 'Добавить продукт' do
+        = fa_icon('plus', text: 'Добавить продукт')
+
+      li = link_to new_admin_product_conditional_path(@product, folder: true),
+                   data: {toggle: 'tooltip'}, title: 'Добавить папку' do
+        = fa_icon('plus')
+        '
+        = fa_icon('folder-open')
+
 
 - if @products.size > 0
   table.table.table-condensed

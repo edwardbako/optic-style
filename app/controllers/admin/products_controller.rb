@@ -21,6 +21,7 @@ class Admin::ProductsController < AdminController
   def new
     @product = Product.new
     @product.parent = Product.find(params[:parent]) if params[:parent].present?
+    @product.is_folder = true if params[:is_folder] == 'true'
   end
 
   # GET /admin/products/1/edit

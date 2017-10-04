@@ -3,24 +3,28 @@
     = f.label :name
     = f.text_field :name
 
-  .checkbox
-    = f.label :is_folder do
-      = f.check_box :is_folder
+  - if @product.is_folder?
+    = f.hidden_field :is_folder
 
-  .form-group
-    = f.label :sku
-    = f.text_field :sku
+  - else
+    .form-group
+      = f.label :sku
+      = f.text_field :sku
 
-  .form-group
-    = f.label :description
-    = f.text_area :description
+    .form-group
+      = f.label :description
+      = f.text_area :description
 
-  .form-group
-    = f.label :price
-    .input-group
-      = f.text_field :price
-      span.input-group-addon = fa_icon 'rub'
+    .form-group
+      = f.label :price
+      .input-group
+        = f.text_field :price
+        span.input-group-addon = fa_icon 'rub'
 
   .form-group
     = f.hidden_field :parent_id
-    = f.submit class: 'btn btn-success'
+
+    - if @product.is_folder?
+      = f.submit 'Сохранить Папку', class: 'btn btn-success'
+    - else
+      = f.submit class: 'btn btn-success'
