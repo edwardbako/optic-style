@@ -38,6 +38,8 @@
             small Артикул: #{@product.sku}
 
         br
+        br
+        br
         p = @product.description.html_safe
 
     - if @product.info.present?
