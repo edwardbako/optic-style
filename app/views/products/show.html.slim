@@ -8,7 +8,7 @@
 
   .container.product id="product_#{@product.id}"
     .row
-      .col-xs-8
+      .col-sm-8.col-xs-12
         .carousel
           .carousel-controls.carousel-previous
             = link_to fa_stacked_icon('long-arrow-left', base: 'circle inverse', class: 'fa-2x'),
@@ -26,18 +26,35 @@
               = fa_icon 'circle-o', class: 'dot'
               '
 
-      .col-xs-4
+      .col-sm-4.col-xs-12
         h3
           = @product.name
 
         h4.text-danger
           = humanized_money_with_symbol @product.price if @product.price > 0
 
-        br
-        br
         p
           - if @product.sku.present?
-            ' Артикул: #{@product.sku}
+            small Артикул: #{@product.sku}
+
+        br
+        p = @product.description.html_safe
+
+    - if @product.info.present?
+      hr
+      .row
+        .col-xs-12
+          = @product.info.html_safe
+
+    hr
+    .row
+      .col-xs-12
+        h3 Посмотрите другие продукты
+    .row.gallery
+      - @related.each do |p|
+        .col-sm-3.col-xs-12.gallery-item.text-center
+          = render p
+
 
 br
 br

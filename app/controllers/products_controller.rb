@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_page, only: [:index, :show]
 
+
   def index
     products = Product.published.order(created_at: :desc).limit(page_size)
     set_products_from_collection products
@@ -18,6 +19,7 @@ class ProductsController < ApplicationController
 
     products = @product.children_flatten.published.order(created_at: :desc).limit(page_size)
     set_products_from_collection products
+    set_related_products
 
     @titles_list += ['Товары', @product.name]
     respond_to do |format|
@@ -37,6 +39,10 @@ class ProductsController < ApplicationController
                else
                  Product.top_level_folders.folders
                end
+  end
+
+  def set_related_products
+    @related = Product.not_folders.published.where.not(id: @product.id).order('RANDOM()').limit(4)
   end
 
   def page_size

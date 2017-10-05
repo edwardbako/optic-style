@@ -39,6 +39,7 @@ ru:
         name: Название
         sku: Артикул
         description: Описание
+        info: Дополнительная информация
         price: Цена
         size: Размер
         color: Цвет

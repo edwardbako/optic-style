@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171004140927) do
+ActiveRecord::Schema.define(version: 20171005083108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 20171004140927) do
     t.integer "parent_id"
     t.boolean "is_folder", default: false
     t.integer "products_count"
+    t.text "info"
   end
 
   create_table "user_notifications", force: :cascade do |t|
