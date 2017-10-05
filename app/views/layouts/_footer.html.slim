@@ -15,9 +15,10 @@ footer.footer
     .col-sm-3
       h3 Контактные линзы
       ul.list-unstyled
-        li = link_to 'Однодневные', '#', class: 'disabled'
-        li = link_to 'Двухнедельные', '#', class: 'disabled'
-        li = link_to 'Ежемесячные', '#', class: 'disabled'
+        li = link_to 'Однодневные', product_path(id: 38)
+        li = link_to 'Двухнедельные', product_path(id: 39)
+        li = link_to 'Мультифокальные', product_path(id: 40)
+        li = link_to 'Для астигматизма', product_path(id: 40)
 
     .col-sm-3
       h3 Оправы
