@@ -8,7 +8,7 @@
 
   .container.product id="product_#{@product.id}"
     .row
-      .col-sm-8.col-xs-12
+      .col-md-8.col-xs-12
         .carousel
           .carousel-controls.carousel-previous
             = link_to fa_stacked_icon('long-arrow-left', base: 'circle inverse', class: 'fa-2x'),
@@ -21,12 +21,12 @@
             = link_to fa_stacked_icon('long-arrow-right', base: 'circle inverse', class: 'fa-2x'),
                       '#', class: "btn #{'disabled' if @product.views.size < 2}"
 
-          .dots.text-center
-            - @product.views.size.times do
-              = fa_icon 'circle-o', class: 'dot'
-              '
+        .dots.text-center
+          - @product.views.size.times do
+            = fa_icon 'circle-o', class: 'dot'
+            '
 
-      .col-sm-4.col-xs-12
+      .col-md-4.col-xs-12
         h3
           = @product.name
 

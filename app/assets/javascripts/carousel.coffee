@@ -11,7 +11,7 @@ class window.Carousel
     @size = @images.length
     @currentPos = 0
     @startPositions()
-    @dots = @element.find(".dots .dot").toArray()
+    @dots = $(".dots .dot").toArray()
     $(@dots[@currentPos % @size]).switchClass('fa-circle-o', 'fa-circle')
 
     @previousBtn.on 'click', (e)=>
