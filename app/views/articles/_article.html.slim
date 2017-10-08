@@ -1,24 +1,23 @@
-.col-sm-6.col-xs-12.gallery-item
-  .panel
-    .panel-heading.no-padding
-      .img-wrapper
-        - image_block = article.article_blocks.order(:id).where(type: 'ArticleBlock::Image').first
-        - image_url = image_block.present? ? image_block.image.url(:mid_square) : 'fallback/mid_square_default.png'
+.panel
+  .panel-heading.no-padding
+    .img-wrapper
+      - image_block = article.article_blocks.order(:id).where(type: 'ArticleBlock::Image').first
+      - image_url = image_block.present? ? image_block.image.url(:mid_square) : 'fallback/mid_square_default.png'
 
-        = link_to '', article, class: 'img-controls'
-        = image_tag image_url, class: 'img-responsive'
+      = link_to '', article, class: 'img-controls'
+      = image_tag image_url, class: 'img-responsive'
 
 
-    .panel-body
-      h3 = link_to (article.title.present? ? article.title : 'Без заголовка'), article
+  .panel-body
+    h3 = link_to (article.title.present? ? article.title : 'Без заголовка'), article
 
-      - text_block = article.article_blocks.order(:id).where(type: 'ArticleBlock::Text').first
-      - if text_block.present?
-        = truncate_html text_block.text, length: 260
+    - text_block = article.article_blocks.order(:id).where(type: 'ArticleBlock::Text').first
+    - if text_block.present?
+      = truncate_html text_block.text, length: 260
 
-    .panel-footer.no-border
-      .row
-        .col-xs-6
-          b = l article.created_at, format: :date
-        .col-xs-6.text-right
-          b = link_to fa_icon('long-arrow-right', text: 'Далее', right: true), article
+  .panel-footer.no-border
+    .row
+      .col-xs-6
+        b = l article.created_at, format: :date
+      .col-xs-6.text-right
+        b = link_to fa_icon('long-arrow-right', text: 'Далее', right: true), article

@@ -139,6 +139,20 @@
                   class: 'btn btn-lg'
 
 
+.container.vertical-margin-lg
+  .row
+    .col-xs-12
+      h1 Полезная информация
+      br
+
+  .row.gallery
+    - @recent_articles.each do |article|
+      .col-sm-4.col-xs-12.gallery-item
+        = render article if article.present?
+
+  .row.col-xs-12.text-right
+    = link_to fa_icon('long-arrow-right', text: 'Другие статьи', right: true), articles_path,
+              class: 'btn btn-lg'
 
 /hr
 /

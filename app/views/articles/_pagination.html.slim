@@ -1,4 +1,5 @@
 - @articles.in_groups_of(2) do |group|
   .row.gallery
     - group.each do |article|
-      = render article if article.present?
+      .col-sm-6.col-xs-12.gallery-item
+        = render article if article.present?
