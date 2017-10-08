@@ -1,0 +1,18 @@
+= form_for [:admin, to_featured], remote: true, html: {class: 'form-inline'} do |f|
+
+  .form-group
+    - if to_featured.published?
+      - if to_featured.featured?
+        = f.hidden_field :featured, value: false
+        = button_tag fa_icon('check-square-o', text: 'На главную'), type: 'submit',
+                     class: 'btn btn-sm btn-default',
+                     data: { disable_with: fa_icon('spinner spin', text: 'На главную'),
+                             toggle: 'tooltip'},
+                     title: 'Показывать на главной странице'
+      - else
+        = f.hidden_field :featured, value: true
+        = button_tag fa_icon('square-o', text: 'На главную'), type: 'submit',
+                     class: 'btn btn-sm btn-default',
+                     data: { disable_with: fa_icon('spinner spin', text: 'На главную'),
+                             toggle: 'tooltip' },
+                     title: 'Показывать на главной странице'

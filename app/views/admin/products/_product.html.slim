@@ -9,7 +9,9 @@ tr.product id=product.id
   td = link_to product.name, admin_product_path(product)
   td = product.sku unless product.is_folder?
   td = humanized_money_with_symbol product.price unless product.is_folder?
-  td = render partial: 'to_publish', object: product unless product.is_folder?
+  td
+    = render partial: 'to_publish', object: product unless product.is_folder?
+    = render partial: 'to_featured', object: product unless product.is_folder?
   td
     = link_to fa_icon('pencil-square-o'), edit_admin_product_path(product),
              data: {toggle: 'tooltip'}, title: 'Правка', class: 'btn btn-sm btn-default'

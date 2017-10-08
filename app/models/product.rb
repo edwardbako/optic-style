@@ -8,6 +8,7 @@ class Product < ApplicationRecord
   monetize :price_kopecks, as: :price
 
   scope :published, -> { where(published: true) }
+  scope :featured, -> { where(featured: true) }
 
   after_create :build_default_view
 

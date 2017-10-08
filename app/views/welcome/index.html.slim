@@ -121,6 +121,25 @@
     .col-xs-12.text-right
       = link_to fa_icon('long-arrow-right', text: 'Все Новости', right: true), posts_path,
                 class: 'btn btn-lg'
+
+.container-fluid.bg-light-primary
+  .container.vertical-margin-lg
+    .row
+      .col-xs-12
+        h1 Популярные продукты
+        br
+
+    .row.gallery
+      - @featured_products.each do |product|
+        .col-sm-3.gallery-item.text-center
+          = render product if product.present?
+    .row
+      .col-xs-12.text-right
+        = link_to fa_icon('long-arrow-right', text: 'Все товары', right: true), products_path,
+                  class: 'btn btn-lg'
+
+
+
 /hr
 /
 /= render 'flamp_reviews', count: 3
