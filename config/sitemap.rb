@@ -7,9 +7,13 @@ sitemap :site do
   url service_url, last_mod: Time.now, change_freq: "monthly", priority: 1.0
   url reviews_url, last_mod: Time.now, change_freq: "daily", priority: 1.0
   url posts_url, last_mod: Post.last.updated_at, change_freq: "daily", priority: 1.0
+  url products_url, last_mod: Product.last.updated_at, change_freq: "daily", priority: 1.0
+  url articles_path, last_mod: Article.last.updated_at, change_freq: "weekly", priority: 1.0
+  url contacts_path, last_mod: Branch.last.updated_at, change_freq: "monthly", priority: 1.0
 end
 
 sitemap_for Product.published
+sitemap_for Article.published
 # sitemap_for Post.all
 sitemap_for Branch.all, name: :contacts do |contact|
   url contact_url(contact), last_mod: contact.updated_at, priority: 1.0
