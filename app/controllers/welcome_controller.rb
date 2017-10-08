@@ -7,7 +7,7 @@ class WelcomeController < ApplicationController
   end
 
   def contacts
-    @id = params[:id].to_i
+    @id = params[:id]
 
     @titles_list += ['Контакты']
     params[:id].present? ? @titles_list += [Branch.find(@id).short_address] : false

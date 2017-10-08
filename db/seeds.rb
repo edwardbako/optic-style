@@ -62,3 +62,6 @@ if Branch.count == 0
   )
 
 end
+
+Article.regenerate_slugs
+Branch.regenerate_slugs

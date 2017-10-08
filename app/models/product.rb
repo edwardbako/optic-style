@@ -23,4 +23,8 @@ class Product < ApplicationRecord
   def breadcrumb_name
     is_folder? ? name : "#{name} - #{sku}"
   end
+
+  def to_param
+    [id, name.parameterize].join('-')
+  end
 end
