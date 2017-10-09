@@ -46,8 +46,13 @@
 
   parallax: ()->
     $('.parallax').each ()->
+      bgsize = if $(window).innerWidth() < 768 then "1000px" else "cover"
+      $(this).css {backgroundSize: bgsize}
+
       $(window).scroll ()=>
-        yPos = 100 - $(window).scrollTop() / 5
+        scroll = $(window).scrollTop() + $(window).innerHeight()
+        diff = scroll - $(this).position().top
+        yPos = - diff / 6
         $(this).css {backgroundPosition: "center #{yPos}px"}
 
   mount_fileupload: ()->

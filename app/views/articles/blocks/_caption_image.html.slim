@@ -1,5 +1,11 @@
-.row
-  .col-xs-6 class=('col-xs-push-6' if caption_image.left?)
+.row.visible-xs.visible-sm
+  .col-xs-12
     = image_tag caption_image.image.url(:mid), class: 'img-responsive'
-  .col-xs-6 class=('col-xs-pull-6' if caption_image.left?)
+  .col-xs-12
+    p = caption_image.text.html_safe
+
+.row.hidden-xs.hidden-sm
+  .col-md-6 class=('col-md-push-6' if caption_image.left?)
+    = image_tag caption_image.image.url(:mid), class: 'img-responsive'
+  .col-md-6 class=('col-md-pull-6' if caption_image.left?)
     p = caption_image.text.html_safe

@@ -22,8 +22,10 @@
 }
 
 .vertical-align-row {
-  display: flex;
-  align-items: center;
+  @media(min-width: $screen-sm) {
+    display: flex;
+    align-items: center;
+  }
 }
 
 .pictogram {

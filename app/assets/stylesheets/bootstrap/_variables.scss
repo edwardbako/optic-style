@@ -416,9 +416,9 @@ $navbar-default-brand-hover-color:         darken($navbar-default-brand-color, 1
 $navbar-default-brand-hover-bg:            transparent !default;
 
 // Navbar toggle
-$navbar-default-toggle-hover-bg:           lighten($brand-primary, 2%) !default;
+$navbar-default-toggle-hover-bg:           darken($brand-primary, 5%) !default;
 $navbar-default-toggle-icon-bar-bg:        #fff !default;
-$navbar-default-toggle-border-color:       none !default;
+$navbar-default-toggle-border-color:       lighten($brand-primary, 2%) !default;
 
 
 //=== Inverted navbar

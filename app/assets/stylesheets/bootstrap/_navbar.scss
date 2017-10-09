@@ -11,9 +11,24 @@
     }
   }
 
-  .navbar-header {
+  .navbar-toggle {
+    border-radius: 2px;
+
     .fa {
-      color: #fff;
+      color: $brand-primary;
+    }
+
+    &:hover {
+      .fa {
+        color: #fff;
+      }
+    }
+
+    &:focus {
+      .fa {
+        color: #fff;
+      }
+
     }
   }
 }

@@ -46,6 +46,7 @@
 
 body {
   padding-top: 50px;
+  width: 100%;
 }
 
 .row, td, dd {
@@ -103,4 +104,10 @@ a {
 
 .notification-text {
   display: inline-block;
+}
+
+.video-player {
+  iframe {
+    max-width: 100%;
+  }
 }

@@ -2,8 +2,15 @@
 
   background: none center center no-repeat lighten($brand-primary, 42%);
   background-size: cover;
-  padding-top: $padding-large-vertical * 3;
-  padding-bottom: $padding-large-vertical * 3;
+
+  @media(min-width: $screen-sm) {
+    padding-top: $padding-large-vertical * 3;
+    padding-bottom: $padding-large-vertical * 3;
+  }
+
+  @media(max-width: $screen-sm) {
+    margin-bottom: 0;
+  }
 
   h1 {
     font-size: $font-size-h1 * 1.5;

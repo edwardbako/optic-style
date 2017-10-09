@@ -18,7 +18,7 @@
     .row
       - group.each do |branch|
         .col-xs-12.col-sm-6.col-md-4
-          .panel class= (@id == branch.slug ? 'panel-danger' : 'panel-default')
+          .panel class= (@id == branch.slug ? 'panel-danger' : 'panel-default') id = branch.slug
             .panel-heading
               .panel-title
                 h3

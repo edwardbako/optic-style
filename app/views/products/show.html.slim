@@ -52,10 +52,19 @@
     .row
       .col-xs-12
         h3 Посмотрите другие продукты
-    .row.gallery
-      - @related.each do |p|
-        .col-sm-3.col-xs-12.gallery-item.text-center
-          = render p
+
+    .visible-xs
+      - @related.in_groups_of(2) do |group|
+        .row.gallery
+          - group.each do |p|
+            .col-sm-3.col-xs-6.gallery-item.text-center
+              = render p
+
+    .hidden-xs
+      .row.gallery
+        - @related.each do |p|
+          .col-sm-3.col-xs-6.gallery-item.text-center
+            = render p
 
 
 br

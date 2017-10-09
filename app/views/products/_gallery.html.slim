@@ -1,6 +1,13 @@
-- columns = 4
-- @products.in_groups_of(columns) do |group|
-  .row.gallery
-    - group.each do |product|
-      .gallery-item.text-center class="col-sm-#{12 / columns}"
-        = render product if product.present?
+.hidden-xs
+  - @products.in_groups_of(4) do |group|
+    .row.gallery
+      - group.each do |product|
+        .col-xs-3.gallery-item.text-center
+          = render product if product.present?
+
+.visible-xs
+  - @products.in_groups_of(2) do |group|
+    .row.gallery
+      - group.each do |product|
+        .col-xs-6.gallery-item.text-center
+          = render product if product.present?

@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     @latest = Article.published.order(published_at: :desc)
-                .where.not(id: params[:id]).limit(latest_size)
+                .where.not(slug: params[:id]).limit(latest_size)
 
     @titles_list += ['Статьи', @article.title]
   end
