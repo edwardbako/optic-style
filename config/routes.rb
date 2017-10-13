@@ -44,5 +44,9 @@ Rails.application.routes.draw do
     get code, to: 'exceptions#show', code: code
   end
 
+  constraints subdomain: 'mail' do
+    get '/' => 'mail#index'
+  end
+
   root to: 'welcome#index'
 end
