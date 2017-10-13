@@ -30,7 +30,7 @@ nav.navbar.navbar-default.navbar-fixed-top
             small = fa_icon('reply', text: 'На сайт')
 
         - if user_signed_in?
-          li = link_to 'Почта', 'https://mail.yandex.ru/for/optika-style'
+          li = link_to 'Почта', 'https://mail.optika-style.ru'
           p.navbar-text
             small= current_user.first_name
           li = link_to fa_icon('sign-out', text: 'Выйти', right: true),
