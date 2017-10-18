@@ -8,8 +8,8 @@ sitemap :site do
   url reviews_url, last_mod: Time.now, change_freq: "daily", priority: 1.0
   url posts_url, last_mod: Post.last.updated_at, change_freq: "daily", priority: 1.0
   url products_url, last_mod: Product.last.updated_at, change_freq: "daily", priority: 1.0
-  url articles_path, last_mod: Article.last.updated_at, change_freq: "weekly", priority: 1.0
-  url contacts_path, last_mod: Branch.last.updated_at, change_freq: "monthly", priority: 1.0
+  url articles_url, last_mod: Article.last.updated_at, change_freq: "weekly", priority: 1.0
+  url contacts_url, last_mod: Branch.last.updated_at, change_freq: "monthly", priority: 1.0
 end
 
 sitemap_for Product.published
