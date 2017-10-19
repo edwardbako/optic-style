@@ -1,65 +1,99 @@
 footer.footer
   .container
-    .col-sm-3
-      h3 Компания
-      ul.list-unstyled
-        li = link_to 'О компании', root_path
-        li = link_to 'Новости', posts_path
-        li = link_to 'Статьи', articles_path
-        li = link_to 'Услуги', service_path
-        li = link_to 'Каталог', products_path
-        /li = link_to 'Акции'
-        li = link_to 'Контакты', contacts_path
-        li = link_to 'Отзывы', reviews_path
+    .row
+      .col-sm-3
+        h3 Компания
+        ul.list-unstyled
+          li = link_to 'О компании', root_path
+          li = link_to 'Новости', posts_path
+          li = link_to 'Статьи', articles_path
+          li = link_to 'Услуги', service_path
+          li = link_to 'Каталог', products_path
+          /li = link_to 'Акции'
+          li = link_to 'Контакты', contacts_path
+          li = link_to 'Отзывы', reviews_path
 
-    .col-sm-3
-      h3 Контактные линзы
-      ul.list-unstyled
-        li = link_to 'Однодневные', product_path(id: 38)
-        li = link_to 'Двухнедельные', product_path(id: 39)
-        li = link_to 'Мультифокальные', product_path(id: 40)
-        li = link_to 'Для астигматизма', product_path(id: 40)
+      .col-sm-3
+        h3 Контактные линзы
+        ul.list-unstyled
+          li = link_to 'Однодневные', product_path(id: 38)
+          li = link_to 'Двухнедельные', product_path(id: 39)
+          li = link_to 'Мультифокальные', product_path(id: 40)
+          li = link_to 'Для астигматизма', product_path(id: 40)
 
-    .col-sm-3
-      h3 Оправы
-      ul.list-unstyled
-        li = link_to 'Ободковые', '#', class: 'disabled'
-        li = link_to 'Полуободковые', '#', class: 'disabled'
-        li = link_to 'Безободковые', '#', class: 'disabled'
+      .col-sm-3
+        h3 Оправы
+        ul.list-unstyled
+          li = link_to 'Ободковые', '#', class: 'disabled'
+          li = link_to 'Полуободковые', '#', class: 'disabled'
+          li = link_to 'Безободковые', '#', class: 'disabled'
 
-    .col-sm-3.text-center
-      h3 Режим работы
-      p
-        ' 10.00 - 19.30
+      .col-sm-3.text-center
+        /h3 Режим работы
+        /p
+        /  ' 10.00 - 19.30
+        /  br
+        /  small Воскресенье
+        /  br
+        /  ' 10.00 - 17.00
+
         br
-        small Воскресенье
-        br
-        ' 10.00 - 17.00
+        p
+          = link_to fa_stacked_icon('instagram', base: 'circle-thin'),
+                    instagram_path, target: '_blank'
+          = link_to fa_stacked_icon('vk', base: 'circle-thin'),
+                    vk_path, target: '_blank'
+          = link_to fa_stacked_icon('facebook', base: 'circle-thin'),
+                    facebook_path, target: '_blank'
+        p
+          a(class="flamp-widget"
+            href="https://novosibirsk.flamp.ru/firm/optika_stil_set_salonov_optiki-141265770809876"
+            data-flamp-widget-type="small-new"
+            data-flamp-widget-id="141265770809876")
+            Отзывы о нас на Флампе
+          javascript:
+            !function(d,s){
+              var js,fjs=d.getElementsByTagName(s)[0];
+              js=d.createElement(s);
+              js.async=1;
+              js.src="//widget.flamp.ru/loader.js";
+              fjs.parentNode.insertBefore(js,fjs);
+            }(document,"script");
 
-      br
-      p
-        = link_to fa_stacked_icon('instagram', base: 'circle-thin'),
-                  instagram_path, target: '_blank'
-        = link_to fa_stacked_icon('vk', base: 'circle-thin'),
-                  vk_path, target: '_blank'
-        = link_to fa_stacked_icon('facebook', base: 'circle-thin'),
-                  facebook_path, target: '_blank'
-      p
-        a(class="flamp-widget"
-          href="https://novosibirsk.flamp.ru/firm/optika_stil_set_salonov_optiki-141265770809876"
-          data-flamp-widget-type="small-new"
-          data-flamp-widget-id="141265770809876")
-          Отзывы о нас на Флампе
-        javascript:
-          !function(d,s){
-            var js,fjs=d.getElementsByTagName(s)[0];
-            js=d.createElement(s);
-            js.async=1;
-            js.src="//widget.flamp.ru/loader.js";
-            fjs.parentNode.insertBefore(js,fjs);
-          }(document,"script");
+    /hr
+    .row
+      .col-xs-12
+        h3 Адреса салонов
+    .row
+      - Branch.all.each do |branch|
+        .col-xs-12.col-sm-6.col-md-4
+          h4 = branch.address
+          dl.dl-horizontal.dl-stripped
+            /dt Адрес
+            /dd = branch.address
+            dt Телефон
+            dd = branch.phone
+            /dt Время работы
+            /dd
+            /  - branch.open_hours.each do |oh|
+            /    = oh
+            /    br
+            /dt E-mail
+            /dd = mail_to branch.email
+          /= link_to fa_icon('map-marker', text: 'Показать на карте'), contacts_path(anchor: 'map'),
+          /          class: 'tomap'
+          /br
+          /br
+          /br
 
-  hr
   .container
     p
-      small = link_to fa_icon('copyright', text: "Оптика Стиль. #{Time.now.year}"), admin_path
+      br
+      small
+        ' copyright
+        = link_to fa_icon('copyright', text: "#{Time.now.year}. Оптика Стиль. Все права защищены."),
+                  admin_path
+        br
+        ' Запрещено любое копирование материалов ресурса без письменного согласия владельца — ООО "Оптика-Стиль".
+        br
+        br

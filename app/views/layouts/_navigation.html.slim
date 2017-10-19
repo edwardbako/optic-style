@@ -30,21 +30,21 @@ nav.navbar.navbar-default.navbar-fixed-top
           = link_to fa_stacked_icon('facebook inverse', base: 'circle'),
                      facebook_path, class: 'navbar-link', target: '_blank'
 
-        li.visible-xs class=('active' if current_page?(controller: :welcome, action: :contacts))
+        li class=('active' if current_page?(controller: :welcome, action: :contacts))
           = link_to 'Контакты', contacts_path
 
-        li.dropdown.dropdown-hover.hidden-xs(
-            class=('active' if current_page?(controller: :welcome, action: :contacts)))
-          = link_to contacts_path, class: 'dropdown-toggle',
-            aria: {haspopup: true, expanded: false} do
-            = fa_icon 'caret-down', right: true, text: 'Контакты'
-          ul.dropdown-menu
-            - count = Branch.count
-            - Branch.all.each_with_index do |branch, i|
-              li
-                = link_to contact_path(branch, anchor: branch.slug) do
-                  = branch.phone
-                  br
-                  small = branch.short_address
-              - if i < count -1
-                li.divider
+        /li.dropdown.dropdown-hover.hidden-xs(
+        /    class=('active' if current_page?(controller: :welcome, action: :contacts)))
+        /  = link_to contacts_path, class: 'dropdown-toggle',
+        /    aria: {haspopup: true, expanded: false} do
+        /    = fa_icon 'caret-down', right: true, text: 'Контакты'
+        /  ul.dropdown-menu
+        /    - count = Branch.count
+        /    - Branch.all.each_with_index do |branch, i|
+        /      li
+        /        = link_to contact_path(branch, anchor: branch.slug) do
+        /          = branch.phone
+        /          br
+        /          small = branch.short_address
+        /      - if i < count -1
+        /        li.divider
