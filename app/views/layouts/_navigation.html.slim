@@ -5,14 +5,14 @@ nav.navbar.navbar-default.navbar-fixed-top
               data-target='#main-navbar' aria-expanded='false' )
         = fa_icon 'bars'
       = link_to root_path do
-        = image_tag 'logo.png', height: '60', alt: 'Logo'
+        = image_tag 'logo.png', height: '60', alt: 'Логотип Оптика Стиль'
 
     #main-navbar.collapse.navbar-collapse
       ul.nav.navbar-nav.text-center
         li class=('active' if current_page?(controller: :welcome, action: :index))
           = link_to 'Главная', root_path
         li class=('active' if controller_name == 'products')
-          = link_to 'Товары', products_path
+          = link_to 'Каталог', products_path
         li class=('active' if current_page?(controller: :welcome, action: :service))
           = link_to 'Услуги', service_path
         li class=('active' if current_page?(controller: :posts))

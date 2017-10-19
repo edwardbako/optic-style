@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
     products = Product.published.order(created_at: :desc).limit(page_size)
     set_products_from_collection products
 
-    @titles_list += ['Товары']
+    @titles_list += ['Каталог товаров']
     respond_to do |format|
       format.html
       format.js

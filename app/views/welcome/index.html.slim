@@ -3,7 +3,7 @@
 .container
   .row.main-header
     .col-xs-12.col-sm-3
-      h1
+      h2
         b Что мы делаем лучше всего!
 
     .col-xs-12.col-sm-9
@@ -20,7 +20,7 @@
             h3.pictogram
               b.ionicons.ion-ios-glasses
           .col-xs-10
-            h3
+            h2
               ' Оправы и солнцезащитные очки
               small мужские, женские, детские
             p
@@ -36,7 +36,7 @@
             h3
               = fa_icon 'wpexplorer 2x'
           .col-xs-10
-            h3 Коррегирующие линзы
+            h2 Коррегирующие линзы
             p
               small
                 ' Высокоиндексные, астигматические, поликарбонатные, прогрессивные, тонированные,
@@ -51,7 +51,7 @@
             h3
               = fa_icon 'dot-circle-o 2x'
           .col-xs-10
-            h3 Мягкие контактные линзы
+            h2 Мягкие контактные линзы
             p
               small
                 ' В том числе мягкие контактные линзы нового поколения ("дышащие"), а так же цветные,
@@ -65,7 +65,7 @@
             h3
               = fa_icon 'archive 2x'
           .col-xs-10
-            h3 Большой выбор сопутствующих товаров
+            h2 Большой выбор сопутствующих товаров
             p
               small
                 ' Большой выбор аксессуаров для очков и средств по уходу за мягкими контактными
@@ -78,11 +78,12 @@
             h3
               = fa_icon 'user-md 2x'
           .col-xs-10
-            h3 Консультация врача-офтальмолога
+            h2 Проверка зрения
             p
               small
-                ' Врач поможет подборать очки и контактные линзы, даст консультацию по ношению
-                ' контактных линз. Врач работает индивидуально с каждым клиентом.
+                ' Опытный врач-офтальмолог поможет подборать очки и контактные линзы,
+                ' даст консультацию по ношению контактных линз.
+                ' Врач работает индивидуально с каждым клиентом.
 
     .col-sm-4
       .container-fluid
@@ -91,7 +92,7 @@
             h3
               = fa_icon 'wrench 2x'
           .col-xs-10
-            h3 Изготовление и ремонт очков
+            h2 Изготовление и ремонт очков
             p
               small
                 ' Технологичное и тончайшее оборудование и современные
@@ -103,19 +104,19 @@
     .container
       .row
         .col-xs-12.col-xs-offset-0.col-sm-8.col-sm-offset-2.text-center
-          h1 Комфорт во всем
+          h2 Комфорт во всем
           p
             ' Правильно подберите очки и контактные линзы, и Вы забудете о малейшем дискомфорте.
             ' Опытные врачи-офтальмологи помогут справиться с данной задачей.
             ' А техники высокой квалификации изготовят для Вас очки. Мы гарантируем качество.
           br
-          = link_to fa_icon('long-arrow-right', right: true, text: 'Все услуги'), service_path,
+          b= link_to fa_icon('long-arrow-right', right: true, text: 'Все услуги'), service_path,
                     class: 'btn btn-default btn-reverse'
 
 .container.vertical-margin-lg
   .row
     .col-xs-12
-      h1 Последние новости
+      h2 Последние новости
       br
 
   - @breaking_news.in_groups_of(2) do |group|
@@ -125,7 +126,7 @@
           = render partial: 'posts/post', object: post if post.present?
   .row
     .col-xs-12.text-right
-      = link_to fa_icon('long-arrow-right', text: 'Все Новости', right: true), posts_path,
+      b= link_to fa_icon('long-arrow-right', text: 'Все Новости', right: true), posts_path,
                 class: 'btn btn-lg'
 
 - if @featured_products.size > 0
@@ -133,7 +134,7 @@
     .container.vertical-margin-lg
       .row
         .col-xs-12
-          h1 Популярные продукты
+          h2 Каталог товаров
           br
 
       .visible-xs
@@ -149,14 +150,14 @@
             = render product if product.present?
       .row
         .col-xs-12.text-right
-          = link_to fa_icon('long-arrow-right', text: 'Все товары', right: true), products_path,
+          b= link_to fa_icon('long-arrow-right', text: 'Все товары', right: true), products_path,
                     class: 'btn btn-lg'
 
 
 .container.vertical-margin-lg
   .row
     .col-xs-12
-      h1 Полезная информация
+      h2 Полезная информация
       br
 
   .row.gallery
@@ -165,7 +166,7 @@
         = render article if article.present?
 
   .row.col-xs-12.text-right
-    = link_to fa_icon('long-arrow-right', text: 'Другие статьи', right: true), articles_path,
+    b= link_to fa_icon('long-arrow-right', text: 'Другие статьи', right: true), articles_path,
               class: 'btn btn-lg'
 
 /hr
