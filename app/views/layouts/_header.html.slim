@@ -13,4 +13,9 @@
         h1
           = links[:current]
           '
-          small = local_assigns[:small]
+          small
+            = local_assigns[:small]
+
+  = structured_data_tag({"@context" => "http://schema.org",
+                         "@type" => "BreadcrumbList",
+                         "itemListElement" => breadcrumbs_structured_data_items(links)})

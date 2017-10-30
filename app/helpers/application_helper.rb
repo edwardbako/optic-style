@@ -33,4 +33,19 @@ module ApplicationHelper
     content_tag :script, hash.to_json, {type: 'application/ld+json'}, false
   end
 
+  def breadcrumbs_structured_data_items(links)
+    result = []
+    counter = 1
+    links.each do |name, path|
+      item = {'@id' => (name == :current ? request.original_url : path),
+              'name' => (name == :current ? path : name) }
+      result << {'@type' => 'ListItem',
+                 'position' => counter,
+                 'item' => item
+      }
+      counter += 1
+    end
+    result
+  end
+
 end

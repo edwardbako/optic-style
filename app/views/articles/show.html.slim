@@ -1,5 +1,5 @@
 = render 'layouts/header',
-         links: {'Статьи' => articles_path,
+         links: {'Статьи' => articles_url,
                  current: @article.title.present? ? @article.title : 'Без заголовка'}
 
 .container

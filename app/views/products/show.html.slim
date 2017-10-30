@@ -2,9 +2,9 @@
   = render template: 'products/index'
 
 - else
-  - links = @product.parents.map { |pa| [pa.name, product_path(pa)] }.to_h
+  - links = @product.parents.map { |pa| [pa.name, product_url(pa)] }.to_h
   = render 'layouts/header',
-           links: { 'Товары' => products_path }.merge(links).merge({ current: @product.name })
+           links: { 'Товары' => products_url }.merge(links).merge({ current: @product.name })
 
   .container.product id="product_#{@product.id}"
     .row
