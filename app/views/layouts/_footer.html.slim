@@ -85,6 +85,13 @@ footer.footer
           /br
           /br
           /br
+      = structured_data_tag({"@context": "http://schema.org",
+                             "@type": "Organization",
+                             "url": "https://optika-style.ru",
+                             "name": "Оптика Стиль",
+                             "logo": image_url('logo.png'),
+                             "description": "Оптика Стиль - сеть салонов оптики в Новосибирске. Мы помогаем людям с проблемами зрения видеть лучше. В стильной оправе вы будете выглядеть ярко, модно и привлекательно. А правильно подобранные контактные линзы позволят вам забыть, что со зрением какие-то проблемы.",
+                             "contactPoint": contacts_structured_data_items(Branch.all)})
 
   .container
     p

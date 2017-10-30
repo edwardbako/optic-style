@@ -48,4 +48,16 @@ module ApplicationHelper
     result
   end
 
+  def contacts_structured_data_items(branches)
+    branches.map do |branch|
+      {
+        "@type": "ContactPoint",
+        areaServed: "RU",
+        availableLanguage: "Russian",
+        contactType: "sales",
+        telephone: branch.phone
+      }
+    end
+  end
+
 end
