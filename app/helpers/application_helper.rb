@@ -29,4 +29,8 @@ module ApplicationHelper
     form_for *args, &block
   end
 
+  def structured_data_tag(hash = {})
+    content_tag :script, hash.to_json, {type: 'application/ld+json'}, false
+  end
+
 end
