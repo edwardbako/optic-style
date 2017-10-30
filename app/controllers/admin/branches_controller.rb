@@ -47,7 +47,7 @@ class Admin::BranchesController < AdminController
 
   def branch_params
     convert_open_hours
-    params.require(:branch).permit(:address, :short_address, :phone, :email, open_hours: [])
+    params.require(:branch).permit(:address, :short_address, :phone, :email, :map, open_hours: [])
   end
 
   def convert_open_hours

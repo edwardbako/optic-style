@@ -15,13 +15,6 @@ EOS
 
   end
 
-  def contacts
-    @id = params[:id]
-
-    @titles_list += ['Контакты']
-    params[:id].present? ? @titles_list += [Branch.find(@id).short_address] : false
-  end
-
   def service
     @titles_list += ['Услуги']
   end

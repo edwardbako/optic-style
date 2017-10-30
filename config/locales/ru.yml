@@ -63,6 +63,7 @@ ru:
         phone: Телефон
         email: Email
         open_hours: Время работы
+        map: Код для вставки карты
     errors:
       messages:
         blank: не может быть пустым

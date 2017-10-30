@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   get 'admin' => 'admin#index'
   namespace :admin do
     resources :users, except: [:show]
-    resources :branches, excepot: [:show]
+    resources :branches, excepot: [:show] do
+      scope module: :branches do
+        resources :views, only: [:index, :create, :update, :destroy]
+      end
+    end
 
     resources :products do
       scope module: :products do
@@ -33,8 +37,7 @@ Rails.application.routes.draw do
   resources :posts, only: [:index]
   resources :articles, only: [:index, :show]
 
-  get 'contacts' => 'welcome#contacts'
-  get 'contacts/:id' => 'welcome#contacts', as: :contact
+  resources :contacts, only: [:index, :show]
 
   get 'service' => 'welcome#service'
 

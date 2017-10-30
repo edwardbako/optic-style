@@ -67,7 +67,7 @@ footer.footer
     .row
       - Branch.all.each do |branch|
         .col-xs-12.col-sm-6.col-md-4
-          h4 = branch.address
+          = link_to branch.address, contact_path(branch)
           dl.dl-horizontal.dl-stripped
             /dt Адрес
             /dd = branch.address

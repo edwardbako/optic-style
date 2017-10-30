@@ -1,0 +1,40 @@
+= render 'layouts/header',
+         links: {'Салоны Оптики' => contacts_path, current: @branch.short_address}
+
+
+.container
+  .row
+    .col-xs-12.col-md-5
+      /dl.dl-horizontal.dl-stripped
+      /  dt Адрес
+      /  dd = @branch.address
+      /  dt Телефон
+      /  dd = @branch.phone
+      /  dt Время работы
+      /  dd
+      /    - @branch.open_hours.each do |oh|
+      /      = oh
+      /      br
+      /  dt E-mail
+      /  dd = mail_to @branch.email
+      /
+      - if @branch.map.present?
+        = @branch.map.html_safe
+
+    .col-xs-12.col-md-7
+      .carousel
+        .carousel-controls.carousel-previous
+          = link_to fa_stacked_icon('long-arrow-left', base: 'circle inverse', class: 'fa-2x'),
+                    '#', class: "btn #{'disabled' if @branch.views.size < 2}"
+
+        - @branch.views.each do |view|
+          = image_tag view.image.url(:big), class: 'img-responsive'
+
+        .carousel-controls.carousel-next
+          = link_to fa_stacked_icon('long-arrow-right', base: 'circle inverse', class: 'fa-2x'),
+                    '#', class: "btn #{'disabled' if @branch.views.size < 2}"
+
+      .dots.text-center
+        - @branch.views.size.times do
+          = fa_icon 'circle-o', class: 'dot'
+          '

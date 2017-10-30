@@ -1,0 +1,29 @@
+= render 'layouts/header',
+         links: {current: 'Салоны Оптики'}
+
+.container
+  - Branch.all.each do |branch|
+      .col-xs-12.col-sm-6.col-md-4
+        .panel id = branch.slug
+          .panel-heading
+            .panel-title
+              h2
+                = link_to branch.short_address, contact_path(branch)
+          .panel-body
+            dl.dl-horizontal.dl-stripped
+              dt Адрес
+              dd = branch.address
+              dt Телефон
+              dd = branch.phone
+              dt Время работы
+              dd
+                - branch.open_hours.each do |oh|
+                  = oh
+                  br
+              /dt E-mail
+              /dd = mail_to branch.email
+          /.panel-footer
+          /  = link_to fa_icon('map-marker', text: 'Показать на карте'), '#map', class: 'tomap'
+
+.container-fluid.col-no-padding
+  #map

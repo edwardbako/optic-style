@@ -65,3 +65,5 @@ end
 
 Article.regenerate_slugs
 Branch.regenerate_slugs
+
+Branch.all.each { |b| b.build_default_view }

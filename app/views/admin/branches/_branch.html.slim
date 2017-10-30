@@ -1,4 +1,8 @@
 tr.branch id="branch#{branch.id}"
+  td
+    = link_to admin_branch_views_path(branch), data: {toggle: 'tooltip'},
+               title: 'Редактировать изображения' do
+      = image_tag branch.views.first.image.url(:thumb_square), class: 'img-responsive'
   td = branch.short_address
   td = branch.phone
   td = branch.open_hours.join(",<br>").html_safe if branch.open_hours.present?

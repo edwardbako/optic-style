@@ -1,8 +1,16 @@
 class Branch < ApplicationRecord
 
+  has_many :views, class_name: 'BranchView', dependent: :destroy
+
   validates :short_address, presence: true, uniqueness: true
 
   before_save :set_slug
+
+  after_create :build_default_view
+
+  before_destroy do
+    views.clear
+  end
 
   def to_param
     short_address.parameterize
@@ -22,4 +30,9 @@ class Branch < ApplicationRecord
       r.save
     end
   end
+
+  def build_default_view
+    views.create(default: true)
+  end
+
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171008142643) do
+ActiveRecord::Schema.define(version: 20171030081228) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,17 @@ ActiveRecord::Schema.define(version: 20171008142643) do
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
+  create_table "branch_views", force: :cascade do |t|
+    t.string "image"
+    t.string "description"
+    t.integer "position"
+    t.boolean "default", default: false
+    t.bigint "branch_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["branch_id"], name: "index_branch_views_on_branch_id"
+  end
+
   create_table "branches", id: :serial, force: :cascade do |t|
     t.string "address"
     t.string "short_address"
@@ -48,6 +59,7 @@ ActiveRecord::Schema.define(version: 20171008142643) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
+    t.text "map"
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -136,6 +148,7 @@ ActiveRecord::Schema.define(version: 20171008142643) do
 
   add_foreign_key "article_blocks", "articles"
   add_foreign_key "articles", "users"
+  add_foreign_key "branch_views", "branches"
   add_foreign_key "product_views", "products"
   add_foreign_key "user_notifications", "notifications"
   add_foreign_key "user_notifications", "users"

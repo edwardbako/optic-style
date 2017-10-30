@@ -21,4 +21,8 @@
                   value: (f.object.open_hours.join(', ') if f.object.open_hours.present?)
 
   .form-group
+    = f.label :map
+    = f.text_field :map
+
+  .form-group
     = f.submit class: 'btn btn-success'

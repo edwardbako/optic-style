@@ -22,15 +22,18 @@ nav.navbar.navbar-default.navbar-fixed-top
       ul.nav.navbar-nav.navbar-right.text-center
         p.navbar-text
           = link_to fa_stacked_icon('instagram inverse', base: 'circle'),
-                    instagram_path, class: 'navbar-link', target: '_blank'
+                    instagram_path, class: 'navbar-link', target: '_blank',
+                    alt: 'Оптика Стиль в Instagram'
           '
           = link_to fa_stacked_icon('vk inverse', base: 'circle'),
-                     vk_path, class: 'navbar-link', target: '_blank'
+                     vk_path, class: 'navbar-link', target: '_blank',
+                     alt: 'Оптика Стиль в ВКонтакте'
           '
           = link_to fa_stacked_icon('facebook inverse', base: 'circle'),
-                     facebook_path, class: 'navbar-link', target: '_blank'
+                     facebook_path, class: 'navbar-link', target: '_blank',
+                    alt: 'Оптика Стиль в Facebook'
 
-        li class=('active' if current_page?(controller: :welcome, action: :contacts))
+        li class=('active' if controller_name == 'contacts')
           = link_to 'Контакты', contacts_path
 
         /li.dropdown.dropdown-hover.hidden-xs(
