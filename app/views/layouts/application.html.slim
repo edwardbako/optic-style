@@ -21,6 +21,7 @@ html
 
   body
     - if Rails.env.staging?
+      = render 'layouts/metrics/yandex_direct'
       = render 'layouts/metrics/yandex'
       = render 'layouts/metrics/google'
     
