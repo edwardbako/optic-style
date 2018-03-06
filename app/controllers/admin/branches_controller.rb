@@ -3,7 +3,7 @@ class Admin::BranchesController < AdminController
   before_action :set_branch, only: [:edit, :update, :destroy]
 
   def index
-    @branches = Branch.all.order(created_at: :desc).page(params[:page]).per_page(10)
+    @branches = Branch.all.order(:position).page(params[:page]).per_page(10)
   end
 
   def new
@@ -47,7 +47,7 @@ class Admin::BranchesController < AdminController
 
   def branch_params
     convert_open_hours
-    params.require(:branch).permit(:address, :short_address, :phone, :email, :map, open_hours: [])
+    params.require(:branch).permit(:address, :short_address, :position, :phone, :email, :map, open_hours: [])
   end
 
   def convert_open_hours
