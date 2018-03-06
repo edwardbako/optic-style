@@ -39,7 +39,7 @@ class Admin::Branches::ViewsController < AdminController
   end
 
   def set_view
-    @view = @branch.find(params[:id])
+    @view = @branch.views.find(params[:id])
   end
 
   def view_params
