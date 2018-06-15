@@ -7,11 +7,12 @@
           - links.each do |name, path|
             - if name == :current
               li.active = path
-            - elsif name != :small
+            - elsif name != :small and name != :special
               li = link_to name, path
 
         h1
           = links[:current]
+          = links[:special]
           '
           small
             = local_assigns[:small]

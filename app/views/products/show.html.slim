@@ -12,14 +12,14 @@
         .carousel
           .carousel-controls.carousel-previous
             = link_to fa_stacked_icon('long-arrow-left', base: 'circle inverse', class: 'fa-2x'),
-                      '#', class: "btn #{'disabled' if @product.views.size < 2}"
+                      '#', class: "act btn #{'disabled' if @product.views.size < 2}"
 
           - @product.views.each do |view|
             = image_tag view.image.url(:big), class: 'img-responsive'
 
           .carousel-controls.carousel-next
             = link_to fa_stacked_icon('long-arrow-right', base: 'circle inverse', class: 'fa-2x'),
-                      '#', class: "btn #{'disabled' if @product.views.size < 2}"
+                      '#', class: "act btn #{'disabled' if @product.views.size < 2}"
 
         .dots.text-center
           - @product.views.size.times do

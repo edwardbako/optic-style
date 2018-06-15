@@ -1,0 +1,5 @@
+- if @next_page_size > 0
+  .row
+    .col-xs-12.text-center
+      = link_to fa_icon('repeat', text: 'Загрузить еще'), grams_path(page: @page + 1),
+                remote: true, class: 'btn btn-danger'

@@ -1,0 +1,19 @@
+= render 'layouts/header',
+         links: {'Фото клиентов' => grams_url,
+                 special: @gram.body.present? ? @gram.body.html_safe : 'Без заголовка'}
+
+.container
+  .row
+    .col-xs-12.text-center
+      .carousel.large
+        .carousel-controls.carousel-previous
+          = link_to fa_stacked_icon('long-arrow-left', base: 'circle inverse', class: 'fa-2x'),
+                    @gram.previous, class: "btn #{'disabled' if @gram.previous.blank?}"
+
+        = image_tag @gram.image.url(:big)
+
+        .carousel-controls.carousel-next
+          = link_to fa_stacked_icon('long-arrow-right', base: 'circle inverse', class: 'fa-2x'),
+                    @gram.next, class: "btn #{'disabled' if @gram.next.blank?}"
+
+  br

@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   end
 
   resources :products, only: [:index, :show]
+  resources :grams, only: [:index, :show]
   resources :posts, only: [:index]
   resources :articles, only: [:index, :show]
 

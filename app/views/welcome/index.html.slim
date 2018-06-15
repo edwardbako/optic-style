@@ -116,6 +116,27 @@
 .container.vertical-margin-lg
   .row
     .col-xs-12
+      h2
+        ' Мы знаем, ЧТО вы видите
+        small Фотогрфии наших клиентов в оправах
+
+      br
+
+  .row
+    - @recent_grams.each do |gram|
+      .col-xs-4
+        = render gram if gram.present?
+
+  row
+    .col-xs-12.text-right
+      b= link_to fa_icon('long-arrow-right', text: 'Все Фото клиентов', right: true), grams_path,
+                 class: 'btn btn-lg'
+
+hr
+
+.container.vertical-margin-lg
+  .row
+    .col-xs-12
       h2 Последние новости
       br
 

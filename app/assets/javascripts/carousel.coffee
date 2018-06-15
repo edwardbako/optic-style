@@ -5,8 +5,8 @@ class window.Carousel
 
   constructor: (e)->
     @element = $(e)
-    @nextBtn = @element.find(".carousel-next a")
-    @previousBtn = @element.find(".carousel-previous a")
+    @nextBtn = @element.find(".carousel-next a.act")
+    @previousBtn = @element.find(".carousel-previous a.act")
     @images = @element.find("img").toArray()
     @size = @images.length
     @currentPos = 0
