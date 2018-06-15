@@ -1,0 +1,24 @@
+.panel
+  .panel-body
+    .media
+      .media-left.media-middle
+        = image_tag gram.image.url(:thumb_square), class: 'media-object'
+      .media-body.media-middle
+        = gram.body.html_safe if gram.body.present?
+
+    br
+
+    .row
+      .col-xs-6
+        br
+        b = l gram.created_at, format: :date
+      .col-xs-6.text-right
+        = link_to fa_icon('pencil'), edit_admin_gram_path(gram),
+                  data:  { toggle: 'tooltip' },
+                  title: 'Редактировать', class: 'btn btn-default'
+
+        = link_to fa_icon('trash'), admin_gram_path(gram), method: :delete,
+                  data: { confirm: 'Вы действительно хотите удалить эту новость?',
+                          header:  'Подтвердите, пожалуйста',
+                          toggle:  'tooltip' },
+                  title: 'Удалить', class: 'btn btn-default'

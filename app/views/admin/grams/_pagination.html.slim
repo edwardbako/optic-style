@@ -1,0 +1,19 @@
+- if @grams.size > 0
+  .row
+    .col-xs-8
+      = will_paginate @grams, renderer: BootstrapPagination::Rails, inner_window: 3, outer_window: 0
+    .col-xs-4.text-right
+      ul.pagination
+        li= link_to fa_icon('plus', text: 'Добавить Gram'), new_admin_gram_path
+
+  = render @grams
+
+  = will_paginate @grams, renderer: BootstrapPagination::Rails, inner_window: 3, outer_window: 0
+
+- else
+  .row
+    .col-xs-12.text-right
+      ul.pagination
+        li= link_to fa_icon('plus', text: 'Добавить Gram'), new_admin_gram_path
+  br
+  ' Пока фотографий нет. Хотите добавить?

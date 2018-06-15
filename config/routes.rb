@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     end
 
     resources :posts, except: [:show]
+    resources :grams, except: [:show]
 
     resources :articles do
       scope module: :articles do

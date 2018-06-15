@@ -1,0 +1,16 @@
+= custom_form_for [:admin, @gram] do |f|
+  .form-group
+    .upload-wrapper
+      .loading-indicator
+        = fa_icon 'spinner spin 2x'
+      = f.file_field :image, class: 'upload-area ready bigger',
+                     data:          { disable_with: fa_icon('spinner spin'),
+                                      src:          @gram.image.url(:mid),
+                                      url:          admin_gram_path(@gram),
+                                      toggle:       'tooltip' },
+                     title:         'Сменить изображение'
+  .form-group
+    = f.trix_editor :body, size: 15
+
+  .form-group
+    = f.submit class: 'btn btn-success'
