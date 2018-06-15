@@ -16,7 +16,7 @@ class Admin::ArticlesController < AdminController
 
   # GET /admin/articles/new
   def new
-    @article = Article.create(user: current_user)
+    @article = Article.create(user: current_user, title: 'default')
     image_block = ArticleBlock::Image.create
     text_block = ArticleBlock::Text.create
     @article.article_blocks << image_block
