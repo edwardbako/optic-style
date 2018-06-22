@@ -1,3 +1,8 @@
-.img-wrapper
-  = link_to '', gram, class: 'img-controls'
-  = image_tag gram.image.url(:mid_square), class: 'img-responsive'
+.panel
+  .panel-heading.no-padding
+    .img-wrapper
+      = link_to '', gram, class: 'img-controls'
+      = image_tag gram.image.url(:mid_square), class: 'img-responsive'
+
+  .panel-body
+    = gram.body.html_safe

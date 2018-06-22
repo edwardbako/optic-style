@@ -122,9 +122,9 @@
 
       br
 
-  .row
+  .row.gallery
     - @recent_grams.each do |gram|
-      .col-xs-4
+      .col-xs-4.gallery-item
         = render gram if gram.present?
 
   row

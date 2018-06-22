@@ -1,4 +1,5 @@
-.row.gallery
-  - @grams.each do |gram|
-    .col-xs-4.gallery-item
-      = render gram
+- @grams.in_groups_of(3) do |group|
+  .row.gallery
+    - group.each do |gram|
+      .col-xs-4.gallery-item
+        = render gram if gram.present?
