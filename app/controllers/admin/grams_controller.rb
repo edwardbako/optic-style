@@ -4,7 +4,7 @@ class Admin::GramsController < AdminController
   # GET /admin/grams
   # GET /admin/grams.json
   def index
-    @grams = Gram.all.order(created_at: :desc).page(params[:page]).per_page(3)
+    @grams = Gram.all.order(created_at: :desc).page(params[:page]).per_page(10)
   end
 
   # GET /admin/grams/1
