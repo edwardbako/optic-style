@@ -5,4 +5,4 @@
       = image_tag gram.image.url(:mid_square), class: 'img-responsive'
 
   .panel-body
-    = gram.body.html_safe
+    = gram.body.html_safe if gram.body.present?
