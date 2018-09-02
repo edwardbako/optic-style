@@ -36,6 +36,10 @@
 #    else
 #      console.log false
 
+      if App.YTAPI.ready && $('#tv').length > 0
+        App.YTAPI.initPlayer(App.YTAPI.videoId)
+        App.YTAPI.rescale()
+
   mount_hide_notifications: ()->
     $("[data-dismiss='alert']").on 'click', ()->
       $.ajax(

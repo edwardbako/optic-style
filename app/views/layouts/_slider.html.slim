@@ -1,9 +1,26 @@
 .jumbotron.jumbotron-bg
-  .container
+  .tv
+    #tv.screen.mute
+  .fader
+
+  .container.jumbotron-text
     .row
       .col-xs-9.col-sm-7
+        br
+        br
+        br
         h1.gochi-font.white Сеть салонов Оптика Стиль
         br
         br
         p.white
           ' Весь мир в одном взгляде
+        br
+        br
+        br
+        br
+        br
+        br
+        br
+        = link_to products_path, class: 'btn btn-default btn-reverse' do
+          = fa_icon 'long-arrow-right', text: 'Коллекция оправ', right: true
+
