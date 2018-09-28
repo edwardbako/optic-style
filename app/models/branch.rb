@@ -1,5 +1,7 @@
 class Branch < ApplicationRecord
 
+  default_scope { order(position: :asc)}
+
   has_many :views, class_name: 'BranchView', dependent: :destroy
 
   validates :short_address, presence: true, uniqueness: true
