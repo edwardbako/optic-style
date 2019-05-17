@@ -64,3 +64,6 @@ if Branch.count == 0
 end
 
 
+if Client.count == 0
+  ClientsImport.new.process
+end
