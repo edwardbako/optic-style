@@ -1,0 +1,15 @@
+.form-group.row.phone-field id=f.index
+  .col-xs-4
+    = f.label :number
+    = f.phone_field :number, class: 'phone-mask'
+
+  .col-xs-6
+    = f.label :comment
+    = f.text_field :comment
+
+  .col-xs-2
+    = f.hidden_field :_destroy
+    = link_to fa_icon('trash-o'), admin_clients_phone_path(f.index), method: :delete, remote: true,
+            data: {toggle: 'tooltip'},
+            title: 'Удалить',
+            class: 'btn btn-sm btn-danger small-margin-top'

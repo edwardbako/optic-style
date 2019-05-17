@@ -14,6 +14,16 @@ Rails.application.routes.draw do
       end
     end
 
+    namespace :clients do
+      resources :phones , only: [:new, :destroy]
+    end
+    resources :clients do
+      scope module: :clients do
+        resources :orders
+        resources :recipes
+      end
+    end
+
     resources :products do
       scope module: :products do
         resources :views, only: [:index, :create, :update, :destroy]

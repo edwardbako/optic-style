@@ -1,0 +1,26 @@
+#clients.col-xs-12
+  .row
+    .col-xs-8
+      = will_paginate @clients, renderer: BootstrapPagination::Rails, inner_window: 3, outer_window: 0
+    .col-xs-4.text-right
+      ul.pagination
+        li = link_to fa_icon('plus', text: 'Добавить клиента'),
+                new_admin_client_path(search: params[:search], page: params[:page])
+
+  - if @clients.size > 0
+    table.table.table-condensed.table-responsive
+      thead
+        tr
+          th Ф.И.О.
+          th Телефон
+          th Email
+          th Возраст
+          th
+      tbody = render @clients
+
+  - else
+    br
+    ' Пока клиентов нет. Хотите добавить?
+
+  = will_paginate @clients, renderer: BootstrapPagination::Rails, inner_window: 3, outer_window: 0
+

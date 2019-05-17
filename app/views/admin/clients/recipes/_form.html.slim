@@ -1,0 +1,42 @@
+= custom_form_for [:admin, @client, @recipe] do |f|
+  .form-row
+    .col-xs-12
+      = f.label :date
+      = f.date_field :date, value: (@recipe.date.present? ? @recipe.date : Date.today)
+  .form-row
+    .col-xs-4
+      = f.label :od_sph
+      = f.text_field :od_sph
+    .col-xs-4
+      = f.label :od_cyl
+      = f.text_field :od_cyl
+    .col-xs-4
+      = f.label :od_ax
+      = f.text_field :od_ax
+
+  .form-row
+    .col-xs-4
+      = f.label :os_sph
+      = f.text_field :os_sph
+    .col-xs-4
+      = f.label :os_cyl
+      = f.text_field :os_cyl
+    .col-xs-4
+      = f.label :os_ax
+      = f.text_field :os_ax
+
+  .form-row
+    .col-xs-4.col-xs-offset-4
+      = f.label :dp
+      = f.text_field :dp
+    .col-xs-4
+
+  .form-row
+    .col-xs-12
+      = f.label :comment
+      = f.text_field :comment
+
+  .form-row
+    .col-xs-12
+      br
+      = f.submit class: 'btn btn-success'

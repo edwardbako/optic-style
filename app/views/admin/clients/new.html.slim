@@ -1,0 +1,6 @@
+.container
+  .row
+    .col-xs-12
+      = render 'form'
+
+      = link_to 'Назад', admin_clients_path(search: params[:search], page: params[:page])

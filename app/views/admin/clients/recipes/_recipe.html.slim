@@ -1,0 +1,33 @@
+tr.recipe id=recipe.id
+  td = l recipe.date, format: :date
+  td
+    'sph:
+    b =recipe.od_sph
+    - if recipe.od_cyl.present?
+      '  cyl:
+      b =recipe.od_cyl
+    - if recipe.od_ax.present?
+      '  ax:
+      b =recipe.od_ax
+  td
+    'sph:
+    b = recipe.os_sph
+    - if recipe.os_cyl.present?
+      '  cyl:
+      b = recipe.os_cyl
+    - if recipe.os_ax.present?
+      '  ax:
+      b = recipe.os_ax
+  td = recipe.dp
+  td = recipe.comment
+  td
+    = link_to fa_icon('pencil-square-o'), edit_admin_client_recipe_path(recipe.client, recipe), data: { toggle: 'tooltip' },
+            title: 'Правка', class: 'btn btn-sm btn-default'
+
+    = link_to fa_icon('trash-o'), admin_client_recipe_path(recipe.client, recipe, page: params[:recipes_page]),
+            method: :delete, remote: true,
+            data: { confirm: "Вы действительно хотите удалить рецепт от <b>#{l recipe.date, format: :date}</b>?",
+                    header: 'Подтвердите, пожалуйста.',
+                    toggle: 'tooltip' },
+            title: 'Удалить',
+            class: 'btn btn-sm btn-default'

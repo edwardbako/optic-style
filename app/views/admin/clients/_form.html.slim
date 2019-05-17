@@ -1,0 +1,58 @@
+= custom_form_for [:admin, @client] do |f|
+  .form-group
+    = f.label :branch
+    = f.collection_select :branch_id, Branch.all, :id, :short_address, {prompt: true}, {class: 'form-control', autofocus: true}
+
+  .form-group.row
+    .col-xs-4
+      = f.label :last_name
+      = f.text_field :last_name
+
+    .col-xs-4
+      = f.label :first_name
+      = f.text_field :first_name
+
+    .col-xs-4
+      = f.label :patronymic
+      = f.text_field :patronymic
+
+  .form-group.row
+    .col-xs-6
+      = f.label :birth_date
+      = f.date_field :birth_date
+      
+    .col-xs-6
+      = f.label :email
+      = f.email_field :email
+
+  h3 Телефоны
+  #phones-fields= f.fields_for :phones do |phones_f|
+    = render 'phone_fields', f: phones_f
+    
+  .row
+    .col-xs-12
+      = link_to fa_icon('plus', text: 'Добавить телефон'), new_admin_clients_phone_path,
+              remote: true, class: 'btn btn-sm btn-default'
+    
+  hr
+  
+  .form-group.row
+    .col-xs-12
+      = f.label :comment
+      = f.trix_editor :comment
+  
+  hr  
+  .form-group.form-check
+    = f.check_box :personal_data_agreement
+
+  .form-group.form-check
+    = f.check_box :email_notification_agreement
+
+  .form-group.form-check
+    = f.check_box :sms_notification_agreement
+
+  
+  .form-group
+    = hidden_field_tag(:search, params[:search]) if params[:search].present?
+    = hidden_field_tag(:page, params[:page]) if params[:page].present?
+    = f.submit class: 'btn btn-success'

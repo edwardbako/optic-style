@@ -1,0 +1,17 @@
+tr.client id=client.id
+  td = link_to client.full_name, admin_client_path(client, search: params[:search], page: params[:page])
+  td = client.phones.map(&:number).join("<br>").html_safe
+  td = client.email
+  td = client.age
+  td
+    = link_to fa_icon('pencil-square-o'), edit_admin_client_path(client, search: params[:search], page: params[:page]),
+            data: {toggle: 'tooltip'},
+            title: 'Правка', class: 'btn btn-sm btn-default'
+
+    = link_to fa_icon('trash-o'), admin_client_path(client, search: params[:search], page: params[:page]),
+            method: :delete, remote: true,
+            data: { confirm: "Вы действительно хотите удалить <b>#{client.full_name}</b>?",
+                    header: 'Подтвердите, пожалуйста.',
+                    toggle: 'tooltip' },
+            title: 'Удалить',
+            class: 'btn btn-sm btn-default'

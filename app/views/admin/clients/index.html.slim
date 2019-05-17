@@ -1,0 +1,28 @@
+.container
+  .row
+    .col-xs-12
+      h1 клиенты
+
+  .row
+    .col-xs-12
+      = form_tag admin_clients_path, method: :get, remote: true, id: 'clients-search-form',
+              class: 'form-inline'
+        .form-group
+          = search_field_tag 'search', params[:search], size: 60, autocomplete: :off,
+              placeholder: 'Введите Фамилию или Имя клиента',
+              class: 'form-control',
+              autofocus: true
+
+        .form-group
+          = button_tag fa_icon('search'), type: 'submit', class: 'btn btn-primary',
+              data: {disable_with: "<i class='fa fa-spinner fa-spin'></i>".html_safe}
+
+        .form-group
+          = link_to fa_icon('ban'), admin_clients_path, remote: true, class: 'btn btn-default'
+
+
+
+  .row
+    = render 'pagination'
+
+br

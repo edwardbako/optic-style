@@ -1,0 +1,68 @@
+.container
+  .row
+    .col-xs-12
+      h2
+        = @client.full_name
+        '
+        = link_to fa_icon('pencil'), edit_admin_client_path(@client, search: params[:search], page: params[:page]),
+                data: {toggle: 'tooltip'},
+                title: 'Изменить данные клиента', class: 'btn btn-sm btn-default'
+
+      dl
+        .row
+          dt.col-xs-3 Телефон
+          dd.col-xs-9
+            - @client.phones.each do |phone|
+              b = phone.number
+              - if phone.comment.present?
+                '  -
+                small= fa_icon('info')
+                '
+                = phone.comment
+              br
+
+        .row
+          dt.col-xs-3 Email
+          dd.col-xs-9 = @client.email
+
+        .row
+          dt.col-xs-3 Дата рождения / Возраст
+          dd.col-xs-9
+            - if @client.birth_date.present?
+              = l @client.birth_date, format: :date
+              '  /
+              = @client.age
+        .row
+          dt.col-xs-3 Согласие на обработку персональных данных
+          dd.col-xs-9 = @client.personal_data_agreement ? fa_icon('check') : fa_icon('ban', text: 'Отказ')
+
+        .row
+          dt.col-xs-3 Email уведомления
+          dd.col-xs-9 = @client.email_notification_agreement ? fa_icon('check') : fa_icon('ban', text: 'Отказ')
+
+        .row
+          dt.col-xs-3 SMS уведомления
+          dd.col-xs-9 = @client.sms_notification_agreement ? fa_icon('check') : fa_icon('ban', text: 'Отказ')
+        .row
+          dt.col-xs-3 Комментарий
+          dd.col-xs-9 = @client.comment.html_safe if @client.comment.present?
+      hr
+
+  .row
+    .col-xs-12
+      h4 Заказы
+
+      #orders.col-xs-12
+        = render partial: 'admin/clients/orders/pagination'
+
+    .col-xs-12
+      hr
+
+  .row
+    .col-xs-12
+      h4 Рецепты
+
+      #recipes.col-xs-12
+        = render partial: 'admin/clients/recipes/pagination'
+
+      = link_to 'Назад', admin_clients_path(search: params[:search], page: params[:page])

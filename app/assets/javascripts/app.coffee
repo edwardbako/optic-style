@@ -20,6 +20,21 @@
 
       @mount_video_input()
       @mount_hide_notifications()
+      @mount_input_mask()
+      @mount_search_submit()
+
+  mount_input_mask: ()->
+    inputs = $('.phone-mask')
+    for e in inputs
+      IMask(e, {mask: '+7 (000) 000-00-00'})
+
+  mount_search_submit: ()->
+    $('input#search').on 'keyup', ()->
+      $(@).form().submit()
+#    if input.size() > 0
+#      console.log form
+#    else
+#      console.log false
 
   mount_hide_notifications: ()->
     $("[data-dismiss='alert']").on 'click', ()->

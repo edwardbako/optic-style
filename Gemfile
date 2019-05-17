@@ -56,6 +56,9 @@ gem 'money-rails'
 gem 'carrierwave' # solution for file uploads
 gem 'mini_magick'# A ruby wrapper for ImageMagick
 
+gem 'roo' # Spreadsheet parsing
+gem 'roo-xls'
+
 gem 'pry-byebug' # Call 'binding.pry' anywhere in the code to stop execution and get a debugger console
 gem 'pry-rails'
 gem 'pry-doc'

@@ -27,6 +27,17 @@ ru:
         one: Филиал
         few: Филиала
         others: Филиалов
+      client:
+        zero: Клиентов
+        one: Клиент
+        few: Клиента
+        other: Клиентов
+      client/phone:
+        zero: Телефонов
+        one: Телефон
+        few: Телефона
+        other: Телефонов
+
     attributes:
       user:
         first_name: Имя
@@ -65,6 +76,38 @@ ru:
         open_hours: Время работы
         position: Приоритет
         map: Код для вставки карты
+      client:
+        first_name: Имя
+        last_name: Фамилия
+        patronymic: Отчество
+        phone: телефон
+        email: Email
+        comment: Комментарий
+        birth_date: Дата рождения
+        personal_data_agreement: Согласие на обработку персональных данных
+        email_notification_agreement: Email уведомления
+        sms_notification_agreement: SMS уведомления
+        branch: Филиал
+      client/phone:
+        number: Номер
+        comment: Комментарий
+      order:
+        date: Дата
+        number: Номер
+        frame: Оправа / Цена
+        lenses: Линзы / Цена
+        sum: Сумма заказа
+        comment: Комментарий
+      recipe:
+        date: Дата
+        od_sph: OD sph
+        od_cyl: OD cyl
+        od_ax: OD ax
+        os_sph: OS sph
+        os_cyl: OS cyl
+        os_ax: OS ax
+        dp: DP
+        comment: Комментарий
     errors:
       messages:
         blank: не может быть пустым
@@ -90,6 +133,9 @@ ru:
         update: Сохранить данные
 
   time:
+    formats:
+      date: '%e %B %Y'
+  date:
     formats:
       date: '%e %B %Y'
   confirmation:

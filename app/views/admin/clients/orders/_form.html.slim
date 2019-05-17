@@ -1,0 +1,27 @@
+= custom_form_for [:admin, @client, @order] do |f|
+  .form-group
+    = f.label :number
+    = f.text_field :number
+
+  .form-group
+    = f.label :date
+    = f.date_field :date, value: (@order.date.present? ? @order.date : Date.today)
+
+  .form-group
+    = f.label :frame
+    = f.text_field :frame
+
+  .form-group
+    = f.label :lenses
+    = f.text_field :lenses
+
+  .form-group
+    = f.label :sum
+    = f.text_field :sum
+
+  .form-group
+    = f.label :comment
+    = f.text_field :comment
+
+  .form-group
+    = f.submit class: 'btn btn-success'

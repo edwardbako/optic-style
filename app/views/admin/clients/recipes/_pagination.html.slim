@@ -1,0 +1,26 @@
+.row
+  .col-xs-8
+    = will_paginate @recipes, renderer: BootstrapPagination::Rails,
+            inner_window: 3, outer_window: 0, param_name: :recipes_page
+  .col-xs-4.text-right
+    ul.pagination
+      li = link_to fa_icon('plus', text: 'Добавить рецепт'), new_admin_client_recipe_path(@client)
+
+- if @recipes.size > 0
+  table.table.table-condensed.table-responsive
+    thead
+      tr
+        th Дата
+        th OD
+        th OS
+        th DP
+        th комментарии
+        th
+    tbody = render partial: 'admin/clients/recipes/recipe', collection: @recipes
+
+- else
+  br
+  ' Пока рецептов нет. Хотите добавить?
+
+= will_paginate @recipes, renderer: BootstrapPagination::Rails,
+        inner_window: 3, outer_window: 0, param_name: :recipes_page

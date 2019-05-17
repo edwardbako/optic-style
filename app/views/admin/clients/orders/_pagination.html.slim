@@ -1,0 +1,27 @@
+.row
+  .col-xs-8
+    = will_paginate @orders, renderer: BootstrapPagination::Rails,
+            inner_window: 3, outer_window: 0, param_name: :orders_page
+  .col-xs-4.text-right
+    ul.pagination
+      li = link_to fa_icon('plus', text: 'Добавить заказ'), new_admin_client_order_path(@client)
+
+- if @orders.size > 0
+  table.table.table-condensed.table-responsive
+    thead
+      tr
+        th №
+        th Дата
+        th Оправа / Цена
+        th Линзы / Цена
+        th Сумма заказа
+        th комментарии
+        th
+    tbody = render partial: 'admin/clients/orders/order', collection: @orders
+
+- else
+  br
+  ' Пока заказов нет. Хотите добавить?
+
+= will_paginate @orders, renderer: BootstrapPagination::Rails,
+        inner_window: 3, outer_window: 0, param_name: :orders_page

@@ -1,0 +1,20 @@
+- i = Time.now.to_i
+.form-group.row.phone-field id=i
+  .col-xs-4
+    = label_tag "client_phones_attributes_#{i}_number", 'Номер', class: 'control-label'
+    = phone_field_tag "client[phones_attributes][#{i}][number]",
+            nil,
+            class: 'phone-mask form-control'
+
+  .col-xs-6
+    = label_tag "client_phones_attributes_#{i}_comment", 'Комменарий', class: 'control-label'
+    = text_field_tag "client[phones_attributes][#{i}][comment]",
+            nil,
+            class: 'form-control'
+
+  .col-xs-2
+    = hidden_field_tag "client[phones_attributes][#{i}][_destroy]"
+    = link_to fa_icon('trash-o'), admin_clients_phone_path(i), method: :delete, remote: true,
+            data: { toggle: 'tooltip' },
+            title: 'Удалить',
+            class: 'btn btn-sm btn-danger small-margin-top'

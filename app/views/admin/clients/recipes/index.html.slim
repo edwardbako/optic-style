@@ -1,0 +1,19 @@
+h1 Listing admin_clients_recipes
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @recipes.each do |admin_clients_recipe|
+      tr
+        td = link_to 'Show', admin_clients_recipe
+        td = link_to 'Edit', edit_admin_clients_recipe_path(admin_clients_recipe)
+        td = link_to 'Destroy', admin_clients_recipe, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Recipe', new_admin_clients_recipe_path

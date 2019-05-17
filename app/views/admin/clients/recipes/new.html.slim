@@ -1,0 +1,10 @@
+.container
+  .row
+    .col-xs-12
+      h1 Новый рецепт для #{@recipe.client.full_name}
+      = render 'form'
+
+  .row
+    .col-xs-12
+      br
+      = link_to 'Назад', admin_client_path(@recipe.client)

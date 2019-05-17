@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180615085037) do
+ActiveRecord::Schema.define(version: 20190515145846) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,34 @@ ActiveRecord::Schema.define(version: 20180615085037) do
     t.integer "position"
   end
 
+  create_table "client_phones", force: :cascade do |t|
+    t.string "number"
+    t.bigint "client_id"
+    t.string "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_client_phones_on_client_id"
+  end
+
+  create_table "clients", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "patronymic"
+    t.string "phone", default: [], array: true
+    t.string "email"
+    t.text "comment"
+    t.date "birth_date"
+    t.boolean "personal_data_agreement", default: true
+    t.boolean "email_notification_agreement", default: true
+    t.boolean "sms_notification_agreement", default: true
+    t.bigint "branch_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.tsvector "tsv"
+    t.index ["branch_id"], name: "index_clients_on_branch_id"
+    t.index ["tsv"], name: "index_clients_on_tsv", using: :gin
+  end
+
   create_table "grams", force: :cascade do |t|
     t.text "body"
     t.string "image"
@@ -78,6 +106,28 @@ ActiveRecord::Schema.define(version: 20180615085037) do
     t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.date "date"
+    t.string "number"
+    t.string "frame"
+    t.string "lenses"
+    t.string "sum"
+    t.string "comment"
+    t.bigint "client_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_orders_on_client_id"
+  end
+
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text "content"
+    t.string "searchable_type"
+    t.bigint "searchable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -109,7 +159,7 @@ ActiveRecord::Schema.define(version: 20180615085037) do
     t.string "color"
     t.string "weight"
     t.string "material"
-    t.integer "price_kopecks", default: 0, null: false
+    t.integer "price_cents", default: 0, null: false
     t.string "price_currency", default: "RUB", null: false
     t.boolean "published", default: false
     t.datetime "created_at", null: false
@@ -119,6 +169,24 @@ ActiveRecord::Schema.define(version: 20180615085037) do
     t.integer "products_count"
     t.text "info"
     t.boolean "featured"
+  end
+
+  create_table "recipes", force: :cascade do |t|
+    t.date "date"
+    t.string "od_sph"
+    t.string "od_cyl"
+    t.string "od_ax"
+    t.string "od_add"
+    t.string "os_sph"
+    t.string "os_cyl"
+    t.string "os_ax"
+    t.string "os_add"
+    t.string "dp"
+    t.string "comment"
+    t.bigint "client_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_recipes_on_client_id"
   end
 
   create_table "user_notifications", force: :cascade do |t|
@@ -160,7 +228,11 @@ ActiveRecord::Schema.define(version: 20180615085037) do
   add_foreign_key "article_blocks", "articles"
   add_foreign_key "articles", "users"
   add_foreign_key "branch_views", "branches"
+  add_foreign_key "client_phones", "clients"
+  add_foreign_key "clients", "branches"
+  add_foreign_key "orders", "clients"
   add_foreign_key "product_views", "products"
+  add_foreign_key "recipes", "clients"
   add_foreign_key "user_notifications", "notifications"
   add_foreign_key "user_notifications", "users"
 end
