@@ -27,6 +27,8 @@ nav.navbar.navbar-default.navbar-fixed-top
             ul.dropdown-menu
               li = link_to 'Филиалы', admin_branches_path
               li = link_to 'Клиенты', admin_clients_path
+              - if current_user.admin?
+                li = link_to 'SMS рассылка', admin_sms_mailing_path
           - if current_user.admin?
             li.dropdown
               = link_to '#', class: 'dropdown-toggle', data: {toggle: 'dropdown'}, role: 'button',

@@ -24,6 +24,8 @@ Rails.application.routes.draw do
       end
     end
 
+    resource :sms_mailing
+
     resources :products do
       scope module: :products do
         resources :views, only: [:index, :create, :update, :destroy]
