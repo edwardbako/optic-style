@@ -15,6 +15,7 @@ class Client < ApplicationRecord
   has_many :orders, dependent: :destroy
   has_many :recipes, dependent: :destroy
   has_many :phones, dependent: :destroy
+  has_many :smss, through: :phones
   accepts_nested_attributes_for :phones, allow_destroy: true
 
   validates_presence_of :last_name
@@ -31,4 +32,6 @@ class Client < ApplicationRecord
   def age
     birth_date.present? ? ((Date.today - birth_date) / 365).floor : nil
   end
+
+
 end

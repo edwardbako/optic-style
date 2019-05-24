@@ -53,6 +53,8 @@ Rails.application.routes.draw do
 
   resources :contacts, only: [:index, :show]
 
+  post 'sms/callback' => 'sms#callback'
+
   get 'service' => 'welcome#service'
 
   get 'reviews' => 'welcome#reviews'
