@@ -74,6 +74,8 @@ class Admin::Clients::RecipesController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:date, :od_sph, :od_cyl, :od_ax, :os_sph, :os_cyl, :os_ax, :dp, :comment, :client_id)
+      params.require(:recipe).permit(:date, :od_sph, :od_cyl, :od_ax, :od_add,
+                                     :os_sph, :os_cyl, :os_ax, :os_add,
+                                     :dp, :comment, :client_id)
     end
 end

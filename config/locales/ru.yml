@@ -103,9 +103,11 @@ ru:
         od_sph: OD sph
         od_cyl: OD cyl
         od_ax: OD ax
+        od_add: OD add
         os_sph: OS sph
         os_cyl: OS cyl
         os_ax: OS ax
+        od_add: OS add
         dp: DP
         comment: Комментарий
     errors:

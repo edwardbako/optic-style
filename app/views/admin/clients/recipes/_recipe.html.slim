@@ -9,6 +9,9 @@ tr.recipe id=recipe.id
     - if recipe.od_ax.present?
       '  ax:
       b =recipe.od_ax
+    - if recipe.od_add.present?
+      ' add:
+      b = recipe.od_add
   td
     'sph:
     b = recipe.os_sph
@@ -18,6 +21,10 @@ tr.recipe id=recipe.id
     - if recipe.os_ax.present?
       '  ax:
       b = recipe.os_ax
+    - if recipe.os_add.present?
+      ' add:
+      b = recipe.os_add
+
   td = recipe.dp
   td = recipe.comment
   td
