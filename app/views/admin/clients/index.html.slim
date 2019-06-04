@@ -12,14 +12,15 @@
               placeholder: 'Введите Фамилию или Имя клиента',
               class: 'form-control',
               autofocus: true
+          = hidden_field_tag 'branch', params[:branch]
 
         .form-group
           = button_tag fa_icon('search'), type: 'submit', class: 'btn btn-primary',
               data: {disable_with: "<i class='fa fa-spinner fa-spin'></i>".html_safe}
 
         .form-group
-          = link_to fa_icon('ban'), admin_clients_path, remote: true, class: 'btn btn-default'
-
+          = link_to fa_icon('ban'), admin_clients_path(branch: params[:branch]),
+                  remote: true, class: 'btn btn-default'
 
 
   .row

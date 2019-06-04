@@ -1,5 +1,16 @@
 #clients.col-xs-12
   .row
+    .col-xs-12
+      br
+      = link_to "Все филиалы", admin_clients_path(search: params[:search]),
+              class: (params[:branch].blank? ? "disabled translation_missing" : "active")
+      '  |
+      - Branch.all.each do |branch|
+        = link_to branch.short_address, admin_clients_path(branch: branch.id, search: params[:search]),
+                class: (params[:branch].to_i == branch.id ? "disabled translation_missing" : "active")
+        '  |
+
+  .row
     .col-xs-8
       = will_paginate @clients, renderer: BootstrapPagination::Rails, inner_window: 3, outer_window: 0
     .col-xs-4.text-right

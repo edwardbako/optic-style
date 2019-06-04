@@ -4,11 +4,10 @@ class Admin::ClientsController < AdminController
   # GET /admin/clients
   # GET /admin/clients.json
   def index
-    @clients = if params[:search].present?
-                 Client.all.order(:last_name).search(params[:search])
-               else
-                 Client.all.order(:last_name)
-               end.page(params[:page]).per_page(12)
+    @clients = Client.all.order(:last_name)
+    @clients = @clients.where(branch_id: params[:branch]) if params[:branch].present?
+    @clients = @clients.search(params[:search]) if params[:search].present?
+    @clients = @clients.page(params[:page]).per_page(12)
 
     respond_to do |format|
       format.html
