@@ -12,6 +12,33 @@
 
   .row.vertical-align-row.bg-light-primary
     .col-xs-12.col-sm-6.col-no-padding
+      .container-fluid
+        .row
+          .col-xs-12.col-xs-offset-0.col-sm-9.col-sm-offset-1
+            h2 Измерение внутриглазного давления
+            p
+              ' В медицинском кабинете
+              = link_to "на Станиславского,16", "/contacts/stanislavskogo-16"
+              '
+              ' проводится
+              ' измерение внутриглазного давления бесконтактным способом тонометром
+              ' Keeler Pulsair (Великобритания).
+              br
+              br
+              ' Это современный метод диагностики повышенного внутриглазного
+              ' давления, который рекомендуется всем людям после 40 лет (хотя бы раз в
+              ' год), особенно при глаукоме, нарушении эндокринной системы или в тканях
+              ' глаза, при заболевании сосудов.
+              br
+              br
+              ' Данная процедура очень быстрая (длится несколько секунд),
+              ' безболезненная и при этом отсутствует риск инфицирования глаза.
+
+    .col-xs-12.col-sm-6.col-no-padding
+      = image_tag 'tonom-1.jpg', class: 'img-responsive full-width'
+
+  .row.vertical-align-row.bg-light-primary
+    .col-xs-12.col-sm-6.col-no-padding
       = image_tag 'cabinet-1.JPG', class: 'img-responsive full-width'
 
     .col-xs-12.col-sm-6.col-no-padding
