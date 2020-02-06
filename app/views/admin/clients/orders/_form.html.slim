@@ -1,27 +1,70 @@
 = custom_form_for [:admin, @client, @order] do |f|
-  .form-group
-    = f.label :number
-    = f.text_field :number
+  .form-row
+    .col-xs-12
+      = f.label :number
+      = f.text_field :number
 
-  .form-group
-    = f.label :date
-    = f.date_field :date, value: (@order.date.present? ? @order.date : Date.today)
+  .form-row
+    .col-xs-12
+      = f.label :date
+      = f.date_field :date, value: (@order.date.present? ? @order.date : Date.today)
 
-  .form-group
-    = f.label :frame
-    = f.text_field :frame
+  .form-row
+    .col-xs-12
+      = f.label :frame
+      = f.text_field :frame
 
-  .form-group
-    = f.label :lenses
-    = f.text_field :lenses
+  .form-row
+    .col-xs-12
+      = f.label :lenses
+      = f.text_field :lenses
 
-  .form-group
-    = f.label :sum
-    = f.text_field :sum
+  .form-row
+    .col-xs-12
+      = f.label :sum
+      = f.text_field :sum
 
-  .form-group
-    = f.label :comment
-    = f.text_field :comment
 
-  .form-group
-    = f.submit class: 'btn btn-success'
+  .form-row
+    .col-xs-3
+      = f.label :od_sph
+      = f.text_field :od_sph
+    .col-xs-3
+      = f.label :od_cyl
+      = f.text_field :od_cyl
+    .col-xs-3
+      = f.label :od_ax
+      = f.text_field :od_ax
+    .col-xs-3
+      = f.label :od_add
+      = f.text_field :od_add
+
+  .form-row
+    .col-xs-3
+      = f.label :os_sph
+      = f.text_field :os_sph
+    .col-xs-3
+      = f.label :os_cyl
+      = f.text_field :os_cyl
+    .col-xs-3
+      = f.label :os_ax
+      = f.text_field :os_ax
+    .col-xs-3
+      = f.label :os_add
+      = f.text_field :os_add
+
+  .form-row
+    .col-xs-4.col-xs-offset-4
+      = f.label :dp
+      = f.text_field :dp
+    .col-xs-4
+
+  .form-row
+    .col-xs-12
+      = f.label :comment
+      = f.text_field :comment
+
+  .form-row
+    .col-xs-12
+      br
+      = f.submit class: 'btn btn-success'

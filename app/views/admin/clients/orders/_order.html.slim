@@ -4,6 +4,32 @@ tr.order id=order.id
   td = order.frame
   td = order.lenses
   td = order.sum
+  td
+    'sph:
+    b = order.od_sph
+    - if order.od_cyl.present?
+      '  cyl:
+      b = order.od_cyl
+    - if order.od_ax.present?
+      '  ax:
+      b = order.od_ax
+    - if order.od_add.present?
+      ' add:
+      b = order.od_add
+  td
+    'sph:
+    b = order.os_sph
+    - if order.os_cyl.present?
+      '  cyl:
+      b = order.os_cyl
+    - if order.os_ax.present?
+      '  ax:
+      b = order.os_ax
+    - if order.os_add.present?
+      ' add:
+      b = order.os_add
+
+  td = order.dp
   td = order.comment
   td
     = link_to fa_icon('pencil-square-o'), edit_admin_client_order_path(order.client, order), data: { toggle: 'tooltip' },

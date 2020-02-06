@@ -4,4 +4,7 @@
       h1 Правка заказ для #{@order.client.full_name}
       = render 'form'
 
+  .row
+    .col-xs-12
+      br
       = link_to 'Назад', admin_client_path(@order.client)
