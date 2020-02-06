@@ -68,27 +68,27 @@ if Client.count == 0
   ClientsImport.new.process
 end
 
-Client.all.each do |c|
-  if c.orders.count < c.recipes.count
-  else
-    c.orders.each_with_index do |o, i|
-      r = c.recipes[i]
-
-      if r.present?
-        o.od_sph = r.od_sph
-        o.od_cyl = r.od_cyl
-        o.od_ax = r.od_ax
-        o.od_add = r.od_add
-        o.os_sph = r.os_sph
-        o.os_cyl = r.os_cyl
-        o.os_ax = r.os_ax
-        o.os_add = r.os_add
-        o.dp = r.dp
-
-        o.comment = "#{o.comment} #{r.comment}"
-
-        o.save
-      end
-    end
-  end
-end
+# Client.all.each do |c|
+#   if c.orders.count < c.recipes.count
+#   else
+#     c.orders.each_with_index do |o, i|
+#       r = c.recipes[i]
+#
+#       if r.present?
+#         o.od_sph = r.od_sph
+#         o.od_cyl = r.od_cyl
+#         o.od_ax = r.od_ax
+#         o.od_add = r.od_add
+#         o.os_sph = r.os_sph
+#         o.os_cyl = r.os_cyl
+#         o.os_ax = r.os_ax
+#         o.os_add = r.os_add
+#         o.dp = r.dp
+#
+#         o.comment = "#{o.comment} #{r.comment}"
+#
+#         o.save
+#       end
+#     end
+#   end
+# end
