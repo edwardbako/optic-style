@@ -8,7 +8,7 @@ end
 
 gem 'rails'
 gem 'pg', '~> 0.18' # Use postgresql as the database for Active Record
-gem 'puma', '~> 3.0' # Use Puma as the app server
+gem 'puma', '~> 3.12' # Use Puma as the app server
 gem 'will_paginate' # Pagination library
 
 gem 'russian' # I18n

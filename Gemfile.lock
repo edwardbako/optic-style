@@ -198,7 +198,7 @@ GEM
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
     public_suffix (2.0.5)
-    puma (3.8.2)
+    puma (3.12.4)
     rack (2.0.1)
     rack-protection (1.5.3)
       rack
@@ -359,7 +359,7 @@ DEPENDENCIES
   pry-doc
   pry-rails
   pry-stack_explorer
-  puma (~> 3.0)
+  puma (~> 3.12)
   rails
   rspec-rails
   russian
