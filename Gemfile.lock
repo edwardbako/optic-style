@@ -255,7 +255,7 @@ GEM
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
     public_suffix (3.0.0)
-    puma (3.10.0)
+    puma (3.12.6)
     rack (2.0.3)
     rack-protection (2.0.0)
       rack
@@ -456,7 +456,7 @@ DEPENDENCIES
   pry-doc
   pry-rails
   pry-stack_explorer
-  puma (~> 3.0)
+  puma (~> 3.12)
   rails
   roo
   roo-xls

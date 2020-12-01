@@ -9,7 +9,7 @@ end
 gem 'rails'
 gem 'pg', '~> 0.18' # Use postgresql as the database for Active Record
 gem 'pg_search' # builds ActiveRecord named scopes that take advantage of PostgreSQL’s full text search
-gem 'puma', '~> 3.0' # Use Puma as the app server
+gem 'puma', '~> 3.12' # Use Puma as the app server
 gem 'faraday' # HTTP client on Rack, with support for multiple backends.
 gem 'faraday_utf'
 gem 'google-api-client'
