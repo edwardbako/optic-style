@@ -45,7 +45,7 @@
           dd.col-xs-9 = @client.sms_notification_agreement ? fa_icon('check') : fa_icon('ban', text: 'Отказ')
         .row
           dt.col-xs-3 Комментарий
-          dd.col-xs-9 = @client.comment.html_safe if @client.comment.present?
+          dd.col-xs-9 = h @client.comment.html_safe if @client.comment.present?
       hr
 
   .row

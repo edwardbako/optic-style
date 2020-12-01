@@ -19,7 +19,7 @@
       /  dd = mail_to @branch.email
       /
       - if @branch.map.present?
-        = @branch.map.html_safe
+        = h @branch.map.html_safe
 
     .col-xs-12.col-md-7
       .carousel

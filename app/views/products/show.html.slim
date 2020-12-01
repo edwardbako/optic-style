@@ -40,13 +40,13 @@
         br
         br
         br
-        p = @product.description.html_safe
+        p = h @product.description.html_safe
 
     - if @product.info.present?
       hr
       .row
         .col-xs-12
-          = @product.info.html_safe
+          = h @product.info.html_safe
 
     hr
     .row
