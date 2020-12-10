@@ -6,7 +6,8 @@ git_source(:github) do |repo_name|
 end
 
 
-gem 'rails', '~>5.1.0'
+gem 'rails', '~>5.2.0'
+gem 'bootsnap', require: false
 gem 'pg', '~> 0.18' # Use postgresql as the database for Active Record
 gem 'pg_search' # builds ActiveRecord named scopes that take advantage of PostgreSQL’s full text search
 gem 'puma', '~> 3.0' # Use Puma as the app server
