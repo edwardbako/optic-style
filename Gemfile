@@ -88,6 +88,7 @@ group :development do
   # gem 'capistrano-rvm'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
+  gem 'capistrano-yarn'
   gem 'capistrano-sidekiq'
   gem 'capistrano3-puma', require: false
 end
