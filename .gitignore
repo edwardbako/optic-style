@@ -17,6 +17,7 @@
 !/tmp/.keep
 
 /config/*.yml
+!/config/webpacker.yml
 
 # Ignore Byebug command history file.
 .byebug_history
@@ -25,3 +26,10 @@
 /public/sitemaps
 /storage
 
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
