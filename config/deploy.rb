@@ -12,8 +12,7 @@ set :deploy_to, '/home/deploy/www/optic-style'
 set :puma_threads,    [2, 16]
 set :puma_workers,    2
 
-append :linked_files, 'config/database.yml', 'config/secrets.yml', 'config/cable.yml',
-       'config/schedule.yml', 'public/robots.txt'
+append :linked_files, 'config/master.key', 'config/schedule.yml', 'public/robots.txt'
 
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system',
        'public/uploads'

@@ -1,0 +1,26 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: localhost
+
+development:
+  <<: *default
+  database: optic_development
+  username: <%= Rails.application.credentials.dig(:postgresql, :development, :username) %>
+  password: <%= Rails.application.credentials.dig(:postgresql, :development, :password) %>
+
+
+test:
+  <<: *default
+  database: optic_test
+  username: <%= Rails.application.credentials.dig(:postgresql, :development, :username) %>
+  password: <%= Rails.application.credentials.dig(:postgresql, :development, :password) %>
+
+staging:
+  <<: *default
+  database: optic_staging
+  username: <%= Rails.application.credentials.dig(:postgresql, :staging, :username) %>
+  password: <%= Rails.application.credentials.dig(:postgresql, :staging, :password) %>

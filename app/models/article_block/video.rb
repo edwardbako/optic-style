@@ -59,7 +59,7 @@ class ArticleBlock::Video < ArticleBlock
 
   def service
     s = ::Google::Apis::YoutubeV3::YouTubeService.new
-    s.key = Rails.application.secrets.google
+    s.key = Rails.application.credentials.dig(:google, :api_key)
     s
   end
 

@@ -8,6 +8,6 @@ class Admin::SmsMailingsController < AdminController
   private
 
   def set_api_key
-    @api_key = Rails.application.secrets[:sms_api_id]
+    @api_key = Rails.application.credentials.dig(:sms_ru, :api_id)
   end
 end

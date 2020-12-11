@@ -5,7 +5,7 @@ class SmsSender
   Faraday::Request.register_middleware timer: RequestTimer
   Faraday::Response.register_middleware errors: SmsErrors
 
-  API_ID = Rails.application.secrets[:sms_api_id]
+  API_ID = Rails.application.credentials.dig(:sms_ru, :api_id)
   BASE_URL = "https://sms.ru/"
 
   def self.balance
