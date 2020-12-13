@@ -22,11 +22,11 @@ gem 'dynamic_sitemaps'
 
 gem 'russian' # I18n
 
-gem 'sass-rails', '~> 5.0' # Use SCSS for stylesheets
+gem 'sass-rails', '>= 6.0' # Use SCSS for stylesheets
 gem 'slim-rails' # Slim markup for templates
 gem 'bootstrap-sass' # Bootstrap stylesheets
 gem 'font-awesome-rails' # Font-awesome icons
-gem 'ionicons-rails' # Ion icons
+# gem 'ionicons-rails' # Ion icons
 gem 'material_icons' # Material icons
 
 gem 'uglifier', '>= 1.3.0' # Use Uglifier as compressor for JavaScript assets
