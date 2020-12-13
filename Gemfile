@@ -8,10 +8,10 @@ end
 
 gem 'rails', '~>5.2.0'
 gem 'bootsnap', require: false
-gem 'webpacker', '~>5.x'
-gem 'pg', '~> 0.18' # Use postgresql as the database for Active Record
+gem 'webpacker'
+gem 'pg' # Use postgresql as the database for Active Record
 gem 'pg_search' # builds ActiveRecord named scopes that take advantage of PostgreSQL’s full text search
-gem 'puma', '~> 3.0' # Use Puma as the app server
+gem 'puma' # Use Puma as the app server
 gem 'faraday' # HTTP client on Rack, with support for multiple backends.
 gem 'faraday_utf'
 gem 'google-api-client'
@@ -22,15 +22,15 @@ gem 'dynamic_sitemaps'
 
 gem 'russian' # I18n
 
-gem 'sass-rails', '>= 6.0' # Use SCSS for stylesheets
+gem 'sass-rails' # Use SCSS for stylesheets
 gem 'slim-rails' # Slim markup for templates
 gem 'bootstrap-sass' # Bootstrap stylesheets
 gem 'font-awesome-rails' # Font-awesome icons
 # gem 'ionicons-rails' # Ion icons
 gem 'material_icons' # Material icons
 
-gem 'uglifier', '>= 1.3.0' # Use Uglifier as compressor for JavaScript assets
-gem 'coffee-rails', '~> 4.2' # Use CoffeeScript for .coffee assets and views
+gem 'uglifier' # Use Uglifier as compressor for JavaScript assets
+gem 'coffee-rails' # Use CoffeeScript for .coffee assets and views
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
@@ -39,8 +39,8 @@ gem 'jquery-rails' # Use jquery as the JavaScript library
 gem 'jquery-ui-rails'
 gem 'jquery-fileupload-rails'
 
-gem 'turbolinks', '~> 5' # Turbolinks makes navigating your web application faster.
-gem 'jbuilder', '~> 2.5' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'turbolinks' # Turbolinks makes navigating your web application faster.
+gem 'jbuilder' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 
 gem 'trix' # Trix WYSIWYG editor
 gem 'truncate_html'
@@ -50,7 +50,7 @@ gem 'sidekiq' # Queueing framework
 gem 'sidekiq-cron' # Cron jobs for queueing
 gem 'sinatra', :require => nil
 
-gem 'bcrypt', '~> 3.1.7' # Use ActiveModel has_secure_password
+gem 'bcrypt' # Use ActiveModel has_secure_password
 gem 'devise' # Rack authentication
 
 gem 'money-rails'
@@ -75,22 +75,22 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
-  gem 'listen', '~> 3.0.5'
+  gem 'web-console'
+  gem 'listen'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-watcher-listen'
 
   gem 'letter_opener' # Open emails in browser
 
-  gem 'capistrano', '3.6.0' # Deploy automation tool
+  gem 'capistrano'
   gem 'capistrano-rails'
   # gem 'capistrano-rvm'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
   gem 'capistrano-yarn'
   gem 'capistrano-sidekiq'
-  gem 'capistrano3-puma', require: false
+  gem 'capistrano3-puma', github: "seuros/capistrano-puma"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
