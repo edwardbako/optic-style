@@ -88,6 +88,7 @@ group :development do
   # gem 'capistrano-rvm'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
+  gem 'capistrano-nvm', require: false
   gem 'capistrano-yarn'
   gem 'capistrano-sidekiq'
   gem 'capistrano3-puma', github: "seuros/capistrano-puma"
