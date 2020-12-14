@@ -11,7 +11,7 @@ install_plugin Capistrano::SCM::Git
 require 'capistrano/rbenv'
 
 require 'capistrano/rails'
-# require 'capistrano/yarn'
+require 'capistrano/yarn'
 
 # require 'capistrano/sidekiq'
 # require 'capistrano/sidekiq/monit'

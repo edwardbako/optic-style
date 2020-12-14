@@ -9,6 +9,8 @@ set :repo_url, 'git@github.com:edwardbako/optic-style.git'
 
 set :deploy_to, '/home/deploy/www/optic-style'
 
+set :yarn_bin, '/home/deploy/.nvm/versions/node/v15.4.0/bin/yarn'
+
 set :puma_threads,    [2, 16]
 set :puma_workers,    2
 
