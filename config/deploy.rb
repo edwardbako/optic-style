@@ -5,8 +5,8 @@ set :rbenv_map_bins, %w{rake gem bundle ruby rails puma pumactl}
 # set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 
 # set :nodenv_node_dir, "$HOME/.nodenv/versions/15.4.0/bin/node"
-set :nodenv_node, File.read('.node-version').strip
-set :nodenv_map_bins, %w{node npm yarn}
+# set :nodenv_node, File.read('.node-version').strip
+# set :nodenv_map_bins, %w{node npm yarn}
 
 set :application, 'optic-style'
 set :repo_url, 'git@github.com:edwardbako/optic-style.git'
