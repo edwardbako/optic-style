@@ -38,3 +38,17 @@ task :generate_sitemap do
     end
   end
 end
+
+namespace :webpacker do
+  desc 'Compile Webpacker files'
+  task :compile do
+    puts "\n=== Compiling Webpacker packs ===\n"
+    on primary :app do
+      within current_path do
+        with rails_env: fetch(:stage) do
+          execute :rails, 'webpacker:compile'
+        end
+      end
+    end
+  end
+end
