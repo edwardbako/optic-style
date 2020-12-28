@@ -23,7 +23,9 @@ class Branch < ApplicationRecord
   end
 
   def self.find(input)
-    input.is_a?(String) ? find_by_slug(input) : super
+    record = input.is_a?(String) ? find_by_slug(input) : super
+    raise ActiveRecord::RecordNotFound if record.blank?
+    record
   end
 
   def self.regenerate_slugs
