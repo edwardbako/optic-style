@@ -18,3 +18,5 @@ import {DateTime} from 'luxon'
 
 console.log('Hello World from Webpacker')
 console.log(DateTime.local().toString())
+
+require.context('../images', true)
