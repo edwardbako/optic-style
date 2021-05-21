@@ -59,6 +59,8 @@ Rails.application.routes.draw do
 
   get 'reviews' => 'welcome#reviews'
 
+  get 'acuvue' => "welcome#acuvue"
+
   %w( 404 422 500 503).each do |code|
     get code, to: 'exceptions#show', code: code
   end

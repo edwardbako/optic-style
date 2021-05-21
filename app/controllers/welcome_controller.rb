@@ -24,4 +24,8 @@ EOS
     @titles_list += ['Отзывы']
   end
 
+  def acuvue
+    @titles_list += ['Acuvue']
+  end
+
 end
