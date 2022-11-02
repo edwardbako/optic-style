@@ -11,7 +11,7 @@ gem 'bootsnap', require: false
 gem 'webpacker'
 gem 'pg' # Use postgresql as the database for Active Record
 gem 'pg_search' # builds ActiveRecord named scopes that take advantage of PostgreSQL’s full text search
-gem 'puma', '~>4.0' # Use Puma as the app server
+gem 'puma', '~>5.1' # Use Puma as the app server
 gem 'faraday' # HTTP client on Rack, with support for multiple backends.
 gem 'faraday_utf'
 gem 'google-api-client'
