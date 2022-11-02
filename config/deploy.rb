@@ -2,6 +2,7 @@
 # lock '3.6.0'
 set :rbenv_ruby, File.read('.ruby-version').strip
 set :rbenv_map_bins, %w{rake gem bundle ruby rails puma pumactl}
+set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} rbenv exec"
 # set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 
 # set :nodenv_node_dir, "$HOME/.nodenv/versions/15.4.0/bin/node"
