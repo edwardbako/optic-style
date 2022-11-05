@@ -17,6 +17,8 @@ set :deploy_to, '/home/deploy/www/optic-style'
 
 set :puma_threads,    [2, 16]
 set :puma_workers,    2
+set :puma_enable_socket_service, true
+set :puma_phased_restart, true
 
 append :linked_files, 'config/master.key', 'config/schedule.yml', 'public/robots.txt'
 
