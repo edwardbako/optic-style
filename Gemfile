@@ -11,9 +11,9 @@ gem 'bootsnap', require: false
 gem 'webpacker'
 gem 'pg' # Use postgresql as the database for Active Record
 gem 'pg_search' # builds ActiveRecord named scopes that take advantage of PostgreSQL’s full text search
-gem 'puma', '~>4.0' # Use Puma as the app server
+gem 'puma' # Use Puma as the app server
 gem 'faraday' # HTTP client on Rack, with support for multiple backends.
-gem 'faraday_utf'
+# gem 'faraday-encoding'
 gem 'google-api-client'
 
 gem 'will_paginate' # Pagination library
@@ -33,7 +33,7 @@ gem 'uglifier' # Use Uglifier as compressor for JavaScript assets
 gem 'coffee-rails' # Use CoffeeScript for .coffee assets and views
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
-gem 'therubyracer', platforms: :ruby
+# gem 'therubyracer', platforms: :ruby
 
 gem 'jquery-rails' # Use jquery as the JavaScript library
 gem 'jquery-ui-rails'
@@ -45,7 +45,7 @@ gem 'jbuilder' # Build JSON APIs with ease. Read more: https://github.com/rails/
 gem 'trix' # Trix WYSIWYG editor
 gem 'truncate_html'
 
-# gem 'redis', '~> 3.0' # Use Redis adapter to run Action Cable in production
+gem 'redis' # Use Redis adapter to run Action Cable in production
 gem 'sidekiq' # Queueing framework
 gem 'sidekiq-cron' # Cron jobs for queueing
 gem 'sinatra', :require => nil
