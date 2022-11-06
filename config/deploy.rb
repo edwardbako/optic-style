@@ -1,5 +1,9 @@
 # config valid only for current version of Capistrano
 # lock '3.6.0'
+set :default_env, {
+  "PATH" => "/home/deploy/.nodenv/bin:$PATH"
+}
+
 set :rbenv_ruby, File.read('.ruby-version').strip
 set :rbenv_map_bins, %w{rake gem bundle ruby rails puma pumactl}
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} rbenv exec"
