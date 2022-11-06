@@ -33,7 +33,7 @@ gem 'uglifier' # Use Uglifier as compressor for JavaScript assets
 gem 'coffee-rails' # Use CoffeeScript for .coffee assets and views
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 
 gem 'jquery-rails' # Use jquery as the JavaScript library
 gem 'jquery-ui-rails'
