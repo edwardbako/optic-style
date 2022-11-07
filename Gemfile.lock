@@ -394,6 +394,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    sd_notify (0.1.1)
     semantic_range (3.0.0)
     sidekiq (7.0.1)
       concurrent-ruby (< 2)
@@ -530,6 +531,7 @@ DEPENDENCIES
   rspec-rails
   russian
   sass-rails
+  sd_notify
   sidekiq
   sidekiq-cron
   sinatra
