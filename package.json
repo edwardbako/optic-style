@@ -3,7 +3,7 @@
   "dependencies": {
     "@rails/webpacker": "5.2.1",
     "fibers": "^5.0.0",
-    "luxon": "^1.25.0",
+    "luxon": "^1.28.1",
     "sass": "^1.30.0",
     "sass-loader": "^10.1.0",
     "yarn": "^1.22.10"
