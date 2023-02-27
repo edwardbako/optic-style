@@ -91,9 +91,9 @@ if Notification.count == 0
 
 end
 
-if Client.count == 0
-  ClientsImport.new.process
-end
+# if Client.count == 0
+#   ClientsImport.new.process
+# end
 
 # Client.all.each do |c|
 #   if c.orders.count < c.recipes.count
