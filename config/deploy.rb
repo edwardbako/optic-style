@@ -26,8 +26,8 @@ set :puma_phased_restart, true
 
 append :linked_files, 'config/master.key', 'config/schedule.yml', 'public/robots.txt'
 
-append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system',
-       'public/uploads'
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets',
+        'tmp/Каталог', 'public/system', 'public/uploads'
 
 set :keep_releases, 5
 set :pty,  false

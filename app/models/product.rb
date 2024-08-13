@@ -27,4 +27,10 @@ class Product < ApplicationRecord
   def to_param
     [id, name.parameterize].join('-')
   end
+
+  class << self
+    def publish_all
+      all.each {|product| product.update(published: true) unless product.is_folder?}
+    end
+  end
 end
