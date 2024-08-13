@@ -134,6 +134,10 @@ ru:
         create: Создать пользователя
         update: Сохранить данные
 
+  errors:
+    messages:
+      mini_magick_processing_error: Возникли ошибки при обработке фото
+
   time:
     formats:
       date: '%e %B %Y'

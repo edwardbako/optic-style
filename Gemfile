@@ -43,7 +43,8 @@ gem 'jquery-fileupload-rails'
 gem 'turbolinks' # Turbolinks makes navigating your web application faster.
 gem 'jbuilder' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 
-gem 'trix' # Trix WYSIWYG editor
+gem 'trix'
+gem 'trix-gem' # Trix WYSIWYG editor
 gem 'truncate_html'
 
 gem 'redis' # Use Redis adapter to run Action Cable in production

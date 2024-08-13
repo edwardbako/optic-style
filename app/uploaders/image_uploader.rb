@@ -59,7 +59,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   %w(jpg jpeg gif png)
   # end
 
-  def content_type_whitelist
+  def content_type_allowlist
     /image\//
   end
 
