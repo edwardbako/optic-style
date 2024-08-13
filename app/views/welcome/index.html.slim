@@ -120,42 +120,43 @@ hr
           b= link_to fa_icon('long-arrow-right', right: true, text: 'Все услуги'), service_path,
                     class: 'btn btn-default btn-reverse'
 
-.container.vertical-margin-lg
-  .row
-    .col-xs-12
-      h2
-        ' Мы знаем, ЧТО вы видите
-        small Фотогрфии наших клиентов в оправах
-
-      br
-
-  .row.gallery
-    - @recent_grams.each do |gram|
-      .col-xs-4.gallery-item
-        = render gram if gram.present?
-
-  row
-    .col-xs-12.text-right
-      b= link_to fa_icon('long-arrow-right', text: 'Все Фото клиентов', right: true), grams_path,
-                 class: 'btn btn-lg'
-
-hr
-
-.container.vertical-margin-lg
-  .row
-    .col-xs-12
-      h2 Последние новости
-      br
-
-  - @breaking_news.in_groups_of(2) do |group|
+- if @recent_grams.count > 0
+  .container.vertical-margin-lg
     .row
-      - group.each do |post|
-        .col-xs-12.col-sm-6
-          = render partial: 'posts/post', object: post if post.present?
-  .row
-    .col-xs-12.text-right
-      b= link_to fa_icon('long-arrow-right', text: 'Все Новости', right: true), posts_path,
-                class: 'btn btn-lg'
+      .col-xs-12
+        h2
+          ' Мы знаем, ЧТО вы видите
+          small Фотогрфии наших клиентов в оправах
+
+        br
+
+    .row.gallery
+      - @recent_grams.each do |gram|
+        .col-xs-4.gallery-item
+          = render gram if gram.present?
+
+    row
+      .col-xs-12.text-right
+        b= link_to fa_icon('long-arrow-right', text: 'Все Фото клиентов', right: true), grams_path,
+                  class: 'btn btn-lg'
+
+  hr
+
+/ .container.vertical-margin-lg
+/   .row
+/     .col-xs-12
+/       h2 Последние новости
+/       br
+
+/   - @breaking_news.in_groups_of(2) do |group|
+/     .row
+/       - group.each do |post|
+/         .col-xs-12.col-sm-6
+/           = render partial: 'posts/post', object: post if post.present?
+/   .row
+/     .col-xs-12.text-right
+/       b= link_to fa_icon('long-arrow-right', text: 'Все Новости', right: true), posts_path,
+/                 class: 'btn btn-lg'
 
 - if @featured_products.size > 0
   .container-fluid.bg-light-primary
@@ -182,20 +183,21 @@ hr
                     class: 'btn btn-lg'
 
 
-.container.vertical-margin-lg
-  .row
-    .col-xs-12
-      h2 Полезная информация
-      br
+- if @recent_articles.length > 0
+  .container.vertical-margin-lg
+    .row
+      .col-xs-12
+        h2 Полезная информация
+        br
 
-  .row.gallery
-    - @recent_articles.each do |article|
-      .col-sm-4.col-xs-12.gallery-item
-        = render article if article.present?
+    .row.gallery
+      - @recent_articles.each do |article|
+        .col-sm-4.col-xs-12.gallery-item
+          = render article if article.present?
 
-  .row.col-xs-12.text-right
-    b= link_to fa_icon('long-arrow-right', text: 'Другие статьи', right: true), articles_path,
-              class: 'btn btn-lg'
+    .row.col-xs-12.text-right
+      b= link_to fa_icon('long-arrow-right', text: 'Другие статьи', right: true), articles_path,
+                class: 'btn btn-lg'
 
 /hr
 /
