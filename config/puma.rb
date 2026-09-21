@@ -35,3 +35,9 @@ pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
 
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart
+
+activate_control_app if respond_to?(:activate_control_app)
+
+if ENV['RAILS_ENV'] == 'staging' || ENV['RAILS_ENV'] == 'production'
+  bind "unix:///home/deploy/www/optic-style/shared/tmp/sockets/puma.sock?umask=0002"
+end

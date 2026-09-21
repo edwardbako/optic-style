@@ -1,7 +1,8 @@
 # config valid only for current version of Capistrano
 # lock '3.6.0'
 set :default_env, {
-  "PATH" => "/home/deploy/.nodenv/bin:$PATH"
+  'PATH' => '/home/deploy/.rbenv/shims:/home/deploy/.nodenv/shims:$PATH',
+  'RAILS_ENV' => 'staging'
 }
 
 set :rbenv_ruby, File.read('.ruby-version').strip
@@ -24,7 +25,7 @@ set :puma_workers,    2
 set :puma_enable_socket_service, true
 set :puma_phased_restart, true
 
-append :linked_files, 'config/master.key', 'config/schedule.yml', 'public/robots.txt'
+append :linked_files, 'config/master.key', 'config/schedule.yml', 'public/robots.txt', 'config/puma.rb'
 
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets',
         'tmp/Каталог', 'public/system', 'public/uploads'
